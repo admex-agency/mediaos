@@ -1,1 +1,1775 @@
 
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gói Truyền Thông Bệnh viện Hồng Ngọc</title>
+  <style>
+    :root{
+      --bg:#f7f9fb; --surface:#ffffff; --ink:#122033; --muted:#667085; --line:#e4e9f0;
+      --green:#006b3f; --green-dark:#004b2d; --green-2:#e8f6ef; --red:#e31e24; --gold:#d8b56d; --blue:#006b3f; --blue-2:#e8f6ef; --teal:#00894f; --soft:#f4faf7;
+      --shadow:0 24px 80px rgba(15,23,42,.08); --radius:28px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:"Arial","Helvetica Neue",Helvetica,sans-serif;line-height:1.55}
+    .page{width:min(1180px,calc(100% - 40px));margin:auto}.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,107,63,.14);box-shadow:0 10px 36px rgba(0,75,45,.05)}
+    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:14px;font-weight:760;letter-spacing:-.02em}.brand img{height:46px;width:auto;display:block}.nav-links{display:flex;align-items:center;gap:8px;margin-left:auto}.nav-links a{font-size:13px;color:#315445;font-weight:760;padding:9px 11px;border-radius:999px}.nav-links a:hover{background:var(--green-2);color:var(--green-dark)}.pill{font-size:13px;color:var(--green-dark);background:var(--green-2);border:1px solid rgba(0,107,63,.18);padding:9px 14px;border-radius:999px;font-weight:760}.menu-toggle{display:none;width:42px;height:42px;border:1px solid rgba(0,107,63,.18);background:#fff;border-radius:14px;align-items:center;justify-content:center;cursor:pointer}.menu-toggle span{display:block;width:18px;height:2px;background:var(--green-dark);position:relative}.menu-toggle span:before,.menu-toggle span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--green-dark)}.menu-toggle span:before{top:-6px}.menu-toggle span:after{top:6px}
+    .hero{padding:52px 0 46px;position:relative}.hero:before{content:"";position:absolute;inset:28px -120px auto auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(0,137,79,.16),rgba(0,137,79,0) 68%);pointer-events:none}.hero:after{content:"";position:absolute;left:-70px;bottom:0;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(227,30,36,.08),rgba(227,30,36,0) 70%);pointer-events:none}.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}.hero h1{font-size:clamp(34px,4.8vw,56px);line-height:1.05;letter-spacing:-.055em;margin:0 0 24px;max-width:820px;color:var(--green-dark)}.hero h1 span{display:block}.hero p{font-size:20px;color:var(--muted);max-width:820px;margin:0}.grid{display:grid;gap:18px}.metrics{grid-template-columns:repeat(4,1fr);margin:34px 0 10px}.metric{background:linear-gradient(180deg,#ffffff,#fbfefd);border:1px solid rgba(0,107,63,.12);border-radius:22px;padding:22px;box-shadow:0 12px 44px rgba(0,75,45,.05)}.metric b{display:block;font-size:25px;letter-spacing:-.04em;color:var(--green-dark)}.metric span{display:block;color:var(--muted);font-size:13px;margin-top:6px}
+    section{padding:38px 0}.card{background:var(--surface);border:1px solid rgba(0,107,63,.12);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}.section-title{font-size:34px;letter-spacing:-.045em;line-height:1.08;margin:0 0 12px}.lead{font-size:18px;color:var(--muted);margin:0;max-width:850px}.two{grid-template-columns:1.05fr .95fr}.usp{display:grid;gap:14px;margin-top:22px}.usp-item{padding:18px;border-radius:18px;background:var(--soft);border:1px solid var(--line)}.usp-item strong{display:block;margin-bottom:6px}.usp-item p{margin:0;color:var(--muted)}
+    .channel{margin-top:18px;border-radius:24px;border:1px solid var(--line);overflow:hidden;background:#fff}.channel-head{padding:24px 26px;background:linear-gradient(135deg,#ffffff,#eaf7ef);display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:1px solid rgba(0,107,63,.10)}.channel-head h3{margin:0;font-size:25px;letter-spacing:-.035em}.channel-head p{margin:6px 0 0;color:var(--muted)}.tag{white-space:nowrap;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--blue)}
+    table{width:100%;border-collapse:collapse}th,td{padding:16px 18px;text-align:left;border-top:1px solid var(--line);vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#12412b;background:#f0faf5}td{font-size:14px;color:#344054}.amount{font-weight:760;color:var(--ink);white-space:nowrap}.small{font-size:13px;color:var(--muted)}a{color:var(--green);text-decoration:none;font-weight:700}.split{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.mini{padding:20px;border-radius:20px;background:var(--soft);border:1px solid var(--line)}.mini b{display:block;font-size:22px;letter-spacing:-.035em}.mini span{color:var(--muted);font-size:13px}.footer{padding:40px 0 56px;color:var(--muted);font-size:13px}.note{margin-top:18px;color:var(--muted);font-size:13px}.total{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;border-radius:28px;padding:34px;display:flex;justify-content:space-between;gap:28px;align-items:end}.total h2{margin:0;font-size:34px;letter-spacing:-.045em}.total .big{font-size:40px;font-weight:800;letter-spacing:-.05em}.total p{margin:8px 0 0;color:#cbd5e1}.timeline{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.step{border-left:3px solid var(--green);padding:8px 0 8px 18px}.step b{display:block}.step span{color:var(--muted);font-size:14px}
+
+    .inventory-head{display:flex;justify-content:space-between;gap:28px;align-items:flex-end;margin-bottom:24px}.inventory-badge{white-space:nowrap;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;border-radius:999px;padding:12px 18px;font-weight:800;box-shadow:0 14px 40px rgba(0,75,45,.16)}.inventory-metrics{grid-template-columns:repeat(4,1fr);margin:18px 0 18px}.metric.inv{background:linear-gradient(180deg,#fff,#f4fbf7)}.inv-layout{grid-template-columns:1fr 1fr;align-items:stretch;margin:18px 0}.inv-card{box-shadow:0 12px 48px rgba(15,23,42,.055);padding:26px}.inv-card h3{margin:0 0 8px;font-size:24px;letter-spacing:-.035em}.inv-card.wide{grid-column:1/-1}.mix-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}.mix-card{border:1px solid rgba(0,107,63,.13);background:linear-gradient(180deg,#ffffff,#f5fbf8);border-radius:20px;padding:18px 18px;min-height:112px;display:flex;flex-direction:column;justify-content:center}.mix-card:nth-child(5){grid-column:1;max-width:none;justify-self:stretch;text-align:left}.mix-card b{display:block;font-size:32px;letter-spacing:-.045em;color:var(--green-dark);line-height:1}.mix-card span{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.35}.area-list{display:grid;gap:10px;margin-top:18px}.area-row{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:13px 14px;border-radius:16px;background:var(--soft);border:1px solid var(--line)}.area-row span{font-weight:650}.area-row b{color:var(--green);white-space:nowrap}.top-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.top-site{display:flex;justify-content:space-between;gap:16px;align-items:center;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#fff,#f7fbff);padding:16px}.top-site strong{display:block}.top-site span{display:block;color:var(--muted);font-size:13px;margin-top:3px}.top-site em{font-style:normal;font-weight:800;color:var(--green);text-align:right;white-space:nowrap}.top-site small{display:block;color:var(--muted);font-weight:500}.inventory-table-card{margin-top:20px}.table-tools{display:flex;gap:12px;align-items:center;padding:16px 18px;border-top:1px solid var(--line);background:#fff}.table-tools input,.table-tools select{height:44px;border:1px solid var(--line);border-radius:14px;padding:0 14px;background:#f8fafc;color:var(--ink);font:inherit}.table-tools input{flex:1;min-width:240px}.table-tools span{font-size:13px;font-weight:800;color:var(--green);white-space:nowrap}.inventory-scroll{max-height:620px;overflow:auto}.inventory-scroll thead th{position:sticky;top:0;z-index:2}.inventory-scroll td small{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin-top:4px;max-width:420px}.inventory-scroll .no{color:var(--muted);font-weight:700}.inventory-scroll tr[hidden]{display:none}
+    .message-board{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.message-card{position:relative;overflow:hidden;border:1px solid rgba(0,107,63,.14);border-radius:22px;background:linear-gradient(145deg,#ffffff 0%,#f2fbf6 78%);padding:22px;min-height:190px;box-shadow:0 14px 42px rgba(0,75,45,.055)}.message-card:before{content:"";position:absolute;right:-36px;top:-46px;width:118px;height:118px;border-radius:50%;background:rgba(0,107,63,.08)}.message-card .label{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:#fff;border:1px solid rgba(0,107,63,.16);font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}.message-card h4{margin:18px 0 10px;font-size:22px;line-height:1.12;letter-spacing:-.035em;color:var(--green-dark)}.message-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}.message-card.featured{grid-column:span 2;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff}.message-card.featured h4,.message-card.featured p{color:#fff}.message-card.featured .label{color:var(--green-dark);background:rgba(255,255,255,.94)}.message-note{margin-top:14px;color:var(--muted);font-size:13px}
+
+    .hero-banner{padding:26px 0 0}.proposal-visual{margin:0;border-radius:32px;overflow:hidden;border:1px solid rgba(0,107,63,.14);box-shadow:0 30px 100px rgba(0,75,45,.12);background:#fff}.proposal-visual img{display:block;width:100%;height:auto}.media-figure{margin:24px 0 0;border-radius:28px;overflow:hidden;border:1px solid rgba(0,107,63,.13);box-shadow:0 18px 64px rgba(15,23,42,.08);background:#fff}.media-figure img{display:block;width:100%;height:auto}.media-caption{padding:10px 16px;font-size:12px;color:var(--muted);background:#fbfefd}.contact-card{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end;background:linear-gradient(135deg,#ffffff 0%,#f0faf5 100%);border:1px solid rgba(0,107,63,.14);border-radius:28px;padding:34px;box-shadow:var(--shadow)}.contact-card h2{margin:0 0 16px}.contact-meta{color:var(--muted);font-size:15px}.contact-name{font-size:26px;font-weight:850;letter-spacing:-.035em;color:var(--green-dark);margin-top:10px}.contact-email{font-weight:800;color:var(--green)}.footer{padding:34px 0 56px;color:#dbeee5;font-size:13px}.footer-shell{background:linear-gradient(135deg,var(--green-dark),var(--green));border-radius:28px;padding:30px;box-shadow:0 24px 80px rgba(0,75,45,.16)}.footer strong{display:block;color:#fff;font-size:15px;margin-bottom:10px}.footer p{margin:0 0 10px;max-width:900px}.footer a{color:#fff;text-decoration:underline;text-underline-offset:4px}.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+
+    @media(max-width:900px){.inventory-head{display:block}.inventory-badge{display:inline-block;margin-top:16px}.inventory-metrics,.inv-layout,.mix-grid,.top-list,.message-board{grid-template-columns:1fr}.mix-card:nth-child(5){grid-column:1;max-width:100%;justify-self:stretch;text-align:left}.table-tools{display:grid}.table-tools input{min-width:0;width:100%}.brand img{height:40px}.message-card.featured{grid-column:auto}}
+
+    @media(max-width:900px){.metrics,.two,.split,.timeline{grid-template-columns:1fr}.channel-head,.total,.contact-card{display:block}.total .big{margin-top:18px;font-size:32px}.page{width:min(100% - 28px,1180px)}th,td{padding:13px 12px}.table-wrap{overflow:auto}.hero{padding-top:42px}.nav-inner{height:70px}.menu-toggle{display:flex}.nav-links{position:absolute;left:14px;right:14px;top:76px;display:none;flex-direction:column;align-items:stretch;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border:1px solid rgba(0,107,63,.14);border-radius:22px;padding:12px;box-shadow:0 18px 60px rgba(0,75,45,.12)}.nav.open .nav-links{display:flex}.nav-links a{padding:12px 14px}.pill{display:none}.proposal-visual{border-radius:22px}.hero-banner{padding-top:18px}.footer-shell{border-radius:22px;padding:24px}.contact-name{font-size:22px}}
+  </style>
+</head>
+<body>
+  <div class="nav" id="topNav"><div class="page nav-inner"><div class="brand"><img src="logo-admex-hongngoc.png" alt="admeX x Bệnh viện Hồng Ngọc" /></div><nav class="nav-links" aria-label="Proposal navigation"><a href="#overview">Tổng quan</a><a href="#creative-messages">Thông điệp</a><a href="#df-inventory">Inventory DF</a><a href="#contact">Liên hệ</a></nav><div class="pill">Gói truyền thông DOOH</div><button class="menu-toggle" id="menuToggle" type="button" aria-label="Mở menu"><span></span></button></div></div>
+  <main>
+    <section class="hero-banner page reveal"><figure class="proposal-visual"><img src="Modern hospital proposal with greenery accents.png" alt="Gói giải pháp đề xuất truyền thông điểm chạm và ngữ cảnh Bệnh viện Hồng Ngọc" /></figure></section>
+    <section class="hero page reveal" id="overview">
+      <div class="eyebrow">Media Proposal</div>
+      <h1><span>Gói Truyền Thông</span><span>Bệnh viện Hồng Ngọc</span></h1>
+      <p>Mở rộng hiện diện thương hiệu trên các điểm chạm chiến lược, nâng cao nhận diện và thúc đẩy nhu cầu thăm khám tại hệ thống Bệnh viện Hồng Ngọc.</p>
+      <div class="grid metrics">
+        <div class="metric"><b>1.051.805.760đ</b><span>Tổng ngân sách sau chiết khấu</span></div>
+        <div class="metric"><b>2 nhóm kênh</b><span>LED OOH & quảng cáo thang máy</span></div>
+        <div class="metric"><b>800 màn hình</b><span>DF khung dọc trong thang máy</span></div>
+        <div class="metric"><b>5.632.000</b><span>Tổng spot/campaign nhóm thang máy</span></div>
+      </div>
+    </section>
+
+    <section class="page grid two reveal">
+      <div class="card">
+        <h2 class="section-title">Mục tiêu truyền thông</h2>
+        <p class="lead">Đưa thương hiệu Hồng Ngọc hiện diện tại các điểm chạm chiến lược, đồng thời tạo lực đẩy nhận diện và nhu cầu thăm khám trong hệ thống bệnh viện.</p>
+      </div>
+      <div class="card">
+        <h2 class="section-title">Logic triển khai</h2>
+        <div class="timeline">
+          <div class="step"><b>Phủ hiện diện</b><span>OOH tại các vị trí nút giao thông trung tâm.</span></div>
+          <div class="step"><b>Tăng tần suất</b><span>DOOH thang máy trong phạm vi 5–10km quanh chi nhánh.</span></div>
+          <div class="step"><b>Chọn đúng khu vực</b><span>Ứng dụng Location-based Targeting tại khu vực trọng điểm.</span></div>
+          <div class="step"><b>Xây dựng niềm tin</b><span>Dựa trên kinh nghiệm triển khai cho nhiều thương hiệu y tế.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page reveal">
+      <div class="card">
+        <h2 class="section-title">USP của gói truyền thông</h2>
+        <p class="lead">Gói được thiết kế để kết hợp giữa độ phủ nhận diện ngoài trời và khả năng tiếp cận theo khu vực, phù hợp với mục tiêu thúc đẩy nhu cầu thăm khám.</p>
+        <div class="usp">
+          <div class="usp-item"><strong>Phủ rộng hệ sinh thái DOOH tại điểm chạm chiến lược</strong><p>Quảng cáo thang máy hiện diện tại các tòa nhà trong phạm vi 5–10km xung quanh chi nhánh Hồng Ngọc, đồng thời phủ OOH tại các vị trí nút giao thông trung tâm thu hút khách hàng tiềm năng.</p></div>
+          <div class="usp-item"><strong>Ứng dụng Location-based Targeting</strong><p>Tiếp cận chính xác nhóm khách hàng tiềm năng tại các khu vực trọng điểm.</p></div>
+          <div class="usp-item"><strong>Kinh nghiệm triển khai trong ngành y tế</strong><p>Tối ưu hiệu quả truyền thông và xây dựng niềm tin thương hiệu dựa trên kinh nghiệm triển khai cho nhiều thương hiệu y tế.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page reveal" id="creative-messages">
+      <div class="card">
+        <div class="eyebrow">DOOH Creative Direction</div>
+        <h2 class="section-title">Gợi ý thông điệp quảng cáo cho hệ thống DOOH</h2>
+        <p class="lead">Các thông điệp được tinh chỉnh theo nhóm khách hàng miền Bắc: coi trọng sự tin cậy, chuẩn mực, kín đáo, chăm sóc gia đình và thói quen ưu tiên cơ sở y tế gần, tiện, có thương hiệu rõ ràng.</p>
+        <div class="message-board final-messages">
+          <div class="message-card featured">
+            <span class="label">Thuận tiện</span>
+            <h4>Gần nơi ở, thuận tiện di chuyển, an tâm khi cần</h4>
+            <p>Nhấn mạnh lợi thế gần điểm sống, điểm làm việc và phù hợp với hành vi ưu tiên sự tiện lợi khi lựa chọn cơ sở y tế tại Hà Nội.</p>
+          </div>
+          <div class="message-card">
+            <span class="label">Chuyên môn</span>
+            <h4>Chuyên môn vững vàng, chăm sóc tận tâm</h4>
+            <p>Tạo niềm tin bằng năng lực y khoa và thái độ chăm sóc, tránh cảm giác phô trương nhưng vẫn giữ được chuẩn mực bệnh viện.</p>
+          </div>
+          <div class="message-card">
+            <span class="label">Trải nghiệm</span>
+            <h4>Tin cậy từ chuyên môn, hài lòng từ trải nghiệm</h4>
+            <p>Kết nối giữa lý do lựa chọn bệnh viện và cảm nhận dịch vụ sau thăm khám, phù hợp nhóm khách hàng đô thị có yêu cầu cao.</p>
+          </div>
+          <div class="message-card">
+            <span class="label">Gia đình</span>
+            <h4>Nơi gửi gắm sức khỏe của cả gia đình</h4>
+            <p>Đánh vào vai trò người ra quyết định chăm sóc sức khỏe cho cha mẹ, vợ chồng và con cái trong gia đình miền Bắc.</p>
+          </div>
+          <div class="message-card">
+            <span class="label">Tận tâm</span>
+            <h4>Chăm sóc sức khỏe bằng sự tận tâm và thấu hiểu</h4>
+            <p>Giữ sắc thái mềm, có cảm xúc nhưng vẫn thuộc ngữ cảnh y tế; phù hợp các touchpoint có tần suất lặp lại cao.</p>
+          </div>
+        </div>
+        <figure class="media-figure"><img src="Elevator ride with hospital ad display.png" alt="Mockup quảng cáo Bệnh viện Hồng Ngọc trên màn hình thang máy" /><figcaption class="media-caption">Hình ảnh chỉ mang tính chất minh hoạ</figcaption></figure>
+        <p class="message-note">Gợi ý triển khai: với màn hình DF nên ưu tiên headline ngắn, dễ đọc trong 3–5 giây; visual sạch, logo rõ và CTA ngắn như “Đặt lịch khám hôm nay” hoặc “Tìm cơ sở gần bạn”.</p>
+      </div>
+    </section>
+
+    <section class="page reveal">
+      <h2 class="section-title">Cấu trúc gói triển khai</h2>
+      <p class="lead">Gói gồm hai lớp truyền thông: LED OOH tại các vị trí ngoài trời nổi bật và quảng cáo thang máy DF để tăng tần suất tiếp xúc trong khu vực mục tiêu.</p>
+
+      <div class="channel">
+        <div class="channel-head"><div><h3>01 · LED OOH</h3><p>Tần suất xuất hiện 240 lần/ngày, thời lượng 15 giây.</p></div><div class="tag">2 tuần · 571.805.760đ</div></div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Vị trí</th><th>Thời gian</th><th>Đơn giá</th><th>Thành tiền</th><th>Demo</th></tr></thead>
+          <tbody>
+            <tr><td>Màn hình LED Tràng Tiền Plaza, mặt tiền Hai Bà Trưng - Hàng Bài, Q. Hoàn Kiếm, TP. Hà Nội</td><td>2 tuần</td><td class="amount">158.423.520đ</td><td class="amount">316.847.040đ</td><td><a href="https://billboard.goldsungroup.com.vn/eca6440e7a808330ca89b96d2a15050c/1201211/HN70001" target="_blank">Xem demo</a></td></tr>
+            <tr><td>Màn hình LED BRG Diamond Plaza, 25 Lê Văn Lương, Thanh Xuân, Hà Nội</td><td>2 tuần</td><td class="amount">92.568.000đ</td><td class="amount">185.136.000đ</td><td><a href="https://billboard.goldsungroup.com.vn/eca6440e7a808330ca89b96d2a15050c/1246329/HN70007" target="_blank">Xem demo</a></td></tr>
+            <tr><td>Màn hình LED vòng xoay Cầu Giấy, Q. Đống Đa, TP. Hà Nội</td><td>2 tuần</td><td class="amount">34.911.360đ</td><td class="amount">69.822.720đ</td><td><a href="https://billboard.goldsungroup.com.vn/eca6440e7a808330ca89b96d2a15050c/1201221/HN70004" target="_blank">Xem demo</a></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="channel">
+        <div class="channel-head"><div><h3>02 · Quảng cáo thang máy</h3><p>Màn hình DF khung dọc, tần suất xuất hiện 320 lần/ngày, thời lượng 10 giây.</p></div><div class="tag">4 tuần · 480.000.000đ</div></div>
+        <div class="split">
+          <div class="mini"><b>800</b><span>Số lượng màn hình</span></div>
+          <div class="mini"><b>127</b><span>Số lượng tòa nhà</span></div>
+          <div class="mini"><b>320</b><span>Spot/ngày</span></div>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Hạng mục</th><th>Tổng spot/campaign</th><th>Đơn vị</th><th>Thời gian</th><th>Thành tiền</th></tr></thead>
+          <tbody><tr><td>Màn hình DF khung dọc</td><td class="amount">5.632.000</td><td>Tuần</td><td>4 tuần</td><td class="amount">480.000.000đ</td></tr></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="page reveal"><figure class="media-figure"><img src="Advertising file size standards guide.png" alt="Quy chuẩn file quảng cáo LCD và Digital Poster" /><figcaption class="media-caption">Quy chuẩn file quảng cáo tham khảo cho LCD và Digital Poster</figcaption></figure></section>
+
+    <section class="page reveal" id="df-inventory">
+      <div class="inventory-head">
+        <div>
+          <div class="eyebrow">Digital Poster Inventory</div>
+          <h2 class="section-title">Danh sách tòa nhà · Hệ thống Digital Frame</h2>
+          <p class="lead">Danh sách inventory DF được bổ sung từ file “DANH SÁCH TOÀ NHÀ - HỆ THỐNG DIGITAL POSTER LIST BUILDING - DIGITAL FRAME”. Phần này đóng vai trò phụ lục minh chứng cho độ phủ của hệ thống tòa nhà tại Hà Nội.</p>
+        </div>
+        <div class="inventory-badge">127 tòa nhà · 1.040 màn hình</div>
+      </div>
+
+      <div class="grid inventory-metrics">
+        <div class="metric inv"><b>127</b><span>Tổng số tòa nhà trong danh sách</span></div>
+        <div class="metric inv"><b>1.040</b><span>Tổng số màn hình DF</span></div>
+        <div class="metric inv"><b>848 / 192</b><span>Trong thang / ngoài thang</span></div>
+        <div class="metric inv"><b>4.529.040</b><span>Traffic/ngày theo file inventory</span></div>
+      </div>
+
+      <div class="grid inv-layout">
+        <div class="card inv-card">
+          <h3>Phân bổ theo loại địa điểm</h3>
+          <p class="small">Cấu trúc inventory ưu tiên nhóm căn hộ và văn phòng, phù hợp logic tiếp cận cư dân đô thị, nhân sự văn phòng và nhóm gia đình trẻ.</p>
+          <div class="mix-grid"><div class="mix-card"><b>69</b><span>Căn hộ</span></div><div class="mix-card"><b>49</b><span>Văn phòng</span></div><div class="mix-card"><b>5</b><span>TTTM</span></div><div class="mix-card"><b>3</b><span>Phức hợp</span></div><div class="mix-card"><b>1</b><span>Khách sạn</span></div></div>
+        </div>
+        <div class="card inv-card">
+          <h3>Phân bổ theo khu vực</h3>
+          <p class="small">Các cụm xuất hiện nhiều nhất tập trung tại Hà Đông, Cầu Giấy và Từ Liêm.</p>
+          <div class="area-list"><div class="area-row"><span>HÀ ĐÔNG</span><b>43 tòa</b></div><div class="area-row"><span>CẦU GIẤY</span><b>38 tòa</b></div><div class="area-row"><span>TỪ LIÊM</span><b>28 tòa</b></div><div class="area-row"><span>HAI BÀ TRƯNG</span><b>9 tòa</b></div><div class="area-row"><span>TÂY HỒ</span><b>5 tòa</b></div><div class="area-row"><span>BA ĐÌNH</span><b>3 tòa</b></div><div class="area-row"><span>HOÀN KIẾM</span><b>1 tòa</b></div></div>
+        </div>
+        <div class="card inv-card wide">
+          <h3>Top điểm có traffic/ngày cao</h3>
+          <div class="top-list"><div class="top-site"><div><strong>KHU THƯƠNG MẠI VÀ VĂN PHÒNG TẠI TÒA NHÀ 173 XUÂN THỦY</strong><span>Văn phòng · CẦU GIẤY</span></div><em>549.672<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>HỌC VIỆN QUỐC PHÒNG OFFICE</strong><span>Văn phòng · CẦU GIẤY</span></div><em>231.790<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>TMC TOWER (KIM KHÍ THĂNG LONG)</strong><span>Văn phòng · HAI BÀ TRƯNG</span></div><em>198.886<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>IRIS GARDEN</strong><span>Căn hộ · TỪ LIÊM</span></div><em>184.968<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>GREEN PARK TOWER</strong><span>Văn phòng · CẦU GIẤY</span></div><em>183.060<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>TTTM MIPEC AEON XUÂN THỦY</strong><span>TTTM · CẦU GIẤY</span></div><em>180.804<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>TOÀ VĂN PHÒNG AQUA CENTRAL</strong><span>Văn phòng · BA ĐÌNH</span></div><em>156.524<small> traffic/ngày</small></em></div><div class="top-site"><div><strong>HCMCC TOWER 249A THỤY KHUÊ</strong><span>Văn phòng · TÂY HỒ</span></div><em>137.060<small> traffic/ngày</small></em></div></div>
+        </div>
+      </div>
+
+      <div class="channel inventory-table-card">
+        <div class="channel-head"><div><h3>Full list · 127 tòa nhà DF</h3><p>Bảng giữ các trường cần thiết cho proposal: tên địa điểm, loại địa điểm, khu vực, số màn hình, traffic/ngày và khung giờ hoạt động.</p></div><div class="tag">Inventory Appendix</div></div>
+        <div class="table-tools">
+          <input id="buildingSearch" type="search" placeholder="Tìm theo tên tòa nhà, địa chỉ, khu vực..." />
+          <select id="typeFilter"><option value="">Tất cả loại địa điểm</option><option value="APARTMENT">Căn hộ</option><option value="OFFICE">Văn phòng</option><option value="MALL">TTTM</option><option value="COMMERCIAL COMPLEX">Phức hợp</option><option value="HOTEL">Khách sạn</option></select>
+          <span id="resultCount">127 địa điểm</span>
+        </div>
+        <div class="table-wrap inventory-scroll"><table id="buildingTable">
+          <thead><tr><th>STT</th><th>Tên địa điểm</th><th>Loại</th><th>Khu vực</th><th>Số màn</th><th>Trong/ngoài</th><th>Audience/ngày</th><th>Traffic/ngày</th><th>Giờ hoạt động</th><th>Loại trừ</th></tr></thead>
+          <tbody><tr data-type="OFFICE" data-area="PHƯỜNG HOÀN KIẾM">
+      <td class="no">1</td>
+      <td><strong>LPB TOWER</strong><small>210 Đ. TRẦN QUANG KHẢI, TRÀNG TIỀN, HOÀN KIẾM, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>HOÀN KIẾM</td>
+      <td class="amount">43</td>
+      <td>18 / 25</td>
+      <td class="amount">2.640</td>
+      <td class="amount">5.280</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">2</td>
+      <td><strong>THE WEST</strong><small>265 ĐƯỜNG CẦU GIẤY, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">13</td>
+      <td>0 / 13</td>
+      <td class="amount">16.614</td>
+      <td class="amount">77.686</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">3</td>
+      <td><strong>THÁI NAM BUILDING</strong><small>22D- PHỐ DƯƠNG ĐÌNH NGHỆ, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">11</td>
+      <td>0 / 11</td>
+      <td class="amount">15.225</td>
+      <td class="amount">71.190</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="MALL" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">4</td>
+      <td><strong>TTTM THE ZEI</strong><small>8 Đ. LÊ ĐỨC THỌ, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>TTTM</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>2 / 2</td>
+      <td class="amount">8.895</td>
+      <td class="amount">41.590</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">5</td>
+      <td><strong>BIDV 191 BÀ TRIỆU</strong><small>191 P. BÀ TRIỆU, PHƯỜNG HAI BÀ TRƯNG, TP HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">5</td>
+      <td>5 / 0</td>
+      <td class="amount">10.150</td>
+      <td class="amount">47.460</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="MALL" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">6</td>
+      <td><strong>TTTM MIPEC AEON XUÂN THỦY</strong><small>122-124 Đ. XUÂN THỦY, DỊCH VỌNG HẬU, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>TTTM</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">6</td>
+      <td>4 / 2</td>
+      <td class="amount">38.668</td>
+      <td class="amount">180.804</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">7</td>
+      <td><strong>FLC LANDMARK - KHỐI VĂN PHÒNG</strong><small>FLC LANDMARK TOWER, ĐƯỜNG LÊ ĐỨC THỌ, PHƯỜNG TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">18</td>
+      <td>16 / 2</td>
+      <td class="amount">1.234</td>
+      <td class="amount">2.468</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">8</td>
+      <td><strong>CT3 MỄ TRÌ THƯỢNG - ĐN 3</strong><small>MỄ TRÌ THƯỢNG, TỪ LIÊM, HÀ NỘI.</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">5.288</td>
+      <td class="amount">21.184</td>
+      <td>06:00 - 23:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG BA ĐÌNH">
+      <td class="no">9</td>
+      <td><strong>TOÀ VĂN PHÒNG AQUA CENTRAL</strong><small>44 Đ. YÊN PHỤ, PHƯỜNG BA ĐÌNH, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>BA ĐÌNH</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">33.475</td>
+      <td class="amount">156.524</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">10</td>
+      <td><strong>BỘ NỘI VỤ</strong><small>8 TÔN THẤT THUYẾT, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">10</td>
+      <td>10 / 0</td>
+      <td class="amount">26.100</td>
+      <td class="amount">122.040</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">11</td>
+      <td><strong>D22 BỘ TƯ LỆNH - CT3</strong><small>NGÕ 62 TRẦN BÌNH, PHƯỜNG TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">0</td>
+      <td class="amount">0</td>
+      <td></td>
+      <td>—</td>
+    </tr>
+<tr data-type="COMMERCIAL COMPLEX" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">12</td>
+      <td><strong>HỒ GƯƠM PLAZA</strong><small>102 ĐƯỜNG TRẦN PHÚ, HÀ ĐÔNG, HÀ NỘI,</small></td>
+      <td>Phức hợp</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">14</td>
+      <td>14 / 0</td>
+      <td class="amount">19.491</td>
+      <td class="amount">50.308</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">13</td>
+      <td><strong>N06B2</strong><small>2QHV+JFP, N 06, DỊCH VỌNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.238</td>
+      <td class="amount">4.654</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">14</td>
+      <td><strong>CT2A VĂN QUÁN</strong><small>KĐT VĂN QUÁN, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">1.552</td>
+      <td class="amount">5.089</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">15</td>
+      <td><strong>TOÀ D VINACONEX KHÚC THỪA DỤ</strong><small>60 KHÚC THỪA DỤ, CẦU GIẤY, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.733</td>
+      <td class="amount">6.128</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">16</td>
+      <td><strong>KDT VĂN QUÁN - CT3A</strong><small>KHU ĐÔ THỊ VĂN QUÁN, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.300</td>
+      <td class="amount">4.160</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">17</td>
+      <td><strong>ADI BUILDING</strong><small>19 P. TỐ HỮU, PHƯỜNG HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.764</td>
+      <td class="amount">3.528</td>
+      <td>07:00 - 19:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">18</td>
+      <td><strong>CHUNG CƯ F4</strong><small>114 P. TRUNG KÍNH, PHƯỜNG CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">2.283</td>
+      <td class="amount">7.228</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">19</td>
+      <td><strong>CT2B VĂN QUÁN</strong><small>XQFQ+7JQ, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.535</td>
+      <td class="amount">5.490</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">20</td>
+      <td><strong>CHUNG CƯ CT3B NGUYỄN CƠ THẠCH</strong><small>MỸ ĐÌNH, NAM TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.839</td>
+      <td class="amount">7.817</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">21</td>
+      <td><strong>CHUNG CƯ CT2A MỸ ĐÌNH</strong><small>PHỐ LƯU HỮU PHƯỚC KHU ĐÔ THỊ MỸ ĐÌNH 1, PHƯỜNG TỪ LIÊM, THÀNH PHỐ HÀ NỘII</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.800</td>
+      <td class="amount">7.472</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">22</td>
+      <td><strong>CHUNG CƯ CT2B MỸ ĐÌNH</strong><small>PHỐ LƯU HỮU PHƯỚC KHU ĐÔ THỊ MỸ ĐÌNH 1, PHƯỜNG TỪ LIÊM, THÀNH PHỐ HÀ NỘII</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.800</td>
+      <td class="amount">7.472</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">23</td>
+      <td><strong>CHUNG CƯ CT8A,B</strong><small>NHÀ CHUNG CƯ CT 8A, ĐƯỜNG NGUYỄN KHUYẾN, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">1.864</td>
+      <td class="amount">7.867</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TÂY HỒ">
+      <td class="no">24</td>
+      <td><strong>HCMCC TOWER 249A THỤY KHUÊ</strong><small>249 THỤY KHUÊ, PHƯỜNG TÂY HỒ, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>TÂY HỒ</td>
+      <td class="amount">4</td>
+      <td>0 / 4</td>
+      <td class="amount">29.115</td>
+      <td class="amount">137.060</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG BA ĐÌNH">
+      <td class="no">25</td>
+      <td><strong>VIETINBANK BA ĐÌNH</strong><small>126 ĐỘI CẤN, PHƯỜNG BA ĐÌNH, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>BA ĐÌNH</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">6.090</td>
+      <td class="amount">28.476</td>
+      <td>07:00 - 19:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">26</td>
+      <td><strong>CC B3 LQT THĂNG LONG</strong><small>KHU ĐÔ THỊ LÀNG QUỐC TẾ THĂNG LONG, ĐƯỜNG TRẦN ĐĂNG NINH, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">6</td>
+      <td>4 / 2</td>
+      <td class="amount">1.418</td>
+      <td class="amount">5.014</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">27</td>
+      <td><strong>CT3A</strong><small>CT3A, P. NGUYỄN CƠ THẠCH, P.TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.238</td>
+      <td class="amount">4.654</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">28</td>
+      <td><strong>CHUNG CƯ D5C</strong><small>105 D5C P.TRẦN THÁI TÔNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">3.869</td>
+      <td class="amount">10.763</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">29</td>
+      <td><strong>VINACONEX B</strong><small>DICH VONG, CẦU GIẤY, HANOI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">4.728</td>
+      <td class="amount">13.570</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">30</td>
+      <td><strong>CHUNG CƯ A1</strong><small>NGUYỄN CƠ THẠCH, PHƯỜNG TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">3</td>
+      <td>3 / 0</td>
+      <td class="amount">2.482</td>
+      <td class="amount">8.256</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">31</td>
+      <td><strong>CHUNG CƯ AX2</strong><small>CHUNG CƯ AX2, SỐ 18 NGUYỄN CƠ THẠCH , PHỐ HUY DU , PHƯỜNG TỪ LIÊM , HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">5</td>
+      <td>4 / 1</td>
+      <td class="amount">1.293</td>
+      <td class="amount">5.248</td>
+      <td></td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">32</td>
+      <td><strong>CHUNG CƯ N04B2</strong><small>P. DUY TÂN,CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">3.138</td>
+      <td class="amount">11.116</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">33</td>
+      <td><strong>THE MARC 88</strong><small>88 P.TRẦN THÁI TÔNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">30</td>
+      <td>10 / 20</td>
+      <td class="amount">20.300</td>
+      <td class="amount">94.920</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">34</td>
+      <td><strong>TMC TOWER (KIM KHÍ THĂNG LONG)</strong><small>1 P. LƯƠNG YÊN, BẠCH ĐẰNG, HAI BÀ TRƯNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">11</td>
+      <td>2 / 9</td>
+      <td class="amount">42.535</td>
+      <td class="amount">198.886</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">35</td>
+      <td><strong>IDMC DUY TÂN BUILDING</strong><small>21 DUY TÂN, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">8</td>
+      <td>0 / 8</td>
+      <td class="amount">14.500</td>
+      <td class="amount">67.800</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">36</td>
+      <td><strong>CT5 DN1</strong><small>CT5, DN1, MỸ ĐÌNH, TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.822</td>
+      <td class="amount">6.766</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">37</td>
+      <td><strong>TÒA NHÀ HH2 KHU ĐÔ THỊ YÊN HÒA</strong><small>4 DƯƠNG ĐÌNH NGHỆ, PHƯỜNG CẦU GIẤY, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">725</td>
+      <td class="amount">2.418</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">38</td>
+      <td><strong>CT1A KĐT VĂN QUÁN</strong><small>KĐT VĂN QUÁN, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">3</td>
+      <td>3 / 0</td>
+      <td class="amount">1.088</td>
+      <td class="amount">3.725</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">39</td>
+      <td><strong>N01 DỊCH VỌNG</strong><small>NHÀ N01, P. TRẦN QUÝ KIÊN, DỊCH VỌNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">3.138</td>
+      <td class="amount">12.447</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">40</td>
+      <td><strong>CHUNG CƯ 129 THIÊN HIỀN</strong><small>129 P. THIÊN HIỀN, MỸ ĐÌNH, NAM TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">955</td>
+      <td class="amount">3.846</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="MALL" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">41</td>
+      <td><strong>VINCOM CENTER BÀ TRIỆU</strong><small>191 P. BÀ TRIỆU, LÊ ĐẠI HÀNH, HAI BÀ TRƯNG, HÀ NỘI</small></td>
+      <td>TTTM</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">16</td>
+      <td>16 / 0</td>
+      <td class="amount">6.768</td>
+      <td class="amount">31.644</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">42</td>
+      <td><strong>TÒA NHÀ ZODIAC</strong><small>NG. 19 P. DUY TÂN, PHƯỜNG CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">4.796</td>
+      <td class="amount">22.424</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">43</td>
+      <td><strong>CT4 MỸ ĐÌNH</strong><small>CT4 MỸ ĐÌNH 2, CT4 Đ. LÊ ĐỨC THỌ, TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.990</td>
+      <td class="amount">6.884</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">44</td>
+      <td><strong>CHUNG CƯ A5 HỌC VIỆN QUÂN Y</strong><small>205 Đ. PHÙNG HƯNG, P. PHÚC LA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.592</td>
+      <td class="amount">7.298</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">45</td>
+      <td><strong>CT3 CẦU DIỄN</strong><small>CT3 CẦU DIỄN, PHƯỜNG TỪ LIÊM, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.918</td>
+      <td class="amount">6.014</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">46</td>
+      <td><strong>CHUNG CƯ CT7A, CT7B VĂN QUÁN</strong><small>KĐT VĂN QUÁN, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.912</td>
+      <td class="amount">5.809</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">47</td>
+      <td><strong>CHUNG CƯ CT1B VĂN QUÁN</strong><small>KĐT VĂN QUÁN, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">973</td>
+      <td class="amount">3.011</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">48</td>
+      <td><strong>KDT VĂN KHÊ - CT5A</strong><small>KHU ĐÔ THỊ VĂN KHÊ, HA DONG, HA NOI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">2.300</td>
+      <td class="amount">10.450</td>
+      <td>06:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">49</td>
+      <td><strong>KDT VĂN KHÊ - CT5B</strong><small>KHU ĐÔ THỊ VĂN KHÊ,HÀ ĐÔNG, HA NOI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">2.300</td>
+      <td class="amount">10.450</td>
+      <td>06:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">50</td>
+      <td><strong>CHUNG CƯ CÔNG AN HÀ NỘI</strong><small>14 NGÕ 24 ĐƯỜNG NGUYỄN KHUYẾN, HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">6</td>
+      <td>4 / 2</td>
+      <td class="amount">4.416</td>
+      <td class="amount">12.108</td>
+      <td>06:00 - 23:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">51</td>
+      <td><strong>COWA TOWER</strong><small>199 HỒ TÙNG MẬU, TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">3.128</td>
+      <td class="amount">9.064</td>
+      <td>06:00 - 23:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">52</td>
+      <td><strong>CHUNG CƯ CT2 XALA</strong><small>KHU ĐÔ THỊ XA LA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">11</td>
+      <td>11 / 0</td>
+      <td class="amount">5.638</td>
+      <td class="amount">17.326</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">53</td>
+      <td><strong>WESTA BUILDING</strong><small>108 Đ. TRẦN PHÚ, P. HÀ ĐÔNG, HÀ NỘI , VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">12</td>
+      <td>12 / 0</td>
+      <td class="amount">7.588</td>
+      <td class="amount">26.066</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">54</td>
+      <td><strong>CHUNG CƯ CT3 XALA</strong><small>XQ6V+JPQ, KHU ĐÔ THỊ XA LA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">4.450</td>
+      <td class="amount">13.740</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">55</td>
+      <td><strong>MHDI-1 - CT6</strong><small>89 Đ. LÊ ĐỨC THỌ, TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">11</td>
+      <td>5 / 6</td>
+      <td class="amount">5.000</td>
+      <td class="amount">10.000</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">56</td>
+      <td><strong>MHDI-1 - CT5</strong><small>89 Đ. LÊ ĐỨC THỌ, TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">11</td>
+      <td>5 / 6</td>
+      <td class="amount">5.000</td>
+      <td class="amount">10.000</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">57</td>
+      <td><strong>TOÀ CT1 CHUNG CƯ VIỆN 103</strong><small>103 NGUYỄN KHUYẾN, PHƯỜNG HÀ ĐÔNG, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">10</td>
+      <td>10 / 0</td>
+      <td class="amount">44.968</td>
+      <td class="amount">99.229</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">58</td>
+      <td><strong>KDT THANH HÀ B1.3 HH03 - C</strong><small>PHƯỜNG HÀ ĐÔNG, HANOI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">20</td>
+      <td>20 / 0</td>
+      <td class="amount">1.949</td>
+      <td class="amount">7.896</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TÂY HỒ">
+      <td class="no">59</td>
+      <td><strong>CHUNG CƯ C18 LẠC LONG QUÂN</strong><small>NGÕ 655 Đ. LẠC LONG QUÂN, XUÂN LA, TÂY HỒ, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TÂY HỒ</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">7.290</td>
+      <td class="amount">17.484</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">60</td>
+      <td><strong>CHUNG CƯ CT2 VĂN KHÊ</strong><small>KHU ĐÔ THỊ VĂN KHÊ, HÀ ĐÔNG, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">10</td>
+      <td>10 / 0</td>
+      <td class="amount">9.518</td>
+      <td class="amount">25.425</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">61</td>
+      <td><strong>A4 HÀM NGHI</strong><small>A4 - MỸ ĐÌNH 1, CẦU DIỄN, TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">2.935</td>
+      <td class="amount">10.226</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">62</td>
+      <td><strong>KDT THANH HÀ B2.1 HH03ABC</strong><small>Đ. TRỤC PHÍA NAM HÀ NỘI, TỔ DÂN PHỐ 08, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">30</td>
+      <td>30 / 0</td>
+      <td class="amount">4.863</td>
+      <td class="amount">17.567</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">63</td>
+      <td><strong>CHUNG CƯ RAINBOW VĂN QUÁN</strong><small>ĐƯỜNG 19/5, KHU ĐÔ THỊ VĂN QUÁN, PHƯỜNG HÀ ĐÔNG, TP. HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">5.200</td>
+      <td class="amount">15.240</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">64</td>
+      <td><strong>XUÂN MAI RIVERSIDE</strong><small>206 Đ. THANH BÌNH, P. HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">3</td>
+      <td>2 / 1</td>
+      <td class="amount">5.820</td>
+      <td class="amount">18.174</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">65</td>
+      <td><strong>NEWHOUSE XALA</strong><small>KHU ĐÔ THỊ XA LA, PHÚC LA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">5.325</td>
+      <td class="amount">17.910</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">66</td>
+      <td><strong>A3- HỌC VIỆN QUÂN Y</strong><small>CHUNG CƯ A3 HỌC VIỆN QUÂN Y, 3 TỔ 7, YÊN PHÚC, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">3.355</td>
+      <td class="amount">12.034</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">67</td>
+      <td><strong>CỤM NHÀ CHUNG CƯ (3 TÒA) HH2 - A,B,C DƯƠNG NỘI (XUÂN MAI SPARKS TOWER)</strong><small>YÊN NGHĨA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">27</td>
+      <td>24 / 3</td>
+      <td class="amount">13.768</td>
+      <td class="amount">48.445</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">68</td>
+      <td><strong>THÁP DOANH NHÂN</strong><small>1 Đ. THANH BÌNH, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">12</td>
+      <td>12 / 0</td>
+      <td class="amount">6.253</td>
+      <td class="amount">19.040</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">69</td>
+      <td><strong>BÌNH VƯỢNG TOWER SẢNH CHUNG CƯ</strong><small>200 QUANG TRUNG, HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">7.581</td>
+      <td class="amount">19.809</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">70</td>
+      <td><strong>THE CANOPY SMART CITY</strong><small>TÂY MỖ, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">36</td>
+      <td>36 / 0</td>
+      <td class="amount">14.209</td>
+      <td class="amount">69.026</td>
+      <td>06:00 - 19:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">71</td>
+      <td><strong>CT4 XA LA - C</strong><small>KĐT XA LA, PHƯỜNG HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">30</td>
+      <td>21 / 9</td>
+      <td class="amount">5.800</td>
+      <td class="amount">19.400</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">72</td>
+      <td><strong>CHUNG CƯ HÀ NỘI PARAGON</strong><small>NGÕ 86 P. DUY TÂN, P.CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">10</td>
+      <td>10 / 0</td>
+      <td class="amount">11.693</td>
+      <td class="amount">36.261</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">73</td>
+      <td><strong>IRIS GARDEN</strong><small>30 TRẦN HỮU DỰC, CẦU DIỄN, TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">81.486</td>
+      <td class="amount">184.968</td>
+      <td>08:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">74</td>
+      <td><strong>VINHOMES WEST POINT W3</strong><small>P. ĐỖ ĐỨC DỤC, MỄ TRÌ, TỪ LIÊM, HÀ NỘI 10000, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">14</td>
+      <td>14 / 0</td>
+      <td class="amount">10.342</td>
+      <td class="amount">31.381</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">75</td>
+      <td><strong>VINHOMES GARDENIA - A3</strong><small>B6 VINHOME GARDENIA, P. HÀM NGHI, CẦU DIỄN, TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">60</td>
+      <td>60 / 0</td>
+      <td class="amount">22.200</td>
+      <td class="amount">67.800</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">76</td>
+      <td><strong>CT8 THE SPARKS</strong><small>502, TÒA NHÀ CT8B,PHƯỜNG HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">22</td>
+      <td>22 / 0</td>
+      <td class="amount">45.218</td>
+      <td class="amount">107.304</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">77</td>
+      <td><strong>FLC GREEN APARTMENT</strong><small>SỐ 18 PHẠM HÙNG, PHƯỜNG TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">36</td>
+      <td>8 / 28</td>
+      <td class="amount">6.801</td>
+      <td class="amount">22.024</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">78</td>
+      <td><strong>VINHOMES WESTPOINT W1</strong><small>P. ĐỖ ĐỨC DỤC, MỄ TRÌ, TỪ LIÊM, HÀ NỘI 10000, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">14</td>
+      <td>14 / 0</td>
+      <td class="amount">10.141</td>
+      <td class="amount">30.132</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">79</td>
+      <td><strong>VINHOMES WESTPOINT W2</strong><small>Đ. PHẠM HÙNG, MỄ TRÌ, TỪ LIÊM, HÀ NỘI, VIETNAM.</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">14</td>
+      <td>14 / 0</td>
+      <td class="amount">10.422</td>
+      <td class="amount">31.880</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">80</td>
+      <td><strong>CHUNG CƯ BMM XA LA</strong><small>CHUNG CU BMM, P. PHÚC LA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>6 / 2</td>
+      <td class="amount">7.525</td>
+      <td class="amount">27.150</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">81</td>
+      <td><strong>N07</strong><small>NG. 12 P. TRẦN QUÝ KIÊN, DỊCH VỌNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">13.842</td>
+      <td class="amount">40.486</td>
+      <td>06:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">82</td>
+      <td><strong>FLC COMPLEX</strong><small>36 Đ. PHẠM HÙNG, PHƯỜNG TỪ LIÊM, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">32</td>
+      <td>12 / 20</td>
+      <td class="amount">8.337</td>
+      <td class="amount">28.290</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">83</td>
+      <td><strong>UNIMAX QUANG TRUNG</strong><small>UNIMAX, ĐƯỜNG QUANG TRUNG, PHƯỜNG HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">10</td>
+      <td>10 / 0</td>
+      <td class="amount">6.345</td>
+      <td class="amount">19.950</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TÂY HỒ">
+      <td class="no">84</td>
+      <td><strong>CHUNG CƯ GOLDEN WEST LAKE</strong><small>162A Đ. HOÀNG HOA THÁM, PHƯỜNG TÂY HỒ, HÀ NỘI</small></td>
+      <td>Căn hộ</td>
+      <td>TÂY HỒ</td>
+      <td class="amount">16</td>
+      <td>16 / 0</td>
+      <td class="amount">7.328</td>
+      <td class="amount">23.610</td>
+      <td>09:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">85</td>
+      <td><strong>NEWSKYLINE</strong><small>19/5, KHU ĐÔ THỊ VĂN QUÁN, HÀ NỘI, 12100, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>6 / 2</td>
+      <td class="amount">28.684</td>
+      <td class="amount">66.637</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">86</td>
+      <td><strong>HTT 89 PHÙNG HƯNG</strong><small>SỐ 89 Đ. PHÙNG HƯNG, P. PHÚC LA, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">4.705</td>
+      <td class="amount">15.218</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="APARTMENT" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">87</td>
+      <td><strong>VINACONEX 7</strong><small>61 NGUYỄN VĂN GIÁP, PHƯỜNG TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Căn hộ</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">5.815</td>
+      <td class="amount">17.922</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">88</td>
+      <td><strong>TRUNG TÍN BUILDING</strong><small>108 P. NGUYỄN HOÀNG, MỸ ĐÌNH, NAM TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">14</td>
+      <td>14 / 0</td>
+      <td class="amount">8.000</td>
+      <td class="amount">37.406</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">89</td>
+      <td><strong>VIETFRACHT</strong><small>73 LÒ ĐÚC, PHƯỜNG HAI BÀ TRƯNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.935</td>
+      <td class="amount">9.046</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">90</td>
+      <td><strong>GREEN PARK TOWER</strong><small>33 DƯƠNG ĐÌNH NGHỆ, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">39.150</td>
+      <td class="amount">183.060</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">91</td>
+      <td><strong>VINHOMES WESTPOINT OFFICE - BLOCK B</strong><small>2Q6P+M2C, Đ. PHẠM HÙNG, TỪ LIÊM HÀ NỘI, VIETNAM.</small></td>
+      <td>Văn phòng</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">3.868</td>
+      <td class="amount">18.084</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="MALL" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">92</td>
+      <td><strong>TTTM THE GARDEN</strong><small>ĐƯỜNG MỄ TRÌ, QUẬN NAM TỪ LIÊM, HÀ NỘI</small></td>
+      <td>TTTM</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">11</td>
+      <td>8 / 3</td>
+      <td class="amount">11.600</td>
+      <td class="amount">54.240</td>
+      <td>10:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="MALL" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">93</td>
+      <td><strong>TTTM MÊ LINH PLAZA HÀ ĐÔNG</strong><small>HÀ CẦU, HÀ ĐÔNG, HANOI, VIETNAM</small></td>
+      <td>TTTM</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">21.510</td>
+      <td class="amount">100.576</td>
+      <td>06:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">94</td>
+      <td><strong>SHG BUILDING</strong><small>8 Đ. QUANG TRUNG, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">8.460</td>
+      <td class="amount">39.556</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">95</td>
+      <td><strong>VINHOMES WESTPOINT OFFICE-BLOCK A</strong><small>2Q6P+M2C, Đ. PHẠM HÙNG, MỄ TRÌ, TỪ LIÊM, HÀ NỘI, VIETNAM.</small></td>
+      <td>Văn phòng</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">3.868</td>
+      <td class="amount">18.084</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">96</td>
+      <td><strong>KHU THƯƠNG MẠI VÀ VĂN PHÒNG TẠI TÒA NHÀ 173 XUÂN THỦY</strong><small>173 XUÂN THỦY, DỊCH VỌNG HẬU, CẦU GIẤY, HÀ NỘI, VIETNAM.</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">117.308</td>
+      <td class="amount">549.672</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">97</td>
+      <td><strong>25D TÔN THẤT THUYẾT</strong><small>D25 TÔN THẤT THUYẾT, CẦU GIẤY, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">6</td>
+      <td>6 / 0</td>
+      <td class="amount">8.218</td>
+      <td class="amount">38.424</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">98</td>
+      <td><strong>HEMISCO XA LA</strong><small>PHÚC LA, HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">19.672</td>
+      <td class="amount">93.990</td>
+      <td>04:00 - 23:59 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="HOTEL" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">99</td>
+      <td><strong>KHÁCH SẠN NESTA NGUYỄN THƯỢNG HIỀN</strong><small>30 P. NGUYỄN THƯỢNG HIỀN, PHƯỜNG HAI BÀ TRƯNG, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Khách sạn</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">3</td>
+      <td>2 / 1</td>
+      <td class="amount">5.800</td>
+      <td class="amount">27.120</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">100</td>
+      <td><strong>CT2 TÔ HIỆU VĂN PHÒNG</strong><small>CT2 Đ. TÔ HIỆU, PHƯỜNG HÀ ĐÔNG, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">7</td>
+      <td>6 / 1</td>
+      <td class="amount">14.332</td>
+      <td class="amount">67.014</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="COMMERCIAL COMPLEX" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">101</td>
+      <td><strong>KHỐI TTTM THE PRIDE</strong><small>THE PRIDE P, XQC4+MXP, KHU ĐÔ THỊ AN HƯNG, HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Phức hợp</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">12</td>
+      <td>12 / 0</td>
+      <td class="amount">1.740</td>
+      <td class="amount">3.480</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">102</td>
+      <td><strong>TÒA NHÀ SƠN HÀ</strong><small>15 P. DUY TÂN, DỊCH VỌNG HẬU, CẦU GIẤY, HÀ NỘI 10000, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">4.430</td>
+      <td class="amount">20.714</td>
+      <td>07:00 - 22:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">103</td>
+      <td><strong>OFFICE 33 NGÕ 165 CẦU GIẤY</strong><small>33 NG. 165 Đ. CẦU GIẤY, DỊCH VỌNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">775</td>
+      <td class="amount">3.622</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">104</td>
+      <td><strong>HỌC VIỆN QUỐC PHÒNG OFFICE</strong><small>Đ. NGUYỄN VĂN HUYÊN, QUAN HOA, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">8</td>
+      <td>8 / 0</td>
+      <td class="amount">49.572</td>
+      <td class="amount">231.790</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG BA ĐÌNH">
+      <td class="no">105</td>
+      <td><strong>TÒA NHÀ THĂNG LONG GTC</strong><small>113 - 115 Đ. LÊ DUẨN, CỬA NAM, HOÀN KIẾM, HÀ NỘI 100000, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>BA ĐÌNH</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">988</td>
+      <td class="amount">4.619</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">106</td>
+      <td><strong>TÒA NHÀ VĂN PHÒNG SỐ 2 ĐẠI CỒ VIỆT</strong><small>TÒA NHÀ THÁI BÌNH, 2A ĐẠI CỒ VIỆT, LÊ ĐẠI HÀNH, HAI BÀ TRƯNG, HÀ NỘI 100000, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">2.320</td>
+      <td class="amount">10.848</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">107</td>
+      <td><strong>INTRACOM BUILDING (HONG HA NUTRITION)</strong><small>82 P. DỊCH VỌNG HẬU, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">7</td>
+      <td>6 / 1</td>
+      <td class="amount">5.800</td>
+      <td class="amount">27.120</td>
+      <td>07:00 - 21:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">108</td>
+      <td><strong>TOÀ VĂN PHÒNG WEB3 TOWER</strong><small>SỐ 15 NGÕ 4 DUY TÂN, PHƯỜNG CẦU GIẤY, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">2.612</td>
+      <td class="amount">12.406</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TÂY HỒ">
+      <td class="no">109</td>
+      <td><strong>LEXINGTON</strong><small>249 Đ. THỤY KHUÊ, PHƯỜNG TÂY HỒ, HÀ NỘI 100000, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>TÂY HỒ</td>
+      <td class="amount">6</td>
+      <td>4 / 2</td>
+      <td class="amount">3.868</td>
+      <td class="amount">18.084</td>
+      <td>07:00 - 23:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">110</td>
+      <td><strong>TÒA NHÀ AN DU</strong><small>11 PHẠM HÙNG, MỸ ĐÌNH, NAM TỪ LIÊM, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.693</td>
+      <td class="amount">7.914</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">111</td>
+      <td><strong>PHÚ MINH GROUP</strong><small>82 TRẦN THÁI TÔNG, DỊCH VỌNG HẬU, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.935</td>
+      <td class="amount">9.046</td>
+      <td>07:00 - 20:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">112</td>
+      <td><strong>AZ OFFICE 72 DỊCH VỌNG</strong><small>72 P. DỊCH VỌNG, CẦU GIẤY, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">3</td>
+      <td>2 / 1</td>
+      <td class="amount">968</td>
+      <td class="amount">4.524</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="COMMERCIAL COMPLEX" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">113</td>
+      <td><strong>WESTA TRẦN PHÚ</strong><small>102 ĐƯỜNG TRẦN PHÚ,HÀ ĐÔNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Phức hợp</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>2 / 2</td>
+      <td class="amount">2.764</td>
+      <td class="amount">12.183</td>
+      <td>07:00 - 20:00 </td>
+      <td>Có loại trừ</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">114</td>
+      <td><strong>O+ BUILDING</strong><small>20 PHỐ HUY DU, PHƯỜNG TỪ LIÊM, HANOI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">3</td>
+      <td>2 / 1</td>
+      <td class="amount">441</td>
+      <td class="amount">2.062</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TÂY HỒ">
+      <td class="no">115</td>
+      <td><strong>TÒA NHÀ GRAND SUITES WESTLAKE</strong><small>114 XUÂN DIỆU, PHƯỜNG TÂY HỒ, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>TÂY HỒ</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">1.740</td>
+      <td class="amount">8.136</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">116</td>
+      <td><strong>AZ OFFICE 85 NGUYỄN DU</strong><small>85 NGUYỄN DU, P. HAI BÀ TRƯNG, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">3</td>
+      <td>2 / 1</td>
+      <td class="amount">638</td>
+      <td class="amount">2.984</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">117</td>
+      <td><strong>TH LAND 78 DUY TÂN</strong><small>SỐ 6 NGÁCH 3 78 DUY TÂN, DỊCH VỌNG HẬU, CẦU GIẤY, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">678</td>
+      <td class="amount">3.168</td>
+      <td>07:00 - 21:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">118</td>
+      <td><strong>PHƯƠNG THẢO 1</strong><small>86 NGÕ 78 ĐƯỜNG 18M, KĐT MỖ LAO, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">1.088</td>
+      <td class="amount">5.086</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">119</td>
+      <td><strong>PHƯƠNG THẢO 2</strong><small>26 NGÕ 12 VŨ TRỌNG KHÁNH, TỔ DÂN PHỐ 16, PHƯỜNG HÀ ĐÔNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">1.088</td>
+      <td class="amount">5.086</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG TỪ LIÊM">
+      <td class="no">120</td>
+      <td><strong>IDS BUILDING</strong><small>8 ĐƯỜNG PHẠM HÙNG, PHƯỜNG TỪ LIÊM, THÀNH PHỐ HÀ NỘ</small></td>
+      <td>Văn phòng</td>
+      <td>TỪ LIÊM</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">2.418</td>
+      <td class="amount">11.304</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">121</td>
+      <td><strong>MTV BUILDING</strong><small>221B TRẦN ĐĂNG NINH, CẦU GIẤY, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">5</td>
+      <td>4 / 1</td>
+      <td class="amount">5.414</td>
+      <td class="amount">25.635</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HÀ ĐÔNG">
+      <td class="no">122</td>
+      <td><strong>TOÀ NHÀ SIMCO SÔNG ĐÀ</strong><small>VẠN PHÚC, PHƯỜNG HÀ ĐÔNG, HÀ NỘI, VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>HÀ ĐÔNG</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.999</td>
+      <td class="amount">9.527</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">123</td>
+      <td><strong>GRAND BUILDING</strong><small>30-32 HÒA MÃ, PHƯỜNG HAI BÀ TRƯNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">420</td>
+      <td class="amount">840</td>
+      <td>07:00 - 20:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">124</td>
+      <td><strong>OFFICE 8 NGÕ 45 TRẦN THÁI TÔNG</strong><small>8 NG. 45 TRẦN THÁI TÔNG, DỊCH VỌNG, CẦU GIẤY, HÀ NỘI, VIETNAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">1</td>
+      <td>1 / 0</td>
+      <td class="amount">775</td>
+      <td class="amount">3.622</td>
+      <td>07:07 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">125</td>
+      <td><strong>HOÀNG NGỌC BUILDING</strong><small>LÔ C2C, KHU CÔNG NGHỆ THÔNG TIN TẬP TRUNG CẦU GIẤY, PHƯỜNG CẦU GIẤY, HÀ NỘI</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">4</td>
+      <td>4 / 0</td>
+      <td class="amount">1.210</td>
+      <td class="amount">5.656</td>
+      <td>07:00 - 22:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG HAI BÀ TRƯNG">
+      <td class="no">126</td>
+      <td><strong>SONG TOÀN BUILDING</strong><small>SỐ 182A LÒ ĐÚC, PHƯỜNG HAI BÀ TRƯNG, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>HAI BÀ TRƯNG</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.210</td>
+      <td class="amount">5.656</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr>
+<tr data-type="OFFICE" data-area="PHƯỜNG CẦU GIẤY">
+      <td class="no">127</td>
+      <td><strong>AD BUILDING</strong><small>SỐ 15 NGÕ 82 DỊCH VỌNG HẬU, PHƯỜNG CẦU GIẤY, THÀNH PHỐ HÀ NỘI ,VIỆT NAM</small></td>
+      <td>Văn phòng</td>
+      <td>CẦU GIẤY</td>
+      <td class="amount">2</td>
+      <td>2 / 0</td>
+      <td class="amount">1.935</td>
+      <td class="amount">9.046</td>
+      <td>07:00 - 19:00 </td>
+      <td>—</td>
+    </tr></tbody>
+        </table></div>
+      </div>
+      <p class="note">Lưu ý: danh sách trên thể hiện inventory hệ thống DF theo file đính kèm. Số lượng booking thực tế của gói triển khai vẫn cần đối soát theo phạm vi, thời điểm và số màn hình được chốt trong kế hoạch media.</p>
+    </section>
+
+
+
+
+    <section class="page reveal">
+      <div class="total">
+        <div><h2>Tổng ngân sách đề xuất</h2><p>Không ghi nhận chiết khấu trong file báo giá. Tỷ giá tham chiếu ngày 23/6/2026: 26.448 VND.</p></div>
+        <div class="big">1.051.805.760đ</div>
+      </div>
+    </section>
+    <section class="page reveal" id="contact">
+      <div class="contact-card">
+        <div>
+          <div class="eyebrow">Thông tin liên hệ<br>Branding & Martech Solution, ADMICRO</div>
+          <div class="contact-name">Trần Phương Thảo</div>
+          <div class="contact-meta"><a class="contact-email" href="mailto:tranphuongthao02@admicro.vn">tranphuongthao02@admicro.vn</a></div>
+        </div>
+        <div class="pill">Contact point</div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer page">
+    <div class="footer-shell">
+      <strong>admeX Creative Media Agency, bảo lưu mọi quyền</strong>
+      <p>Tài liệu này được biên soạn dành riêng cho Bệnh viện Hồng Ngọc. Nội dung và hình ảnh được tạo lập bởi Trí tuệ nhân tạo (AI), dưới sự kiểm duyệt chặt chẽ từ đội ngũ admeX Creative Media Agency.</p>
+      <a href="https://admex.vn" target="_blank" rel="noopener">admex.vn</a>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('topNav');
+    const menuToggle = document.getElementById('menuToggle');
+    if(menuToggle){menuToggle.addEventListener('click',()=>nav.classList.toggle('open'));}
+    document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
+    const revealItems = document.querySelectorAll('.reveal, .card, .channel, .metric');
+    const revealObserver = new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in'); revealObserver.unobserve(entry.target);}});},{threshold:.12});
+    revealItems.forEach(item=>{item.classList.add('reveal'); revealObserver.observe(item);});
+
+    const searchInput = document.getElementById('buildingSearch');
+    const typeFilter = document.getElementById('typeFilter');
+    const resultCount = document.getElementById('resultCount');
+    const tableRows = Array.from(document.querySelectorAll('#buildingTable tbody tr'));
+    function normalizeText(value){return (value || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+    function filterBuildings(){
+      const query = normalizeText(searchInput.value);
+      const type = typeFilter.value;
+      let visible = 0;
+      tableRows.forEach(row => {
+        const matchText = normalizeText(row.innerText).includes(query);
+        const matchType = !type || row.dataset.type === type;
+        const show = matchText && matchType;
+        row.hidden = !show;
+        if(show) visible++;
+      });
+      resultCount.textContent = visible + ' địa điểm';
+    }
+    if(searchInput && typeFilter){ searchInput.addEventListener('input', filterBuildings); typeFilter.addEventListener('change', filterBuildings); }
+  </script>
+</body>
+</html>
