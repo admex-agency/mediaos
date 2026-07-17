@@ -698,6 +698,699 @@
       }
     }
 
+  
+    /* Animated Vietnam mediaOS hero */
+    .hero-ecosystem{
+      position:relative;
+      min-height:100svh;
+      overflow:hidden;
+      display:grid;
+      align-items:center;
+      padding:132px 0 78px;
+      isolation:isolate;
+    }
+    .hero-ecosystem:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-3;
+      background:
+        radial-gradient(circle at 72% 47%,rgba(85,238,227,.115),transparent 28%),
+        radial-gradient(circle at 85% 10%,rgba(48,149,255,.09),transparent 24%),
+        linear-gradient(135deg,#061316 0%,#071a1e 52%,#061316 100%);
+    }
+    .hero-ambient{
+      position:absolute;
+      inset:-30%;
+      z-index:-2;
+      pointer-events:none;
+      background:
+        radial-gradient(circle,rgba(85,238,227,.055) 0 1px,transparent 1.7px);
+      background-size:38px 38px;
+      mask-image:linear-gradient(to bottom,transparent 3%,#000 25%,#000 72%,transparent 100%);
+      animation:ambientDrift 28s linear infinite;
+    }
+    .hero-layout{
+      display:grid;
+      grid-template-columns:minmax(360px,.78fr) minmax(560px,1.22fr);
+      gap:26px;
+      align-items:center;
+    }
+    .hero-copy-column{
+      position:relative;
+      z-index:5;
+      padding:28px 0;
+    }
+    .hero-brand-lockup h1{
+      max-width:600px;
+      margin:0;
+      font-size:clamp(58px,7.2vw,104px);
+      line-height:.91;
+      letter-spacing:-.07em;
+    }
+    .hero-tagline{
+      margin-top:17px;
+      color:var(--cyan);
+      font-size:clamp(13px,1.35vw,18px);
+      font-weight:720;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .hero-copy-column .hero-copy{
+      max-width:590px;
+      margin:32px 0 0;
+      color:#cbdadd;
+      font-size:clamp(17px,1.55vw,22px);
+      line-height:1.58;
+    }
+    .hero-benefits{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:29px;
+    }
+    .hero-benefits span{
+      padding:9px 13px;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:999px;
+      background:rgba(255,255,255,.035);
+      color:#d9e6e8;
+      font-size:12px;
+      backdrop-filter:blur(12px);
+    }
+    .hero-scroll-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:35px;
+      color:var(--cyan);
+      font-size:13px;
+      font-weight:760;
+    }
+    .hero-scroll-link svg{
+      width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;
+      animation:scrollArrow 1.8s ease-in-out infinite;
+    }
+
+    .media-galaxy{
+      position:relative;
+      width:min(100%,720px);
+      aspect-ratio:1;
+      margin-inline:auto;
+      perspective:1100px;
+      transform-style:preserve-3d;
+      user-select:none;
+    }
+    .galaxy-lines{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      overflow:visible;
+      pointer-events:none;
+      filter:drop-shadow(0 0 11px rgba(85,238,227,.08));
+      animation:galaxyBreathe 8s ease-in-out infinite;
+    }
+    .orbit{
+      fill:none;
+      stroke:rgba(255,255,255,.11);
+      stroke-width:1;
+      stroke-dasharray:3 9;
+      transform-origin:center;
+    }
+    .orbit-a{animation:orbitSpin 54s linear infinite}
+    .orbit-b{animation:orbitSpinReverse 72s linear infinite}
+    .connection-lines path{
+      fill:none;
+      stroke:url(#lineGradient);
+      stroke-width:1;
+      stroke-dasharray:7 18;
+      animation:lineFlow 8s linear infinite;
+    }
+    .connection-lines path:nth-child(2n){animation-delay:-4s}
+    .galaxy-glow{
+      position:absolute;
+      left:50%;top:50%;
+      width:44%;aspect-ratio:1;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(85,238,227,.17),rgba(85,238,227,.035) 46%,transparent 72%);
+      filter:blur(8px);
+      animation:coreGlow 5s ease-in-out infinite;
+    }
+    .media-core{
+      position:absolute;
+      left:50%;top:50%;
+      width:208px;aspect-ratio:1;
+      transform:translate(-50%,-50%) translateZ(48px);
+      border:1px solid rgba(85,238,227,.43);
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 50% 35%,rgba(255,255,255,.08),transparent 42%),
+        rgba(7,25,29,.84);
+      backdrop-filter:blur(18px);
+      box-shadow:
+        0 28px 60px rgba(0,0,0,.32),
+        inset 0 0 40px rgba(85,238,227,.08);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      z-index:8;
+      animation:coreFloat 6s ease-in-out infinite;
+    }
+    .media-core img{
+      width:132px;
+      height:auto;
+      filter:drop-shadow(0 8px 22px rgba(0,0,0,.25));
+    }
+    .media-core > span{
+      position:absolute;
+      bottom:38px;
+      color:#9fd5d2;
+      font-size:10px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .core-pulse{
+      position:absolute;
+      inset:-1px;
+      border:1px solid rgba(85,238,227,.38);
+      border-radius:50%;
+      animation:corePulse 4.5s ease-out infinite;
+    }
+    .core-pulse-b{animation-delay:-2.25s}
+
+    .media-node{
+      --x:0px;
+      --y:0px;
+      position:absolute;
+      left:50%;top:50%;
+      width:126px;
+      min-height:92px;
+      transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) translateZ(18px);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:20px;
+      padding:13px 11px;
+      color:#eff9f9;
+      background:linear-gradient(155deg,rgba(18,47,52,.91),rgba(7,23,27,.79));
+      box-shadow:0 16px 38px rgba(0,0,0,.23);
+      backdrop-filter:blur(14px);
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:center;
+      gap:2px;
+      text-align:left;
+      cursor:pointer;
+      z-index:4;
+      transition:
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
+      animation:nodeFloat 7s ease-in-out infinite;
+    }
+    .media-node:hover,
+    .media-node:focus-visible,
+    .media-node.active{
+      border-color:rgba(85,238,227,.7);
+      background:linear-gradient(155deg,rgba(28,73,78,.96),rgba(9,29,33,.92));
+      box-shadow:0 22px 50px rgba(0,0,0,.35),0 0 0 4px rgba(85,238,227,.055);
+      outline:none;
+      z-index:12;
+    }
+    .node-icon{
+      width:27px;height:27px;
+      margin-bottom:6px;
+      color:var(--cyan);
+    }
+    .node-icon svg{
+      width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.55;
+      stroke-linecap:round;stroke-linejoin:round;
+    }
+    .media-node strong{font-size:13px;line-height:1.2}
+    .media-node small{color:#91a9ad;font-size:10px}
+    .node-news{--x:0px;--y:-287px;animation-delay:-1s}
+    .node-social{--x:205px;--y:-205px;animation-delay:-3.1s}
+    .node-dooh{--x:292px;--y:0px;animation-delay:-4.4s}
+    .node-retail{--x:205px;--y:205px;animation-delay:-2.2s}
+    .node-apps{--x:0px;--y:287px;animation-delay:-5.3s}
+    .node-events{--x:-205px;--y:205px;animation-delay:-.6s}
+    .node-ip{--x:-292px;--y:0px;animation-delay:-3.8s}
+    .node-data{--x:-205px;--y:-205px;animation-delay:-1.7s}
+
+    .galaxy-tooltip{
+      position:absolute;
+      left:50%;
+      top:calc(50% + 142px);
+      width:min(330px,72%);
+      transform:translateX(-50%) translateY(8px);
+      padding:13px 16px;
+      border:1px solid rgba(85,238,227,.22);
+      border-radius:16px;
+      background:rgba(5,18,21,.86);
+      backdrop-filter:blur(16px);
+      text-align:center;
+      opacity:0;
+      visibility:hidden;
+      transition:.3s ease;
+      z-index:11;
+      pointer-events:none;
+    }
+    .galaxy-tooltip.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateX(-50%) translateY(0);
+    }
+    .galaxy-tooltip strong{display:block;font-size:13px}
+    .galaxy-tooltip span{display:block;margin-top:3px;color:#a9bec1;font-size:11px;line-height:1.45}
+    .galaxy-values{
+      position:absolute;
+      inset:auto 0 25px;
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      pointer-events:none;
+    }
+    .galaxy-values span{
+      padding:6px 10px;
+      border-radius:999px;
+      color:#7da5a7;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(255,255,255,.07);
+      font-size:9px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      animation:valueFade 8s ease-in-out infinite;
+    }
+    .galaxy-values span:nth-child(2){animation-delay:-2s}
+    .galaxy-values span:nth-child(3){animation-delay:-4s}
+    .galaxy-values span:nth-child(4){animation-delay:-6s}
+
+    @keyframes ambientDrift{to{transform:translate3d(38px,38px,0)}}
+    @keyframes scrollArrow{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+    @keyframes orbitSpin{to{transform:rotate(360deg)}}
+    @keyframes orbitSpinReverse{to{transform:rotate(-360deg)}}
+    @keyframes lineFlow{to{stroke-dashoffset:-100}}
+    @keyframes galaxyBreathe{0%,100%{opacity:.78}50%{opacity:1}}
+    @keyframes coreGlow{0%,100%{transform:translate(-50%,-50%) scale(.94);opacity:.65}50%{transform:translate(-50%,-50%) scale(1.08);opacity:1}}
+    @keyframes coreFloat{0%,100%{transform:translate(-50%,-50%) translateZ(48px) translateY(-4px)}50%{transform:translate(-50%,-50%) translateZ(48px) translateY(5px)}}
+    @keyframes corePulse{0%{transform:scale(.84);opacity:.72}75%,100%{transform:scale(1.52);opacity:0}}
+    @keyframes nodeFloat{0%,100%{margin-top:-4px}50%{margin-top:5px}}
+    @keyframes valueFade{0%,100%{color:#708b8e;border-color:rgba(255,255,255,.06)}50%{color:#a6ded9;border-color:rgba(85,238,227,.22)}}
+
+    @media (max-width:1080px){
+      .hero-layout{grid-template-columns:1fr;gap:4px}
+      .hero-copy-column{text-align:center;padding-bottom:0}
+      .hero-copy-column .hero-copy{margin-inline:auto}
+      .hero-benefits{justify-content:center}
+      .hero-scroll-link{display:none}
+      .media-galaxy{width:min(100%,680px);margin-top:0}
+    }
+    @media (max-width:720px){
+      .hero-ecosystem{padding:112px 0 46px;min-height:auto}
+      .hero-brand-lockup h1{font-size:54px}
+      .hero-copy-column .hero-copy{font-size:16px;margin-top:24px}
+      .hero-benefits{margin-top:22px}
+      .media-galaxy{
+        width:620px;
+        max-width:none;
+        left:50%;
+        margin-left:-310px;
+        transform:scale(.72);
+        transform-origin:top center;
+        margin-bottom:-165px;
+        pointer-events:auto;
+      }
+      .galaxy-values{display:none}
+    }
+    @media (max-width:430px){
+      .hero-brand-lockup h1{font-size:47px}
+      .hero-benefits span{font-size:10px;padding:8px 10px}
+      .media-galaxy{transform:scale(.59);margin-bottom:-245px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .hero-ambient,.galaxy-lines,.orbit,.connection-lines path,.galaxy-glow,
+      .media-core,.core-pulse,.media-node,.galaxy-values span,.hero-scroll-link svg{
+        animation:none!important;
+      }
+      .media-galaxy{transform:none!important}
+    }
+
+  
+    /* V7 — sửa chồng lấn animation hero */
+    .media-galaxy{
+      padding-bottom:48px;
+    }
+    .galaxy-tooltip{
+      top:calc(50% + 118px);
+      width:min(300px,68%);
+      padding:11px 14px;
+    }
+    .node-news{--x:0px;--y:-272px}
+    .node-social{--x:192px;--y:-192px}
+    .node-dooh{--x:274px;--y:0px}
+    .node-retail{--x:192px;--y:192px}
+    .node-apps{--x:0px;--y:274px}
+    .node-events{--x:-192px;--y:192px}
+    .node-ip{--x:-274px;--y:0px}
+    .node-data{--x:-192px;--y:-192px}
+
+    @media (max-width:720px){
+      .hero-ecosystem{
+        padding:108px 0 54px;
+      }
+      .hero-layout{
+        display:block;
+      }
+      .hero-copy-column{
+        text-align:left;
+      }
+      .hero-copy-column .hero-copy{
+        margin-left:0;
+        margin-right:0;
+      }
+      .hero-benefits{
+        justify-content:flex-start;
+      }
+
+      .media-galaxy{
+        width:100%;
+        max-width:none;
+        aspect-ratio:auto;
+        left:auto;
+        margin:34px 0 0;
+        padding:22px;
+        transform:none!important;
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+        border:1px solid rgba(255,255,255,.09);
+        border-radius:26px;
+        background:
+          radial-gradient(circle at 50% 12%,rgba(85,238,227,.09),transparent 32%),
+          rgba(255,255,255,.02);
+        overflow:hidden;
+      }
+
+      .galaxy-lines,
+      .galaxy-glow,
+      .galaxy-values,
+      .core-pulse{
+        display:none!important;
+      }
+
+      .media-core{
+        position:relative;
+        left:auto;
+        top:auto;
+        width:168px;
+        transform:none!important;
+        grid-column:1 / -1;
+        justify-self:center;
+        margin:0 0 8px;
+        animation:mobileCoreFloat 5s ease-in-out infinite;
+      }
+      .media-core img{
+        width:112px;
+      }
+      .media-core > span{
+        bottom:30px;
+        font-size:9px;
+      }
+
+      .media-node{
+        --x:0px!important;
+        --y:0px!important;
+        position:relative;
+        left:auto;
+        top:auto;
+        width:100%;
+        min-height:92px;
+        transform:none!important;
+        animation:mobileNodeFloat 6s ease-in-out infinite;
+        margin:0!important;
+      }
+
+      .media-node:nth-of-type(odd){animation-delay:-2s}
+      .media-node:nth-of-type(even){animation-delay:-4s}
+
+      .galaxy-tooltip{
+        position:relative;
+        left:auto;
+        top:auto;
+        width:100%;
+        min-height:72px;
+        grid-column:1 / -1;
+        transform:none!important;
+        opacity:1;
+        visibility:visible;
+        margin-top:2px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .galaxy-tooltip.show{
+        transform:none!important;
+      }
+
+      @keyframes mobileCoreFloat{
+        0%,100%{transform:translateY(-2px)}
+        50%{transform:translateY(4px)}
+      }
+      @keyframes mobileNodeFloat{
+        0%,100%{transform:translateY(0)}
+        50%{transform:translateY(-3px)}
+      }
+    }
+
+    @media (max-width:430px){
+      .hero-brand-lockup h1{
+        font-size:44px;
+      }
+      .hero-benefits{
+        gap:7px;
+      }
+      .hero-benefits span{
+        font-size:10px;
+        padding:7px 9px;
+      }
+      .media-galaxy{
+        padding:16px;
+        gap:10px;
+        border-radius:22px;
+      }
+      .media-core{
+        width:150px;
+      }
+      .media-node{
+        min-height:88px;
+        padding:12px 10px;
+        border-radius:17px;
+      }
+      .media-node strong{font-size:12px}
+      .media-node small{font-size:9px}
+      .node-icon{
+        width:24px;
+        height:24px;
+      }
+      .galaxy-tooltip{
+        min-height:78px;
+        padding:12px;
+      }
+    }
+
+  
+    /* V8 — typography */
+    h2{
+      font-size:clamp(36px,4.2vw,52px)!important;
+    }
+    .difference-main h3{
+      font-size:clamp(32px,3.6vw,44px)!important;
+    }
+
+    /* V8 — dành vùng riêng cho shape mô tả trên desktop */
+    @media (min-width:721px){
+      .media-galaxy{
+        width:min(100%,720px);
+        height:820px;
+        aspect-ratio:auto;
+        padding-bottom:0;
+      }
+
+      .galaxy-lines{
+        inset:0 auto auto 0;
+        width:720px;
+        height:720px;
+        max-width:100%;
+      }
+
+      .galaxy-glow,
+      .media-core,
+      .media-node{
+        top:360px;
+      }
+
+      .galaxy-tooltip{
+        top:auto;
+        bottom:8px;
+        width:min(420px,72%);
+        min-height:76px;
+        padding:14px 18px;
+        transform:translateX(-50%) translateY(0);
+        z-index:20;
+      }
+
+      .galaxy-tooltip.show{
+        transform:translateX(-50%) translateY(0);
+      }
+
+      .galaxy-values{
+        bottom:96px;
+      }
+    }
+
+    @media (min-width:721px) and (max-width:1080px){
+      .media-galaxy{
+        height:790px;
+      }
+      .galaxy-lines{
+        width:680px;
+        height:680px;
+        left:50%;
+        transform:translateX(-50%);
+      }
+      .galaxy-glow,
+      .media-core,
+      .media-node{
+        top:340px;
+      }
+      .node-news{--x:0px;--y:-255px}
+      .node-social{--x:180px;--y:-180px}
+      .node-dooh{--x:255px;--y:0px}
+      .node-retail{--x:180px;--y:180px}
+      .node-apps{--x:0px;--y:255px}
+      .node-events{--x:-180px;--y:180px}
+      .node-ip{--x:-255px;--y:0px}
+      .node-data{--x:-180px;--y:-180px}
+    }
+
+  
+    /* V9 — nội dung chi tiết hiển thị ngay trong từng node */
+    .galaxy-tooltip{
+      display:none!important;
+    }
+
+    .media-node{
+      overflow:hidden;
+      transition:
+        width .32s ease,
+        min-height .32s ease,
+        padding .32s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
+    }
+
+    .media-node::after{
+      content:attr(data-detail);
+      display:block;
+      max-height:0;
+      margin-top:0;
+      color:#b7c8cb;
+      font-size:11px;
+      line-height:1.45;
+      opacity:0;
+      overflow:hidden;
+      transform:translateY(5px);
+      transition:
+        max-height .32s ease,
+        margin-top .32s ease,
+        opacity .24s ease,
+        transform .32s ease;
+    }
+
+    .media-node:hover,
+    .media-node:focus-visible,
+    .media-node.active{
+      width:224px;
+      min-height:132px;
+      padding:16px;
+    }
+
+    .media-node:hover::after,
+    .media-node:focus-visible::after,
+    .media-node.active::after{
+      max-height:84px;
+      margin-top:9px;
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .media-node:hover small,
+    .media-node:focus-visible small,
+    .media-node.active small{
+      color:#9fd5d2;
+    }
+
+    @media (min-width:721px){
+      .media-galaxy{
+        height:720px;
+      }
+      .galaxy-values{
+        bottom:18px;
+      }
+    }
+
+    @media (max-width:720px){
+      .media-node{
+        width:100%;
+        min-height:92px;
+      }
+
+      .media-node:hover,
+      .media-node:focus-visible,
+      .media-node.active{
+        width:100%;
+        min-height:150px;
+        grid-column:1 / -1;
+      }
+
+      .media-node::after{
+        font-size:11px;
+      }
+    }
+
+  
+    /* V10 — chuyển TRUST · DATA · AI · MEASUREMENT ra khỏi vùng animation */
+    .hero-foundation{
+      margin-top:15px;
+      color:#6f9396;
+      font-size:10px;
+      font-weight:760;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .media-galaxy{
+      padding-bottom:0!important;
+    }
+
+    @media (min-width:721px){
+      .media-galaxy{
+        height:690px;
+      }
+    }
+
+    @media (max-width:720px){
+      .hero-foundation{
+        text-align:left;
+        font-size:9px;
+        letter-spacing:.13em;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -718,39 +1411,127 @@
   </nav>
 
   <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-brand-lockup">
-          <h1>Vietnam mediaOS</h1>
-          <div class="hero-tagline">Trusted Innovation at Scale</div>
+<section class="hero hero-ecosystem">
+      <div class="hero-ambient" aria-hidden="true"></div>
+      <div class="wrap hero-layout">
+        <div class="hero-copy-column">
+          <div class="hero-brand-lockup">
+            <h1>Vietnam mediaOS</h1>
+            <div class="hero-tagline">Trusted Innovation at Scale</div>
+          </div>
+          <p class="hero-copy">
+            Nền tảng vận hành toàn diện giúp doanh nghiệp kết nối, triển khai
+            và đo lường truyền thông trong toàn bộ hệ sinh thái media Việt Nam.
+          </p>
+          <div class="hero-benefits">
+            <span>Một điểm tiếp cận</span>
+            <span>Một chuẩn vận hành</span>
+            <span>Một hệ đo lường</span>
+          </div>
+          <div class="hero-foundation">Trust · Data · AI · Measurement</div>
+          <a href="#context" class="hero-scroll-link">
+            <span>Khám phá hệ sinh thái</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14M6.5 13.5 12 19l5.5-5.5"/>
+            </svg>
+          </a>
         </div>
-        <p class="hero-copy">
-          Một nền tảng giúp doanh nghiệp tiếp cận, mua, triển khai và đo lường truyền thông
-          trong hệ sinh thái media Việt Nam theo một chuẩn vận hành thống nhất.
-        </p>
 
-        <div class="hero-grid">
-          <div class="panel hero-main reveal">
-            <div class="label">Một nền tảng, toàn bộ hệ sinh thái media Việt Nam</div>
-            <div class="hero-statement">
-              Không chỉ cung cấp nhiều kênh truyền thông.
-              <strong>Vietnam mediaOS giúp toàn bộ hệ sinh thái vận hành như một hệ thống duy nhất.</strong>
-            </div>
+        <div class="media-galaxy" id="mediaGalaxy" aria-label="Hệ sinh thái Vietnam mediaOS">
+          <svg class="galaxy-lines" viewBox="0 0 720 720" aria-hidden="true">
+            <defs>
+              <linearGradient id="lineGradient" x1="0" x2="1">
+                <stop offset="0%" stop-color="#55eee3" stop-opacity="0"/>
+                <stop offset="50%" stop-color="#55eee3" stop-opacity=".62"/>
+                <stop offset="100%" stop-color="#55eee3" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <circle cx="360" cy="360" r="218" class="orbit orbit-a"/>
+            <circle cx="360" cy="360" r="292" class="orbit orbit-b"/>
+            <g class="connection-lines">
+              <path d="M360 360 L360 72"/>
+              <path d="M360 360 L552 145"/>
+              <path d="M360 360 L650 315"/>
+              <path d="M360 360 L580 548"/>
+              <path d="M360 360 L360 650"/>
+              <path d="M360 360 L135 545"/>
+              <path d="M360 360 L70 320"/>
+              <path d="M360 360 L155 145"/>
+            </g>
+          </svg>
+
+          <div class="galaxy-glow" aria-hidden="true"></div>
+
+          <div class="media-core">
+            <div class="core-pulse core-pulse-a"></div>
+            <div class="core-pulse core-pulse-b"></div>
+            <img src="assets/vietnam-mediaos-logo.png" alt="Vietnam mediaOS by VCCorp" />
+            <span>One media ecosystem</span>
           </div>
-          <div class="hero-side">
-            <div class="value-card reveal">
-              <strong>Một điểm tiếp cận</strong>
-              <span>Kết nối nhiều nhóm media trong cùng một nền tảng.</span>
-            </div>
-            <div class="value-card reveal">
-              <strong>Một chuẩn vận hành</strong>
-              <span>Thống nhất từ lập kế hoạch, mua, triển khai đến tối ưu.</span>
-            </div>
-            <div class="value-card reveal">
-              <strong>Một hệ đo lường</strong>
-              <span>Theo dõi hiệu quả chiến dịch trên cùng một logic báo cáo.</span>
-            </div>
-          </div>
+
+          <button class="media-node node-news" type="button" data-title="Báo chí & Publisher" data-detail="Premium content, mass reach và môi trường truyền thông đáng tin cậy.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>
+            </span>
+            <strong>Báo chí</strong>
+            <small>Publisher</small>
+          </button>
+
+          <button class="media-node node-social" type="button" data-title="Social & Video" data-detail="Mở rộng tiếp cận, tương tác và nội dung video trên các nền tảng lớn.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 8.5v7l6-3.5z"/><circle cx="12" cy="12" r="9"/></svg>
+            </span>
+            <strong>Social</strong>
+            <small>Video</small>
+          </button>
+
+          <button class="media-node node-dooh" type="button" data-title="DOOH & LED" data-detail="Kết nối các điểm chạm ngoài trời tại vị trí chiến lược trên toàn quốc.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM9 20h6M12 16v4"/></svg>
+            </span>
+            <strong>DOOH</strong>
+            <small>LED</small>
+          </button>
+
+          <button class="media-node node-retail" type="button" data-title="Retail Media" data-detail="Tiếp cận người tiêu dùng tại điểm bán và trong hành trình mua sắm.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 9h16l-1 11H5zM7 9l1-5h8l1 5"/></svg>
+            </span>
+            <strong>Retail</strong>
+            <small>Commerce</small>
+          </button>
+
+          <button class="media-node node-apps" type="button" data-title="Apps & Mobility" data-detail="Kích hoạt truyền thông trong hệ sinh thái ứng dụng và hành trình di chuyển.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M10 17h4"/></svg>
+            </span>
+            <strong>Apps</strong>
+            <small>Mobility</small>
+          </button>
+
+          <button class="media-node node-events" type="button" data-title="Event & Activation" data-detail="Tạo trải nghiệm thương hiệu trực tiếp qua sự kiện, activation và triển lãm.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19V9l8-5 8 5v10M8 19v-5h8v5"/></svg>
+            </span>
+            <strong>Event</strong>
+            <small>Activation</small>
+          </button>
+
+          <button class="media-node node-ip" type="button" data-title="Big IP Content" data-detail="Sở hữu những điểm chạm văn hóa, giải trí và nội dung có sức ảnh hưởng lớn.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7L21 9.6l-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9z"/></svg>
+            </span>
+            <strong>Big IP</strong>
+            <small>Content</small>
+          </button>
+
+          <button class="media-node node-data" type="button" data-title="Data & AI" data-detail="Audience Intelligence, AI Optimization và dữ liệu hỗ trợ ra quyết định.">
+            <span class="node-icon">
+              <svg viewBox="0 0 24 24"><path d="M7 4h10v16H7zM4 8h3M4 12h3M4 16h3M17 8h3M17 12h3M17 16h3M10 9h4v6h-4z"/></svg>
+            </span>
+            <strong>Data & AI</strong>
+            <small>Intelligence</small>
+          </button>
         </div>
       </div>
     </section>
@@ -1087,7 +1868,7 @@
       <div class="wrap">
         <div class="closing-card reveal">
           <div class="closing-chip">Vietnam mediaOS by VCCorp</div>
-          <h2>VCCorp khẳng định vị thế công nghệ và media bằng một nền tảng vận hành truyền thông được xây dựng cho thị trường Việt Nam.</h2>
+          <h2>VCCorp khẳng định vị thế công nghệ và media bằng một nền tảng vận hành truyền thông được xây dựng cho thị trường<br> Việt Nam.</h2>
           <p>
             Vietnam mediaOS kết hợp quy mô hệ sinh thái media, năng lực dữ liệu và nền tảng công nghệ của VCCorp
             để giúp doanh nghiệp tiếp cận khách hàng hiệu quả hơn, triển khai nhanh hơn,
@@ -1384,6 +2165,69 @@
           menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
+    }
+
+
+    /* Interactive media ecosystem */
+    const galaxy = document.getElementById('mediaGalaxy');
+    const galaxyNodes = galaxy ? galaxy.querySelectorAll('.media-node') : [];
+
+    if (galaxy) {
+      const clearActive = (except = null) => {
+        galaxyNodes.forEach((node) => {
+          if (node !== except) node.classList.remove('active');
+        });
+      };
+
+      galaxyNodes.forEach((node) => {
+        node.addEventListener('mouseenter', () => {
+          if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+            clearActive(node);
+            node.classList.add('active');
+          }
+        });
+
+        node.addEventListener('mouseleave', () => {
+          if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+            node.classList.remove('active');
+          }
+        });
+
+        node.addEventListener('focus', () => {
+          clearActive(node);
+          node.classList.add('active');
+        });
+
+        node.addEventListener('blur', () => {
+          node.classList.remove('active');
+        });
+
+        node.addEventListener('click', (event) => {
+          if (window.matchMedia('(hover:none), (pointer:coarse)').matches) {
+            const willOpen = !node.classList.contains('active');
+            clearActive(node);
+            node.classList.toggle('active', willOpen);
+            if (willOpen) {
+              requestAnimationFrame(() => {
+                node.scrollIntoView({behavior:'smooth', block:'center'});
+              });
+            }
+          }
+        });
+      });
+
+      if (window.matchMedia('(min-width:1081px) and (hover:hover) and (pointer:fine)').matches) {
+        galaxy.addEventListener('mousemove', (event) => {
+          const rect = galaxy.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - .5;
+          const y = (event.clientY - rect.top) / rect.height - .5;
+          galaxy.style.transform = `rotateX(${y * -3.5}deg) rotateY(${x * 5}deg)`;
+        });
+        galaxy.addEventListener('mouseleave', () => {
+          galaxy.style.transform = '';
+          clearActive();
+        });
+      }
     }
 
   </script>
