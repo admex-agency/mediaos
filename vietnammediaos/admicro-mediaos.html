@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#082f33" />
+<title>ADMICRO mediaOS — Action Strategic Framework Proposal 2026</title>
+<style>
+:root{
+  --bg:#f3f7f6; --paper:#fff; --ink:#102426; --muted:#637477; --line:#d9e6e4;
+  --dark:#082f33; --primary:#8FD8D4; --primary-soft:#ddf5f3; --primary-deep:#167a7b;
+  --red:#ff7a68; --orange:#f5b65b; --lime:#8FD8D4; --blue:#62aeb5;
+  --radius:28px; --max:1280px; --shadow:0 28px 80px rgba(10,15,25,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+.nav{position:fixed;z-index:30;top:18px;left:50%;transform:translateX(-50%);width:min(calc(100% - 32px),1120px);display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 18px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(12,14,19,.78);backdrop-filter:blur(18px);color:#fff;box-shadow:0 10px 40px rgba(0,0,0,.18)}
+.brand{display:flex;gap:10px;align-items:center;font-weight:750;letter-spacing:-.02em}.brand i{width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime)}
+.navlinks{display:flex;gap:6px}.navlinks a{font-size:13px;color:#c9ccd2;padding:9px 12px;border-radius:999px}.navlinks a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav .tag{font-size:12px;color:#17191f;background:var(--lime);padding:9px 14px;border-radius:999px;font-weight:700}
+.hero{min-height:100svh;background:var(--dark);color:#fff;display:grid;align-items:end;overflow:hidden;position:relative;padding:120px 0 58px}
+.hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 78% 30%,rgba(143,216,212,.28),transparent 27%),radial-gradient(circle at 25% 85%,rgba(255,122,104,.15),transparent 24%)}
+.orbit{position:absolute;width:min(63vw,820px);aspect-ratio:1;right:-13vw;top:7vh;border:1px solid rgba(255,255,255,.1);border-radius:50%}.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%;inset:13%}.orbit:after{inset:29%}
+.dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 30px var(--lime);left:9%;top:41%;animation:float 5s ease-in-out infinite}.dot:nth-child(2){background:var(--red);box-shadow:0 0 30px var(--red);left:72%;top:12%;animation-delay:-2s}.dot:nth-child(3){background:var(--blue);box-shadow:0 0 30px var(--blue);left:83%;top:69%;animation-delay:-3s}@keyframes float{50%{transform:translateY(-16px)}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .7fr;gap:80px;align-items:end}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;color:#aeb3bd;margin-bottom:24px}.hero h1{font-size:clamp(58px,9vw,136px);line-height:.84;letter-spacing:-.075em;margin:0;font-weight:760}.hero h1 span{color:var(--lime)}
+.hero-copy{padding-bottom:10px}.hero-copy p{font-size:clamp(18px,2vw,26px);line-height:1.35;letter-spacing:-.025em;color:#d2d5da;max-width:520px}.hero-copy strong{color:#fff}.scroll{display:inline-flex;align-items:center;gap:12px;margin-top:34px;font-size:13px;color:#aeb3bd}.scroll b{display:grid;place-items:center;width:36px;height:36px;border:1px solid #333843;border-radius:50%;font-size:16px}
+section{padding:120px 0}.section-head{display:grid;grid-template-columns:.6fr 1fr;gap:60px;margin-bottom:70px}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}.section-head h2{font-size:clamp(38px,5.2vw,76px);line-height:1;letter-spacing:-.055em;margin:0;max-width:920px}.section-head p{font-size:19px;color:var(--muted);max-width:680px;margin:26px 0 0}
+.thesis{background:var(--paper)}.thesis-line{font-size:clamp(32px,5vw,72px);line-height:1.08;letter-spacing:-.05em;max-width:1110px;margin:0}.thesis-line .soft{color:#a7aab1}.thesis-line .accent{background:linear-gradient(90deg,var(--primary-deep),var(--primary));-webkit-background-clip:text;color:transparent}
+.def-strip{margin-top:70px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr)}.def{padding:30px 34px 0 0}.def+.def{padding-left:34px;border-left:1px solid var(--line)}.def small{color:var(--muted);text-transform:uppercase;letter-spacing:.12em}.def h3{font-size:22px;margin:12px 0 8px}.def p{color:var(--muted);margin:0}
+.system{background:var(--primary-soft)}.system-shell{display:grid;grid-template-columns:310px 1fr;gap:24px;align-items:start}.system-nav{position:sticky;top:110px;background:var(--dark);color:#fff;border-radius:24px;padding:18px}.layer-btn{width:100%;border:0;background:transparent;color:#a9adb6;text-align:left;border-radius:16px;padding:14px 16px;display:flex;gap:14px;align-items:center;cursor:pointer}.layer-btn span{display:grid;place-items:center;width:28px;height:28px;border:1px solid #3a3d45;border-radius:50%;font-size:11px}.layer-btn.active{background:#202329;color:#fff}.layer-btn.active span{background:var(--lime);color:#111;border-color:var(--lime)}
+.system-stage{background:var(--paper);border-radius:var(--radius);min-height:650px;padding:46px;box-shadow:var(--shadow);position:relative;overflow:hidden}.system-stage:after{content:"mediaOS";position:absolute;right:-20px;bottom:-60px;font-size:160px;font-weight:800;letter-spacing:-.08em;color:#f4f5f7;z-index:0}.layer-panel{position:relative;z-index:1;display:none}.layer-panel.active{display:block;animation:rise .35s ease}@keyframes rise{from{opacity:0;transform:translateY(10px)}}.layer-no{font-size:12px;letter-spacing:.15em;color:var(--muted)}.layer-panel h3{font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.055em;margin:24px 0}.layer-panel .purpose{font-size:22px;max-width:720px;color:#50545d}.entity-cloud{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px}.entity{border:1px solid var(--line);border-radius:999px;padding:12px 18px;background:#fafafa;font-weight:650}.role{margin-top:52px;padding-top:28px;border-top:1px solid var(--line);display:grid;grid-template-columns:140px 1fr;gap:26px}.role b{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}.role p{margin:0;font-size:19px}
+.flow{background:var(--dark);color:#fff}.flow .section-head p,.flow .kicker{color:#aeb3bd}.journey{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #30333a;border-bottom:1px solid #30333a}.step{min-height:280px;padding:28px 22px;border-right:1px solid #30333a;position:relative}.step:last-child{border-right:0}.step small{color:#838894}.step h3{font-size:22px;line-height:1.15;margin:46px 0 14px}.step p{color:#aeb3bd;font-size:14px}.step:after{content:"→";position:absolute;right:-12px;top:50%;width:24px;height:24px;border-radius:50%;background:var(--lime);color:#111;display:grid;place-items:center;font-size:13px;z-index:2}.step:last-child:after{display:none}.flow-callout{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:65px;align-items:end}.flow-callout strong{font-size:clamp(34px,4vw,58px);line-height:1.06;letter-spacing:-.045em}.flow-callout p{color:#aeb3bd;font-size:18px;margin:0}
+
+.mice{background:#ffffff}.mice-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:stretch}.mice-name{background:var(--dark);color:#fff;border-radius:var(--radius);padding:48px;display:flex;flex-direction:column;justify-content:space-between;min-height:560px}.mice-name .mark{font-size:clamp(64px,9vw,126px);font-weight:780;line-height:.82;letter-spacing:-.08em;color:var(--primary)}.mice-name h3{font-size:clamp(28px,3.5vw,50px);line-height:1.02;letter-spacing:-.045em;margin:24px 0 0}.mice-name p{color:#b9c9c9;font-size:18px;max-width:520px}.mice-system{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mice-cell{border:1px solid var(--line);border-radius:22px;padding:26px;background:#f8fbfa;min-height:250px;display:flex;flex-direction:column;justify-content:space-between}.mice-cell b{font-size:58px;line-height:1;color:var(--primary-deep);letter-spacing:-.06em}.mice-cell h4{font-size:24px;margin:16px 0 8px;letter-spacing:-.03em}.mice-cell p{margin:0;color:var(--muted)}.mice-logic{margin-top:28px;padding:28px 32px;border-radius:22px;background:var(--primary-soft);font-size:21px;letter-spacing:-.02em}.mice-logic strong{color:var(--primary-deep)}
+.occasion{background:var(--paper)}.occasion-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px}.occasion-main{background:#f0f1f3;border-radius:var(--radius);padding:48px;min-height:560px;display:flex;flex-direction:column;justify-content:space-between}.occasion-main h3{font-size:clamp(48px,7vw,92px);line-height:.86;letter-spacing:-.065em;margin:0}.occasion-main h3 em{display:block;color:var(--red);font-style:normal}.occasion-main p{font-size:20px;color:var(--muted);max-width:590px}.occasion-types{display:grid;gap:16px}.occasion-card{border-radius:24px;padding:28px;background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.occasion-card:nth-child(2){background:#d9ff66;color:#111}.occasion-card:nth-child(3){background:#8fb4ff;color:#111}.occasion-card h4{font-size:24px;letter-spacing:-.03em;margin:0}.occasion-card p{font-size:14px;margin:7px 0 0;opacity:.72}.occasion-card b{font-size:42px;font-weight:500}
+.campaigns{background:#eceef1}.campaign-list{display:grid;gap:20px}.campaign{border-radius:var(--radius);background:var(--paper);overflow:hidden;display:grid;grid-template-columns:170px 1fr auto;align-items:center;min-height:180px;padding:24px 28px;cursor:pointer;transition:.25s}.campaign:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.campaign-no{font-size:58px;letter-spacing:-.06em;color:#d2d5da}.campaign h3{font-size:clamp(25px,3vw,42px);letter-spacing:-.045em;margin:0}.campaign p{color:var(--muted);margin:7px 0 0}.campaign .plus{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:25px}.campaign-detail{grid-column:2/-1;display:none;border-top:1px solid var(--line);padding:28px 0 10px;margin-top:22px}.campaign.open .campaign-detail{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.campaign.open .plus{transform:rotate(45deg)}.detail-item small{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.detail-item p{color:var(--ink);font-weight:600;margin-top:8px}
+.architecture{background:var(--paper)}.arch-map{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:stretch}.arch-node{border:1px solid var(--line);border-radius:20px;padding:22px;min-height:170px;background:#fafafa}.arch-node strong{display:block;font-size:17px;margin-top:30px}.arch-node p{font-size:13px;color:var(--muted)}.arch-node.core{background:var(--dark);color:#fff}.arch-node.core p{color:#aeb3bd}.arch-arrow{text-align:center;font-size:24px;margin:30px 0;color:#a0a4ac}.end{background:linear-gradient(135deg,#0b0d12,#171b24);color:#fff;padding:120px 0 70px}.end h2{font-size:clamp(46px,7vw,104px);line-height:.92;letter-spacing:-.065em;margin:0;max-width:1100px}.end h2 span{color:var(--lime)}.end-grid{display:grid;grid-template-columns:1fr .7fr;gap:80px;margin-top:80px;padding-top:30px;border-top:1px solid #30333a}.end p{font-size:20px;color:#bbc0c9;max-width:700px}.end-note{font-size:13px!important;color:#757b86!important}.footer{display:flex;justify-content:space-between;align-items:center;margin-top:80px;color:#737983;font-size:12px}
+
+
+/* Ecosystem overview */
+.overview{background:var(--dark);color:#fff;overflow:hidden}
+.overview .section-head p,.overview .kicker{color:#aeb3bd}
+.ecosystem-map{display:grid;grid-template-columns:minmax(0,1fr) 210px minmax(0,1fr);gap:22px;align-items:stretch}
+.foundation-stack{display:grid;gap:12px}
+.foundation{border:1px solid rgba(255,255,255,.13);border-radius:22px;padding:22px 24px;background:rgba(255,255,255,.045);display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
+.foundation i{font-style:normal;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:var(--dark);font-size:12px;font-weight:800}
+.foundation h3{margin:0 0 5px;font-size:20px;letter-spacing:-.02em}.foundation p{margin:0;color:#aeb3bd;font-size:14px}
+.ecosystem-core{border-radius:30px;background:var(--primary);color:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;position:relative}
+.ecosystem-core:before,.ecosystem-core:after{content:"";position:absolute;left:-23px;top:50%;width:23px;border-top:1px solid rgba(143,216,212,.55)}
+.ecosystem-core:after{left:auto;right:-23px}.ecosystem-core small{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}.ecosystem-core strong{font-size:31px;line-height:1.02;letter-spacing:-.045em;margin:18px 0 12px}.ecosystem-core p{font-size:14px;margin:0;opacity:.75}
+.campaign-output{display:grid;gap:12px}.output-card{border-radius:22px;padding:22px 24px;background:#fff;color:var(--ink);display:flex;flex-direction:column;justify-content:space-between}.output-card small{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--primary-deep);font-weight:800}.output-card strong{font-size:22px;line-height:1.15;margin:22px 0 8px}.output-card p{margin:0;color:var(--muted);font-size:14px}
+.overview-note{margin-top:34px;border-top:1px solid rgba(255,255,255,.13);padding-top:28px;display:grid;grid-template-columns:.65fr 1.35fr;gap:40px}.overview-note strong{font-size:23px}.overview-note p{margin:0;color:#aeb3bd;font-size:17px}
+
+/* Showcase campaign logic */
+.showcase-logic{margin:34px 0 18px;border-radius:28px;background:linear-gradient(135deg,var(--dark),#124d51);color:#fff;padding:34px;display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:center}
+.showcase-logic h3{font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:-.045em;margin:0}.showcase-logic h3 span{color:var(--primary)}
+.showcase-logic p{margin:0;color:#c6dddd;font-size:18px}.showcase-loop{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.showcase-loop div{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:15px;font-size:13px;color:#d9e8e8}.showcase-loop b{display:block;color:var(--primary);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+
+/* Campaign ecosystem detail */
+.campaign.open .campaign-detail{grid-template-columns:repeat(3,1fr)}
+.campaign-journey{grid-column:1/-1;background:var(--primary-soft);border-radius:20px;padding:22px;margin-top:6px}
+.campaign-journey small{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--primary-deep);font-weight:800}
+.moment-path{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-top:14px}.moment{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:13px;position:relative}.moment b{display:block;margin-bottom:5px}.moment:not(:last-child):after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);z-index:2;width:20px;height:20px;border-radius:50%;background:var(--primary);display:grid;place-items:center;font-size:11px}
+
+/* Go-to-market action framework */
+.action{background:var(--paper)}
+.action-intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:52px;align-items:start;margin-bottom:52px}
+.action-intro h2{font-size:clamp(42px,6vw,82px);line-height:.95;letter-spacing:-.06em;margin:0}
+.action-intro p{font-size:20px;color:var(--muted);margin:10px 0 0;max-width:720px}
+.objective-band{background:var(--primary-soft);border:1px solid rgba(22,122,123,.22);border-radius:24px;padding:28px 30px;margin-bottom:18px;font-size:20px;line-height:1.4}
+.objective-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff}
+.objective{padding:30px;min-height:250px}.objective+.objective{border-left:1px solid var(--line)}
+.objective small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary-deep);font-weight:800}
+.objective h3{font-size:25px;letter-spacing:-.03em;margin:15px 0 14px}.objective p{margin:0;color:var(--muted)}
+.gtm-bridge{margin:24px 0;background:var(--dark);color:#fff;border-radius:24px;padding:24px 30px;display:flex;justify-content:space-between;gap:30px;align-items:center}
+.gtm-bridge strong{font-size:21px;letter-spacing:-.02em}.gtm-bridge span{color:#b8d4d4;max-width:680px}
+.gtm-path{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gtm-stage{border-radius:24px;padding:28px;background:#f7faf9;border:1px solid var(--line);position:relative;min-height:235px}
+.gtm-stage:before{content:attr(data-step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--primary);color:var(--dark);font-size:12px;font-weight:800}
+.gtm-stage h3{font-size:26px;margin:28px 0 10px;letter-spacing:-.03em}.gtm-stage p{margin:0;color:var(--muted)}
+.gtm-stage b{display:block;margin-top:24px;font-size:13px;color:var(--primary-deep)}
+
+@media(max-width:900px){.navlinks{display:none}.hero-grid,.section-head,.occasion-grid,.flow-callout,.end-grid{grid-template-columns:1fr}.hero-grid{gap:44px}.hero h1{font-size:clamp(56px,18vw,92px)}.section-head{gap:22px}.def-strip{grid-template-columns:1fr}.def+.def{border-left:0;border-top:1px solid var(--line);padding-left:0;margin-top:24px}.system-shell{grid-template-columns:1fr}.system-nav{position:relative;top:0;display:flex;overflow:auto}.layer-btn{min-width:170px}.layer-btn span{display:none}.system-stage{min-height:560px}.journey{grid-template-columns:1fr}.step{min-height:auto;border-right:0;border-bottom:1px solid #30333a}.step:after{right:24px;top:auto;bottom:-12px;transform:rotate(90deg)}.campaign{grid-template-columns:80px 1fr auto}.campaign.open .campaign-detail{grid-template-columns:1fr 1fr}.arch-map{grid-template-columns:1fr 1fr}.orbit{opacity:.55}}
+@media(max-width:600px){.moment-path{grid-template-columns:1fr}.wrap{width:min(calc(100% - 28px),var(--max))}.nav{top:10px}.nav .tag{display:none}.hero{padding-bottom:38px}.hero-copy p{font-size:18px}section{padding:82px 0}.section-head{margin-bottom:44px}.system-stage{padding:28px 22px;border-radius:22px}.layer-panel h3{font-size:44px}.role{grid-template-columns:1fr;gap:10px}.occasion-main{padding:30px;min-height:460px}.campaign{grid-template-columns:56px 1fr auto;padding:20px 16px}.campaign-no{font-size:34px}.campaign p{font-size:14px}.campaign.open .campaign-detail{grid-template-columns:1fr;grid-column:1/-1}.arch-map{grid-template-columns:1fr}.end{padding-top:90px}.footer{align-items:flex-start;gap:20px;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+@media(max-width:900px){.ecosystem-map{grid-template-columns:1fr}.ecosystem-core:before,.ecosystem-core:after{display:none}.overview-note,.showcase-logic{grid-template-columns:1fr}.moment-path{grid-template-columns:1fr 1fr}.moment:not(:last-child):after{display:none}.action-intro{grid-template-columns:1fr;gap:20px}.objective-grid,.gtm-path{grid-template-columns:1fr}.objective+.objective{border-left:0;border-top:1px solid var(--line)}.objective{min-height:auto}.gtm-bridge{align-items:flex-start;flex-direction:column}}
+
+
+/* V7 · Contrast and responsive UI correction */
+.flow .mice-grid{color:var(--ink)}
+.flow .mice-name{color:#fff}
+.flow .mice-name h3{color:#fff}
+.flow .mice-name p{color:#c4d6d5}
+.flow .mice-cell{background:#f8fbfa;color:var(--ink);border-color:#cfe0de}
+.flow .mice-cell h4{color:var(--ink);font-weight:750}
+.flow .mice-cell p{color:#55696b}
+.flow .mice-cell b{color:var(--primary-deep)}
+.flow .mice-logic{background:#d8f1ef;color:#294648;border:1px solid rgba(143,216,212,.5)}
+.flow .mice-logic strong{color:#126f70}
+.flow .flow-callout strong{color:#fff}
+.flow .flow-callout p{color:#bfd0d0}
+
+@media(max-width:900px){
+  .mice-grid{grid-template-columns:1fr}
+  .mice-name{min-height:420px}
+  .mice-system{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .mice-name{min-height:360px;padding:32px 26px}
+  .mice-name .mark{font-size:64px}
+  .mice-system{grid-template-columns:1fr}
+  .mice-cell{min-height:auto;padding:24px}
+  .mice-cell b{font-size:48px}
+  .mice-logic{margin-top:14px;padding:22px;font-size:17px}
+}
+
+</style>
+
+<style id="portal-back-style">
+.portal-back{position:fixed;z-index:9999;left:18px;bottom:18px;display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border:1px solid rgba(255,255,255,.15);border-radius:999px;background:rgba(4,18,21,.82);color:#fff;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:700 12px/1 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-decoration:none}
+.portal-back:hover{background:rgba(4,18,21,.96)}
+@media(max-width:720px){.portal-back{left:12px;bottom:max(12px,env(safe-area-inset-bottom));padding:10px 12px}}
+</style>
+</head>
+<body>
+<a class="portal-back" href="index.html" aria-label="Quay lại cổng chọn nội dung">← Cổng mediaOS</a>
+<nav class="nav"><div class="brand"><i></i> ADMICRO mediaOS</div><div class="navlinks"><a href="#definition">Định vị</a><a href="#overview">Tổng quan</a><a href="#action">Go-to-Market</a><a href="#flow">M.I.C.E Framework</a><a href="#system">Kiến trúc</a><a href="#occasion">Occasion</a><a href="#campaigns">Campaign</a></div><div class="tag">Action Framework 2026</div></nav>
+<header class="hero">
+  <div class="orbit"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+  <div class="wrap hero-grid">
+    <div><div class="eyebrow">Action Strategic Framework Proposal · 2026</div><h1>media<span>OS</span></h1></div>
+    <div class="hero-copy"><p>Không chỉ kết hợp online và offline. Đây là một <strong>hệ điều hành truyền thông kích hoạt hành vi tiêu dùng</strong> trên toàn bộ hành trình sống hằng ngày.</p><a class="scroll" href="#definition"><b>↓</b> Khám phá framework</a></div>
+  </div>
+</header>
+<main>
+<section class="thesis" id="definition"><div class="wrap">
+  <div class="kicker">01 · Strategic Reframe</div>
+  <p class="thesis-line"><span class="soft">Từ một gói media tích hợp</span> trở thành <span class="accent">hạ tầng kết nối truyền thông, nền tảng, điểm bán, thương hiệu và tổ chức</span> để biến sự chú ý thành hành động thực.</p>
+  <div class="def-strip">
+    <div class="def"><small>Media</small><h3>Tạo độ phủ</h3><p>Premium content, hệ sinh thái ADMICRO, social, Focus Media và các điểm chạm ngoại tuyến.</p></div>
+    <div class="def"><small>Connection</small><h3>Kết nối hành trình</h3><p>Đưa thông điệp đi cùng người dùng qua các nền tảng di chuyển, thương mại và giao tiếp hằng ngày.</p></div>
+    <div class="def"><small>Activation</small><h3>Kích hoạt tiêu dùng</h3><p>Chuyển độ phủ thành voucher, trải nghiệm, dùng thử, mua hàng và tác động xã hội có thể nhìn thấy.</p></div>
+  </div>
+</div></section>
+<section class="overview" id="overview"><div class="wrap">
+  <div class="section-head"><div class="kicker">02 · Ecosystem Overview</div><div><h2>Một nền tảng chung. Nhiều campaign có thể được kích hoạt.</h2><p>Media Coverage, Platform, Merchant, Brand và tổ chức không phải các thành phần riêng lẻ của từng chiến dịch. Đây là năm nhóm năng lực nền tảng được mediaOS huy động và tái cấu hình cho nhiều consumer moment khác nhau.</p></div></div>
+  <div class="ecosystem-map">
+    <div class="foundation-stack">
+      <article class="foundation"><i>01</i><div><h3>Media Coverage</h3><p>ADMICRO mặc định giữ vai trò chủ lực: premium publisher network, CafeF, Kênh14, social ecosystem, content, retargeting, Focus Media và DOOH.</p></div></article>
+      <article class="foundation"><i>02</i><div><h3>Daily Platforms</h3><p>GreenSM, Grab, Be, Shopee, Zalo và các nền tảng đồng hành cùng hành trình thường nhật của người dùng.</p></div></article>
+      <article class="foundation"><i>03</i><div><h3>Merchant Network</h3><p>F&amp;B, retail, entertainment và các điểm cung cấp voucher, quà tặng, sampling hoặc trải nghiệm thực tế.</p></div></article>
+      <article class="foundation"><i>04</i><div><h3>Brand Alliance</h3><p>Doanh nghiệp và thương hiệu đóng góp ngân sách, sản phẩm, ưu đãi và năng lực đồng truyền thông.</p></div></article>
+      <article class="foundation"><i>05</i><div><h3>Trust Alliance</h3><p>Cơ quan quản lý, sở ban ngành, hiệp hội và tổ chức xã hội bổ sung tính chính danh và tác động cộng đồng.</p></div></article>
+    </div>
+    <div class="ecosystem-core"><small>ADMICRO mediaOS</small><strong>Orchestrate<br>the ecosystem</strong><p>Thiết kế cơ chế, kết nối đối tác, vận hành media và đo lường hành động.</p></div>
+    <div class="campaign-output">
+      <article class="output-card"><small>Daily Moment</small><strong>1 triệu ly cà phê buổi sáng</strong><p>Đánh thức nhịp sống thành phố bằng media, voucher và merchant.</p></article>
+      <article class="output-card"><small>Local Moment</small><strong>Hà Nội Hữu Tình — Mời bạn một tô phở</strong><p>10.000 trải nghiệm phở dành cho du khách quốc tế, kết nối ẩm thực địa phương và earned review.</p></article>
+      <article class="output-card"><small>Seasonal Moment</small><strong>Trung Thu Trao Em</strong><p>Chuyển tương tác truyền thông thành đóng góp xã hội.</p></article>
+      <article class="output-card"><small>Scalable Output</small><strong>Những campaign tiếp theo</strong><p>Tết, World Cup, mùa hè, back-to-school hoặc các occasion theo ngành hàng.</p></article>
+    </div>
+  </div>
+  <div class="overview-note"><strong>Đây là “operating base”, không phải partner list.</strong><p>Mỗi campaign lựa chọn một tổ hợp đối tác và cơ chế khác nhau, nhưng ADMICRO luôn là lớp truyền thông và điều phối mặc định. Nhờ vậy, mediaOS có thể tạo campaign mới nhanh hơn, mở rộng quy mô và tích lũy tài sản bán hàng qua từng lần vận hành.</p></div>
+</div></section>
+<section class="action" id="action"><div class="wrap">
+  <div class="action-intro"><div><div class="kicker">03 · Go-to-Market Action Framework</div><h2>Understand.<br>Sell.<br>Experience.</h2></div><p>mediaOS là một mô hình vận hành mới và khó được hiểu đầy đủ chỉ bằng profile, ratecard hay lời giới thiệu. Đội ngũ bán hàng cần nhìn thấy toàn bộ hệ thống chạy trong thực tế; khách hàng cũng cần một bằng chứng đủ trực quan để hiểu media, platform, merchant và đối tác cùng tạo ra kết quả như thế nào.</p></div>
+  <div class="objective-band">Thương mại hóa mediaOS như một giải pháp chiến lược của ADMICRO, xây dựng mức độ sẵn sàng bán trong nội bộ và tạo bằng chứng sống thông qua một campaign showcase có khả năng tiếp tục được sử dụng cho hoạt động bán hàng.</div>
+  <div class="objective-grid">
+    <article class="objective"><small>Business Objective</small><h3>Đưa mediaOS thành giải pháp chiến lược</h3><p>Tạo pipeline từ nhóm khách hàng trọng điểm; thúc đẩy proposal, pilot và doanh thu; đồng thời xây dựng một case flagship có thể tái sử dụng trong bán hàng sau giai đoạn 2026–2027.</p></article>
+    <article class="objective"><small>Marketing Objective</small><h3>Xây dựng mức độ sẵn sàng bán</h3><p>Giúp Sales, Account và Planning hiểu giải pháp, sử dụng được sales kit và tư vấn đúng; tiếp cận có chọn lọc khách hàng ưu tiên qua briefing, workshop, demo và pilot package.</p></article>
+    <article class="objective"><small>Communication Objective</small><h3>Biến một khái niệm thành bằng chứng vận hành</h3><p>Giúp người nghe hiểu nhanh, nhìn thấy rõ và tin vào cách mediaOS kết nối banner, social, PR, video, DOOH, retargeting, merchant và dashboard trong cùng một hệ thống.</p></article>
+  </div>
+  <div class="showcase-logic"><h3>Không chỉ “nói về” mediaOS.<br><span>Phải để thị trường nhìn thấy mediaOS vận hành.</span></h3><div><p>Vì vậy, một campaign thực tế, toàn diện và đủ quy mô không chỉ là hoạt động truyền thông ra mắt. Campaign đó chính là sản phẩm trình diễn, môi trường đào tạo bán hàng và case study thương mại đầu tiên của mediaOS.</p><div class="showcase-loop"><div><b>Show</b>Cho Sales và khách hàng thấy hệ thống vận hành.</div><div><b>Learn</b>Chuẩn hóa cách tư vấn, phối hợp và đo lường.</div><div><b>Sell</b>Chuyển bằng chứng thực tế thành proposal và doanh thu.</div></div></div></div>
+  <div class="gtm-bridge"><strong>Campaign showcase là trục trung tâm của Go-to-Market.</strong><span>Sales Kit giúp định nghĩa giải pháp; campaign thật giúp chứng minh giải pháp; case study sau campaign giúp mediaOS tiếp tục được bán và nhân rộng.</span></div>
+  <div class="gtm-path">
+    <article class="gtm-stage" data-step="01"><h3>Understand</h3><p>Sales, Account và Planning hiểu mediaOS là gì, khác gì với bán inventory rời rạc và phù hợp với tình huống kinh doanh nào.</p><b>Đầu ra: Sales Kit · Profile · Ratecard · Hub</b></article>
+    <article class="gtm-stage" data-step="02"><h3>Sell</h3><p>Key account được tiếp cận bằng use case theo ngành, executive briefing, workshop 1:1, proposal và pilot package.</p><b>Đầu ra: Pipeline · Proposal · Pilot · Doanh số ký</b></article>
+    <article class="gtm-stage" data-step="03"><h3>Experience</h3><p>Sales, Account, Planning và khách hàng cùng nhìn thấy một campaign thật được vận hành xuyên suốt media, platform, merchant, activation và measurement.</p><b>Đầu ra: Showcase · Case study · Doanh số thực chạy</b></article>
+  </div>
+</div></section>
+<section class="flow" id="flow"><div class="wrap">
+  <div class="section-head"><div class="kicker">04 · Strategic Value Framework</div><div><h2>M.I.C.E Framework™</h2><p>M.I.C.E không phải một lớp vận hành mới đặt cạnh hệ sinh thái mediaOS. Đây là ngôn ngữ cô đọng giá trị mà toàn bộ hệ thống tạo ra trong mỗi campaign.</p></div></div>
+  <div class="mice-grid">
+    <div class="mice-name"><div><div class="mark">M.I.C.E</div><h3>Media · Impact<br>Commerce · Experience</h3></div><p>Bốn giá trị được tạo ra đồng thời trên cùng một hạ tầng Media Coverage, Platform, Merchant, Brand Alliance và Trust Alliance.</p></div>
+    <div><div class="mice-system">
+      <article class="mice-cell"><b>M</b><div><h4>Media</h4><p>Đưa thông điệp xuất hiện đúng nội dung, thời điểm, địa điểm và ngữ cảnh thông qua hệ sinh thái ADMICRO cùng các điểm chạm online–offline.</p></div></article>
+      <article class="mice-cell"><b>E</b><div><h4>Experience</h4><p>Thiết kế hành trình liền mạch để người dùng quét QR, tap NFC, nhận quyền lợi, tham gia hoặc chia sẻ mà không bị đứt gãy giữa các điểm chạm.</p></div></article>
+      <article class="mice-cell"><b>C</b><div><h4>Commerce</h4><p>Kết nối platform và merchant để chuyển sự tham gia thành voucher, sampling, ghé điểm bán, redemption và hành vi tiêu dùng thực tế.</p></div></article>
+      <article class="mice-cell"><b>I</b><div><h4>Impact</h4><p>Đo lường kết quả thương mại, tác động địa phương, giá trị xã hội hoặc nội dung lan tỏa được tạo ra sau campaign.</p></div></article>
+    </div><div class="mice-logic"><strong>Media</strong> tạo sự chú ý → <strong>Experience</strong> tạo sự tham gia → <strong>Commerce</strong> chuyển hóa thành hành động → <strong>Impact</strong> chứng minh giá trị. Đây là một value loop; không thay thế sáu lớp vận hành và cũng không lặp lại partner ecosystem.</div></div>
+  </div>
+  <div class="flow-callout"><strong>One operating system.<br>Four dimensions of value.</strong><p>Hệ sinh thái cho biết <em>ai và năng lực nào tham gia</em>; M.I.C.E xác định <em>campaign cần tạo ra giá trị gì</em>; Operating Architecture tiếp theo giải thích <em>hệ thống vận hành ra sao để tạo ra các giá trị đó</em>. Ba lớp chiến lược này bổ sung cho nhau và không còn trùng vai trò.</p></div>
+</div></section>
+<section class="system" id="system"><div class="wrap">
+  <div class="section-head"><div class="kicker">05 · Operating Architecture</div><div><h2>Một hệ thống. Sáu lớp vận hành.</h2><p>Mỗi lớp giải quyết một nhiệm vụ riêng, nhưng chỉ tạo ra giá trị đầy đủ khi được vận hành như một cấu trúc thống nhất.</p></div></div>
+  <div class="system-shell">
+    <div class="system-nav">
+      <button class="layer-btn active" data-layer="1"><span>01</span> Attention Network</button>
+      <button class="layer-btn" data-layer="2"><span>02</span> Daily Platforms</button>
+      <button class="layer-btn" data-layer="3"><span>03</span> Merchant Network</button>
+      <button class="layer-btn" data-layer="4"><span>04</span> Brand Alliance</button>
+      <button class="layer-btn" data-layer="5"><span>05</span> Trust Alliance</button>
+      <button class="layer-btn" data-layer="6"><span>06</span> Moment Activation</button>
+    </div>
+    <div class="system-stage">
+      <article class="layer-panel active" data-panel="1"><div class="layer-no">LAYER 01</div><h3>Attention<br>Network</h3><p class="purpose">Tạo độ phủ truyền thông tối đa trên cả không gian số và các điểm chạm vật lý.</p><div class="entity-cloud"><span class="entity">Premium Content Ad Network</span><span class="entity">ADMICRO Ecosystem</span><span class="entity">Social Media</span><span class="entity">Focus Media</span><span class="entity">DOOH</span></div><div class="role"><b>Vai trò</b><p>Maximise Media Coverage — đưa chiến dịch đạt quy mô đủ lớn để trở thành một tín hiệu xã hội.</p></div></article>
+      <article class="layer-panel" data-panel="2"><div class="layer-no">LAYER 02</div><h3>Daily Consumer<br>Platforms</h3><p class="purpose">Đưa chiến dịch đi cùng những nền tảng người dùng sử dụng trong hành trình mỗi ngày.</p><div class="entity-cloud"><span class="entity">GreenSM</span><span class="entity">Grab</span><span class="entity">Be</span><span class="entity">Shopee</span><span class="entity">Zalo</span></div><div class="role"><b>Vai trò</b><p>Mở rộng media coverage và tạo đường dẫn trực tiếp từ truyền thông đến merchant, voucher hoặc hành động.</p></div></article>
+      <article class="layer-panel" data-panel="3"><div class="layer-no">LAYER 03</div><h3>Merchant<br>Network</h3><p class="purpose">Biến thông điệp thành một quyền lợi hoặc trải nghiệm cụ thể cho người dùng cuối.</p><div class="entity-cloud"><span class="entity">F&amp;B</span><span class="entity">Retail</span><span class="entity">Entertainment</span><span class="entity">Travel</span><span class="entity">Beauty</span></div><div class="role"><b>Vai trò</b><p>Cung cấp voucher, quà tặng, sampling, ưu đãi và điểm tiếp nhận trải nghiệm trong thực tế.</p></div></article>
+      <article class="layer-panel" data-panel="4"><div class="layer-no">LAYER 04</div><h3>Brand<br>Alliance</h3><p class="purpose">Tập hợp nguồn lực thương hiệu để cộng hưởng truyền thông và thúc đẩy tiêu dùng.</p><div class="entity-cloud"><span class="entity">Unilever</span><span class="entity">PepsiCo</span><span class="entity">Vinamilk</span><span class="entity">FMCG</span><span class="entity">Finance</span><span class="entity">Technology</span></div><div class="role"><b>Vai trò</b><p>Đóng góp ngân sách, sản phẩm, quyền lợi và sức mạnh đồng truyền thông cho mỗi activation.</p></div></article>
+      <article class="layer-panel" data-panel="5"><div class="layer-no">LAYER 05</div><h3>Trust<br>Alliance</h3><p class="purpose">Bổ sung tính chính danh, niềm tin xã hội và khả năng tạo tác động ở quy mô cộng đồng.</p><div class="entity-cloud"><span class="entity">Cơ quan quản lý</span><span class="entity">Sở ban ngành</span><span class="entity">Hiệp hội</span><span class="entity">NGO</span><span class="entity">ATVSTP Hà Nội</span></div><div class="role"><b>Vai trò</b><p>Bảo chứng mục tiêu, tiêu chuẩn và tác động của chiến dịch; mở rộng khả năng hợp tác doanh nghiệp – xã hội.</p></div></article>
+      <article class="layer-panel" data-panel="6"><div class="layer-no">LAYER 06</div><h3>Consumer Moment<br>Activation</h3><p class="purpose">Nơi toàn bộ hệ thống hội tụ để biến một consumer moment thành trải nghiệm, hành động và kết quả cụ thể.</p><div class="entity-cloud"><span class="entity">Voucher</span><span class="entity">Redemption</span><span class="entity">Sampling</span><span class="entity">Review</span><span class="entity">Purchase</span><span class="entity">Social Impact</span></div><div class="role"><b>Vai trò</b><p>Chuyển Attention thành Participation, Consumption và Impact — theo một cơ chế có thể tái sử dụng.</p></div></article>
+    </div>
+  </div>
+</div></section>
+<section class="occasion" id="occasion"><div class="wrap">
+  <div class="section-head"><div class="kicker">06 · Umbrella Concept</div><div><h2>Own Every Consumer Moment</h2><p>Thay vì xem từng dịp là một campaign rời rạc, mediaOS có thể sở hữu và kích hoạt những “consumer occasions” lặp lại trong đời sống.</p></div></div>
+  <div class="occasion-grid"><div class="occasion-main"><h3>Every<br><em>Moment</em><br>Matters.</h3><p>Mỗi khoảnh khắc đều là một giao điểm giữa nhu cầu, địa điểm, thời gian, thương hiệu và hành động. mediaOS biến giao điểm đó thành một nền tảng activation.</p></div><div class="occasion-types"><div class="occasion-card"><div><h4>Winning Daily Moment</h4><p>Sáng · Trưa · Tối · Di chuyển · Cà phê · Ăn uống</p></div><b>01</b></div><div class="occasion-card"><div><h4>Winning Season / Trend</h4><p>Lễ Tết · Trung Thu · Xmas · World Cup · Holiday</p></div><b>02</b></div><div class="occasion-card"><div><h4>Winning Localation</h4><p>Local + Location · Hà Nội Hiếu Khách · Sài Gòn Bật Nhịp · Đà Nẵng Rộn Ràng</p></div><b>03</b></div></div></div>
+</div></section>
+<section class="campaigns" id="campaigns"><div class="wrap">
+  <div class="section-head"><div class="kicker">07 · Campaign Prototypes</div><div><h2>Ba chiến dịch. Một hạ tầng vận hành.</h2><p>Nhấp vào từng campaign để xem cách các lớp của mediaOS có thể được huy động cho từng consumer occasion.</p></div></div>
+  <div class="campaign-list">
+    <article class="campaign"><div class="campaign-no">01</div><div><h3>1 triệu ly cà phê buổi sáng</h3><p>Dành cho người dân TP.HCM trong dịp A81.</p></div><div class="plus">+</div><div class="campaign-detail"><div class="detail-item"><small>Media Coverage mặc định</small><p>ADMICRO Premium Network · CafeF · Kênh14 · Social · Retargeting · Focus Media · Digital DP/LCD</p></div><div class="detail-item"><small>Daily Platforms</small><p>GreenSM · Grab · Be · Zalo và các nền tảng di chuyển, giao tiếp</p></div><div class="detail-item"><small>Merchant Network</small><p>Chuỗi cà phê · Quán địa phương · Danh sách điểm đổi voucher</p></div><div class="detail-item"><small>Brand Alliance</small><p>Thương hiệu cà phê, sữa, thanh toán và đối tác đồng hành</p></div><div class="detail-item"><small>Trust Alliance</small><p>Đơn vị thành phố, hiệp hội hoặc tổ chức bảo trợ phù hợp dịp A81</p></div><div class="detail-item"><small>Consumer Moment</small><p>Sài Gòn Bật Nhịp · Kích hoạt buổi sáng ở quy mô toàn thành phố</p></div><div class="campaign-journey"><small>Hành trình 1 · Đọc tin buổi sáng</small><div class="moment-path"><div class="moment"><b>Mở CafeF / Kênh14</b>Người dùng bắt đầu ngày mới bằng việc cập nhật tin tức.</div><div class="moment"><b>Thấy “Sài Gòn Bật Nhịp”</b>Banner chào buổi sáng xuất hiện đúng thời điểm và ngữ cảnh.</div><div class="moment"><b>Quét QR</b>Truy cập landing page và tìm merchant gần nhất.</div><div class="moment"><b>Nhận voucher</b>Lưu quyền lợi trên điện thoại hoặc tài khoản nền tảng.</div><div class="moment"><b>Đổi cà phê</b>Redemption tại merchant được ghi nhận về dashboard.</div></div></div><div class="campaign-journey"><small>Hành trình 2 · Đi thang máy vào công ty</small><div class="moment-path"><div class="moment"><b>Tiếp cận Digital DP/LCD</b>Thông điệp xuất hiện trong thang máy hoặc sảnh văn phòng vào giờ đi làm.</div><div class="moment"><b>Nhận diện city message</b>Visual “Sài Gòn Bật Nhịp” kết nối trực tiếp với morning moment.</div><div class="moment"><b>Scan QR hoặc tap NFC</b>Người dùng mở ngay trang nhận quà mà không cần tìm kiếm.</div><div class="moment"><b>Chọn merchant thuận tiện</b>Hệ thống gợi ý điểm đổi voucher gần văn phòng hoặc trên lộ trình di chuyển.</div><div class="moment"><b>Nhận và sử dụng quà tặng</b>Voucher được đổi tại điểm bán; dữ liệu hành vi quay về hệ thống đo lường.</div></div></div></div></article>
+    <article class="campaign"><div class="campaign-no">02</div><div><h3>Hà Nội Hữu Tình — Mời bạn một tô phở</h3><p>10.000 trải nghiệm phở dành cho du khách quốc tế khi đến Hà Nội.</p></div><div class="plus">+</div><div class="campaign-detail"><div class="detail-item"><small>Media Coverage mặc định</small><p>ADMICRO Premium Network · Content · Social · Travel media · Retargeting · DOOH tại điểm đến</p></div><div class="detail-item"><small>Daily Platforms</small><p>Mobility · Travel · Hotel · Airport touchpoints · Zalo và nền tảng hỗ trợ hành trình</p></div><div class="detail-item"><small>Merchant Network</small><p>Quán phở tiêu biểu · Chuỗi F&amp;B · Điểm trải nghiệm được tuyển chọn tại Hà Nội</p></div><div class="detail-item"><small>Brand Alliance</small><p>Hàng không · Thanh toán · FMCG · Du lịch · Thương hiệu đồng hành cùng trải nghiệm Việt Nam</p></div><div class="detail-item"><small>Trust Alliance</small><p>Cơ quan du lịch · Hiệp hội · Đơn vị an toàn thực phẩm · Tổ chức bảo chứng chất lượng điểm đến</p></div><div class="detail-item"><small>Consumer Moment</small><p>Hà Nội Hữu Tình · Biến một bữa phở thành lời chào và câu chuyện được mang về</p></div><div class="campaign-journey"><small>Hành trình trải nghiệm tại Hà Nội</small><div class="moment-path"><div class="moment"><b>Chạm thông điệp chào đón</b>Du khách tiếp cận campaign qua nội dung du lịch, sân bay, khách sạn, mobility hoặc DOOH.</div><div class="moment"><b>Scan QR / tap NFC</b>Truy cập bản đồ phở đa ngôn ngữ và danh sách merchant gần nhất.</div><div class="moment"><b>Nhận quyền lợi</b>Voucher được lưu trên điện thoại và hướng dẫn sử dụng theo ngôn ngữ phù hợp.</div><div class="moment"><b>Thưởng thức một tô phở</b>Du khách đổi voucher tại điểm bán được tuyển chọn và xác thực.</div><div class="moment"><b>Chia sẻ câu chuyện Hà Nội</b>Nội dung review được gợi ý theo nền tảng quen thuộc của từng thị trường.</div></div></div><div class="campaign-journey"><small>Social advocacy theo thị trường</small><div class="moment-path"><div class="moment"><b>Khách Trung Quốc</b>Khuyến khích review trên Xiaohongshu và các nền tảng nội dung phù hợp.</div><div class="moment"><b>Khách phương Tây</b>Chia sẻ trải nghiệm qua Instagram, TikTok hoặc Google Maps.</div><div class="moment"><b>Khách Hàn Quốc</b>Lan tỏa qua Instagram, LINE/KakaoTalk và cộng đồng du lịch.</div><div class="moment"><b>Các thị trường khác</b>Điều hướng sang nền tảng phổ biến theo quốc gia và ngôn ngữ.</div><div class="moment"><b>Earned destination content</b>Tổng hợp nội dung thật thành kho bằng chứng về một Hà Nội hiếu khách, hữu tình.</div></div></div></div></article>
+    <article class="campaign"><div class="campaign-no">03</div><div><h3>Trung Thu Trao Em</h3><p>Mỗi lời yêu thương được gửi đi góp một phần vào quỹ bánh Trung Thu dành cho trẻ em vùng cao và trẻ em có hoàn cảnh khó khăn.</p></div><div class="plus">+</div><div class="campaign-detail">
+<div class="detail-item"><small>Media Coverage mặc định</small><p>ADMICRO Premium Network · Kênh14 · Afamily · CafeF · Content · Social · Native · Retargeting · Focus Media</p></div>
+<div class="detail-item"><small>Daily Platforms</small><p>Zalo · Social platforms · E-commerce · Payment · Mobility và các nền tảng hỗ trợ chia sẻ, đóng góp</p></div>
+<div class="detail-item"><small>Merchant Network</small><p>Bakery · Retail · E-commerce · Chuỗi cửa hàng · Điểm đổi quà và đối tác phân phối bánh Trung Thu</p></div>
+<div class="detail-item"><small>Brand Alliance</small><p>FMCG · Sữa · Bánh kẹo · Retail · Thanh toán · Logistics và thương hiệu đồng hành cùng trẻ em</p></div>
+<div class="detail-item"><small>Trust Alliance</small><p>Quỹ xã hội · Đơn vị thiện nguyện · Chính quyền địa phương · Trường học và tổ chức xác thực đối tượng thụ hưởng</p></div>
+<div class="detail-item"><small>Consumer Moment</small><p>Trung Thu Trao Em · Biến một lời nhắn yêu thương thành một phần quà thật được trao đi</p></div>
+<div class="campaign-journey"><small>Hành trình tham gia của người dùng</small><div class="moment-path">
+<div class="moment"><b>Chạm thông điệp Trung Thu</b>Người dùng tiếp cận câu chuyện qua premium content, social, native content, LCD hoặc các điểm chạm đối tác.</div>
+<div class="moment"><b>Gửi một lời yêu thương</b>Truy cập microsite, viết lời nhắn hoặc chọn thông điệp dành cho một em nhỏ.</div>
+<div class="moment"><b>Kích hoạt đóng góp</b>Mỗi lời nhắn hợp lệ được thương hiệu đối tác quy đổi thành một phần đóng góp vào quỹ bánh Trung Thu.</div>
+<div class="moment"><b>Lan tỏa lời nhắn</b>Người dùng nhận social card cá nhân hóa để chia sẻ, mời thêm người cùng tham gia.</div>
+<div class="moment"><b>Theo dõi tác động</b>Dashboard cập nhật số lời nhắn, số phần quà quy đổi và tiến độ trao tặng.</div>
+</div></div>
+<div class="campaign-journey"><small>Hành trình tạo tác động xã hội</small><div class="moment-path">
+<div class="moment"><b>Xác lập cơ chế quy đổi</b>Brand Alliance cam kết mức đóng góp theo lời nhắn, lượt chia sẻ, đơn hàng hoặc cột mốc cộng đồng.</div>
+<div class="moment"><b>Xác thực người thụ hưởng</b>Trust Alliance phối hợp lập danh sách trẻ em, địa bàn và nhu cầu thực tế.</div>
+<div class="moment"><b>Chuẩn bị và vận chuyển</b>Merchant, nhà sản xuất và logistics tổ chức đóng gói, phân bổ và giao quà.</div>
+<div class="moment"><b>Trao Trung Thu đến em</b>Các hoạt động trao tặng được ghi nhận bằng hình ảnh, câu chuyện và báo cáo minh bạch.</div>
+<div class="moment"><b>Tạo case study lan tỏa</b>Kết quả được chuyển thành earned content và bằng chứng về cách mediaOS biến participation thành impact.</div>
+</div></div>
+</div></article>
+  </div>
+</div></section>
+<section class="architecture"><div class="wrap">
+  <div class="section-head"><div class="kicker">08 · Strategic Structure</div><div><h2>Từ hạ tầng đến “Campaign Factory”.</h2><p>mediaOS có thể được thương mại hóa không chỉ bằng inventory, mà bằng năng lực tạo và vận hành nhiều activation trên cùng một cấu trúc.</p></div></div>
+  <div class="arch-map"><div class="arch-node"><small>01</small><strong>Core Assets</strong><p>ADMICRO · Focus Media · Data · Content</p></div><div class="arch-node"><small>02</small><strong>Partner Network</strong><p>Platform · Merchant · Brand · Institution</p></div><div class="arch-node"><small>03</small><strong>Occasion Framework</strong><p>Daily · Seasonal · Local</p></div><div class="arch-node"><small>04</small><strong>Activation Design</strong><p>Benefit · Mechanic · Journey · Impact</p></div><div class="arch-node"><small>05</small><strong>Campaign Operation</strong><p>Media · Partner · Redemption · Reporting</p></div><div class="arch-node core"><small>OUTPUT</small><strong>Campaign Factory</strong><p>Một hệ thống tạo chiến dịch có thể lặp lại và mở rộng.</p></div></div>
+</div></section>
+<section class="end"><div class="wrap"><h2>One system.<br>Every <span>consumer moment.</span></h2><div class="end-grid"><div><p>ADMICRO mediaOS định vị lại vai trò của media: từ công cụ tạo độ phủ thành hạ tầng liên kết thị trường, nơi thương hiệu, nền tảng, merchant và tổ chức cùng tạo ra hành động tiêu dùng có ý nghĩa.</p></div><div><p class="end-note">Bản deck này là framework định hướng ban đầu. Tên gọi các lớp, umbrella concept, partner map và campaign mechanics sẽ tiếp tục được chuẩn hóa ở bước chiến lược tiếp theo.</p></div></div><div class="footer"><span>ADMICRO mediaOS · Action Strategic Framework Proposal</span><span>Version 06 · July 2026</span></div></div></section>
+</main>
+<script>
+const buttons=[...document.querySelectorAll('.layer-btn')];
+const panels=[...document.querySelectorAll('.layer-panel')];
+buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.querySelector(`[data-panel="${btn.dataset.layer}"]`).classList.add('active')}));
+document.querySelectorAll('.campaign').forEach(card=>card.addEventListener('click',()=>card.classList.toggle('open')));
+</script>
+</body>
+</html>
