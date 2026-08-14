@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#061316" />
-  <title>mediaOS Portal</title>
-  <style>
-    :root{--bg:#061316;--text:#f4fbfb;--muted:#9fb4b7;--line:rgba(255,255,255,.12);--cyan:#55eee3;--max:1180px}
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#061316" name="theme-color"/>
+<title>mediaOS Portal</title>
+<style>
+    :root{--bg:#061316;--text:#f4fbfb;--muted:#9fb4b7;--line:rgba(255,255,255,.12);--cyan:#55EDE2;--max:1180px}
     *{box-sizing:border-box}html,body{min-height:100%}
     body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 78% 10%,rgba(85,238,227,.13),transparent 26%),radial-gradient(circle at 15% 75%,rgba(85,238,227,.06),transparent 25%),var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     a{color:inherit;text-decoration:none}
@@ -63,28 +64,32 @@
       }
     }
 
-  </style>
+  
+    .choices{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:1000px;margin:0 auto}
+    .choice{min-height:260px!important}
+    @media(max-width:760px){.choices{grid-template-columns:1fr!important}}
+    </style>
 </head>
 <body>
-  <main class="portal">
-    <div class="shell">
-      <div class="brand"><img src="assets/vietnam-mediaos-logo.png" alt="Vietnam mediaOS by VCCorp" /></div>
+<main class="portal">
+<div class="shell">
+<div class="brand"><img alt="Vietnam mediaOS by VCCorp" src="assets/vietnam-mediaos-logo.png"/></div>
 <div class="choices">
-        <a class="choice" href="vietnam-mediaos.html">
-          <div><small>Vietnam mediaOS</small><h2>Vietnam mediaOS</h2><p>Nền tảng vận hành toàn diện cho hệ sinh thái truyền thông Việt Nam, với animated hero, mô hình vận hành, USP và bộ nội dung tổng hợp.</p></div>
-          <div class="choice-footer"><span>Mở Vietnam mediaOS</span><span class="arrow">→</span></div>
-        </a>
-        <a class="choice" href="admicro-mediaos.html">
-          <div><small>ADMICRO mediaOS</small><h2>ADMICRO mediaOS</h2><p>Action Strategic Framework tập trung vào hạ tầng kích hoạt hành vi, hệ sinh thái đối tác, M.I.C.E Framework và campaign prototypes.</p></div>
-          <div class="choice-footer"><span>Mở ADMICRO mediaOS</span><span class="arrow">→</span></div>
-        </a>
-        <a class="choice" href="admicro-mediaos-v2.html">
-          <div><small>ADMICRO mediaOS · Version 2</small><h2>ADMICRO mediaOS V2</h2><p>Strategic System Proposal: Media First × Content First × Social First, M.I.C.E Value Engine, System Map, Measurement System, AI Intelligence Dashboard và Vietnam Moment Map.</p></div>
-          <div class="choice-footer"><span>Mở ADMICRO mediaOS V2</span><span class="arrow">→</span></div>
-        </a>
-      </div>
-      <div class="note">mediaOS Portal · VCCorp / ADMICRO</div>
-    </div>
-  </main>
+<a class="choice" href="vietnam-mediaos.html">
+<div><small>Vietnam mediaOS</small><h2>Vietnam mediaOS</h2><p>Nền tảng vận hành toàn diện cho hệ sinh thái truyền thông Việt Nam, với animated hero, mô hình vận hành, USP và bộ nội dung tổng hợp.</p></div>
+<div class="choice-footer"><span>Mở Vietnam mediaOS</span><span class="arrow">→</span></div>
+</a>
+<a class="choice" href="admicro-mediaos.html">
+<div><small>ADMICRO mediaOS</small><h2>ADMICRO mediaOS</h2><p>Action Strategic Framework tập trung vào hạ tầng kích hoạt hành vi, hệ sinh thái đối tác, M.I.C.E Framework và campaign prototypes.</p></div>
+<div class="choice-footer"><span>Mở ADMICRO mediaOS</span><span class="arrow">→</span></div>
+</a>
+<a class="choice" href="admicro-mediaos-v2.html">
+<div><small>ADMICRO mediaOS · Version 2</small><h2>ADMICRO mediaOS V2</h2><p>Strategic System: Media First × Content First × Social First, M.I.C.E Value Engine, S.I.G.N.A.L System, Measurement, AI Intelligence Dashboard, Partner Ecosystem, Industry Fit và Campaign Assembly Roadmap.</p></div>
+<div class="choice-footer"><span>Mở ADMICRO mediaOS V2</span><span class="arrow">→</span></div>
+</a>
+<a class="choice" href="workshop.html"><div><small>ADMICRO mediaOS · Workshop</small><h2>Workshop</h2><p>Experience Workshop tại TP.HCM tháng 09/2026 dành cho Agency và nhóm khách hàng F&amp;B/Retail, kết hợp live Intelligence demo, Focus Media, GreenSM và challenge lab.</p></div><div class="choice-footer"><span>Mở Workshop Proposal</span><span class="arrow">→</span></div></a></div>
+<div class="note">mediaOS Portal · VCCorp / ADMICRO</div>
+</div>
+</main>
 </body>
 </html>
