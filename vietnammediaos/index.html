@@ -14,7 +14,7 @@
     .portal:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(85,238,227,.14) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 80%,transparent);opacity:.22}
     .shell{width:min(100%,var(--max));position:relative;z-index:1}
     .brand{display:flex;justify-content:center;margin-bottom:34px}.brand img{width:min(260px,62vw);height:auto;display:block}
-    .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
     .choice{min-height:310px;padding:34px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));box-shadow:0 24px 70px rgba(0,0,0,.24);display:flex;flex-direction:column;justify-content:space-between;transition:transform .28s ease,border-color .28s ease,background .28s ease;position:relative;overflow:hidden}
     .choice:after{content:"";position:absolute;right:-70px;bottom:-70px;width:190px;height:190px;border-radius:50%;background:rgba(85,238,227,.08);transition:transform .35s ease}
     .choice:hover{transform:translateY(-5px);border-color:rgba(85,238,227,.45);background:linear-gradient(180deg,rgba(85,238,227,.09),rgba(255,255,255,.028))}
@@ -25,6 +25,7 @@
     .choice-footer{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:18px;color:#dff7f5;font-size:13px;font-weight:740}
     .arrow{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--cyan);color:#052326;font-size:20px;flex:none}
     .note{margin-top:24px;text-align:center;color:#6f8b8f;font-size:12px}
+    @media(max-width:980px){.choices{grid-template-columns:1fr 1fr}}
     @media(max-width:760px){.portal{padding:20px 14px}.brand{margin-bottom:28px}.intro{margin-bottom:30px}.choices{grid-template-columns:1fr}.choice{min-height:240px;padding:26px;border-radius:24px}.choice h2{margin-top:26px}}
     @media(prefers-reduced-motion:reduce){*{transition:none!important}}
   
@@ -76,6 +77,10 @@
         <a class="choice" href="admicro-mediaos.html">
           <div><small>ADMICRO mediaOS</small><h2>ADMICRO mediaOS</h2><p>Action Strategic Framework tập trung vào hạ tầng kích hoạt hành vi, hệ sinh thái đối tác, M.I.C.E Framework và campaign prototypes.</p></div>
           <div class="choice-footer"><span>Mở ADMICRO mediaOS</span><span class="arrow">→</span></div>
+        </a>
+        <a class="choice" href="admicro-mediaos-v2.html">
+          <div><small>ADMICRO mediaOS · Version 2</small><h2>ADMICRO mediaOS V2</h2><p>Strategic System Proposal: Media First × Content First × Social First, M.I.C.E Value Engine, System Map, Measurement System, AI Intelligence Dashboard và Vietnam Moment Map.</p></div>
+          <div class="choice-footer"><span>Mở ADMICRO mediaOS V2</span><span class="arrow">→</span></div>
         </a>
       </div>
       <div class="note">mediaOS Portal · VCCorp / ADMICRO</div>
