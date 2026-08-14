@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#061316" name="theme-color"/>
+<title>ADMICRO mediaOS Version 2</title>
+<style>
+:root{
+  --bg:#061316;--bg2:#0a1b1f;--ink:#102326;--text:#f4fbfb;--muted:#8ca6a9;
+  --line:rgba(255,255,255,.12);--lineDark:#d9e1e2;--accent:#55EDE2;--accentDark:#15aea4;
+  --paper:#f6f8f6;--white:#fff;--dark:#10191c;--max:1280px;--red:#ef4d42;--amber:#e7b557;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+.nav{position:fixed;z-index:60;top:16px;left:50%;transform:translateX(-50%);width:min(calc(100% - 32px),1240px);display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;padding:10px 12px 10px 18px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(6,19,22,.9);backdrop-filter:blur(18px);color:#fff;box-shadow:0 12px 40px rgba(0,0,0,.18)}
+.brand{font-weight:800;font-size:14px;white-space:nowrap}.brand i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:7px}.navlinks{display:flex;justify-content:center;gap:2px}.navlinks a{font-size:11px;color:#c7d5d6;padding:9px 8px;border-radius:999px}.navlinks a:hover{background:rgba(255,255,255,.08);color:#fff}.tag{font-size:11px;background:var(--accent);color:#082225;padding:9px 14px;border-radius:999px;font-weight:800}
+.hero{min-height:100svh;background:radial-gradient(circle at 80% 20%,rgba(85,237,226,.14),transparent 27%),radial-gradient(circle at 15% 85%,rgba(85,237,226,.05),transparent 24%),var(--bg);color:#fff;display:grid;align-items:end;padding:150px 0 70px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(85,237,226,.18) 1px,transparent 1px);background-size:34px 34px;opacity:.14;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 80%,transparent);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:end}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:800;color:var(--accent)}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:800;color:var(--accentDark)}.dark .kicker{color:var(--accent)}
+.hero h1{font-size:clamp(66px,9vw,142px);line-height:.82;letter-spacing:-.075em;margin:22px 0 30px}.hero h1 span{color:var(--accent)}.hero-copy{max-width:780px;font-size:21px;color:#c7d6d7}.hero-copy b{color:#fff}.hero-side{display:grid;gap:12px}.hero-stat{border-top:1px solid rgba(255,255,255,.2);padding:18px 0}.hero-stat small{color:#83a0a3;text-transform:uppercase;letter-spacing:.13em;font-size:10px}.hero-stat strong{display:block;font-size:25px;margin-top:4px;letter-spacing:-.03em}.hero-note{font-size:12px;color:#81989b;margin-top:20px}
+section{padding:102px 0}.dark{background:var(--dark);color:#fff}.soft{background:#edf3f1}.section-head{display:grid;grid-template-columns:.34fr 1fr;gap:60px;margin-bottom:48px}.section-head h2{font-size:clamp(38px,4.4vw,68px);line-height:1.03;letter-spacing:-.05em;margin:0}.section-head p{font-size:18px;color:#64777a;margin:5px 0 0;max-width:900px}.dark .section-head p{color:#9cb0b2}
+.definition{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.definition-main{background:#fff;border:1px solid var(--lineDark);border-radius:30px;padding:42px;min-height:390px}.definition-main h3{font-size:43px;line-height:1.05;letter-spacing:-.045em;margin:10px 0 25px}.definition-main p{font-size:18px;color:#5e7073;max-width:760px}.definition-main .formula{margin-top:34px;border-top:1px solid #dbe4e4;padding-top:24px;font-size:24px;font-weight:800;letter-spacing:-.03em}.definition-main .formula span{color:var(--accentDark)}
+.value-stack{display:grid;gap:12px}.value-card{background:#0c2024;color:#fff;border-radius:22px;padding:26px}.value-card small{color:var(--accent);font-size:10px;letter-spacing:.14em;font-weight:800}.value-card h4{font-size:22px;margin:12px 0 8px}.value-card p{margin:0;color:#b5c7c9;font-size:14px}.objective-map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.objective-card{background:#fff;border:1px solid var(--lineDark);border-radius:20px;padding:22px}.objective-card small{font-size:10px;color:#0d8f87;font-weight:800;letter-spacing:.11em}.objective-card h4{font-size:18px;margin:12px 0 8px}.objective-card p{font-size:12px;color:#697b7d;margin:0}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pillar{border-radius:28px;padding:32px;min-height:400px;color:#fff;position:relative;overflow:hidden}.pillar:nth-child(1){background:#071d22}.pillar:nth-child(2){background:#11302f}.pillar:nth-child(3){background:#173238}.pillar .num{font-size:12px;color:#9db6b8}.pillar h3{font-size:35px;letter-spacing:-.045em;margin:34px 0 14px}.pillar p{color:#c0cecf}.pillar .role{position:absolute;left:32px;right:32px;bottom:30px;border-top:1px solid rgba(255,255,255,.16);padding-top:16px;font-size:13px;color:#d7e2e3}.pillar .role b{color:var(--accent)}
+.content-axis{margin-top:18px;border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:20px;background:#0c2024}.content-axis b{color:var(--accent)}.content-axis p{color:#b8c9ca;margin:7px 0 0;font-size:13px}.axis-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.axis-chip{padding:11px;border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#d8e3e4;font-size:11px}
+.intersection{margin-top:18px;background:#fff;border-radius:28px;border:1px solid var(--lineDark);padding:34px;display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center}.loop{width:210px;height:210px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,var(--accent) 0 33%,#0c2428 34% 100%);color:#072326;font-weight:900;line-height:1.2;box-shadow:0 20px 60px rgba(7,29,34,.16)}.intersection h3{font-size:28px;margin:0 0 12px;letter-spacing:-.035em}.intersection p{color:#627477;margin:0}.equation{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.eq{padding:8px 11px;border-radius:999px;background:#edf5f3;font-size:12px;font-weight:750}
+.engine{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.engine-card{background:#fff;border:1px solid #dae4e2;border-radius:25px;padding:30px;min-height:330px}.engine-letter{font-size:56px;line-height:1;font-weight:900;color:#0e5d5a}.engine-card h3{font-size:22px;margin:18px 0 10px}.engine-card p{font-size:14px;color:#617477}.engine-card ul{padding-left:18px;color:#6d8082;font-size:13px}.engine-card li{margin:7px 0}.engine-note{margin-top:18px;background:#0b1f23;color:#fff;border-radius:22px;padding:25px 30px;display:flex;justify-content:space-between;gap:20px;align-items:center}.engine-note b{color:var(--accent)}
+.signal-head{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-bottom:22px}.signal-word{font-size:clamp(54px,8vw,110px);font-weight:900;letter-spacing:.08em;line-height:1;color:#09312f}.signal-word span{color:var(--accentDark)}.signal-head p{color:#64777a;margin:0;max-width:700px}.system-map{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.layer{background:#fff;border:1px solid #d9e3e2;border-radius:25px;padding:28px;min-height:325px}.layer-no{font-size:10px;font-weight:800;letter-spacing:.14em;color:var(--accentDark)}.layer h3{font-size:29px;letter-spacing:-.04em;margin:18px 0 8px}.layer .vi{font-size:12px;font-weight:800;color:#4a6264;margin-bottom:10px}.layer .purpose{font-size:14px;color:#607276}.layer .examples{margin-top:20px;display:flex;gap:7px;flex-wrap:wrap}.layer .examples span{font-size:11px;background:#edf4f3;padding:7px 9px;border-radius:999px}.layer .output{margin-top:20px;border-top:1px solid #e1e7e6;padding-top:15px;font-size:12px;color:#65777a}.layer .output b{color:#0e6a64}.naming-note{margin-top:18px;font-size:13px;color:#6d7f81}.naming-note b{color:#123638}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.partner-card{background:#fff;border:1px solid var(--lineDark);border-radius:24px;padding:26px}.partner-card small{color:var(--accentDark);font-size:10px;font-weight:800;letter-spacing:.12em}.partner-card h3{font-size:21px;margin:14px 0 8px}.partner-card p{font-size:13px;color:#66797b;margin:0 0 16px}.partner-tags{display:flex;flex-wrap:wrap;gap:7px}.partner-tags span{font-size:11px;padding:7px 9px;border-radius:999px;background:#eaf5f3;color:#155e59;font-weight:700}.disclaimer{margin-top:16px;padding:16px 18px;border:1px solid #cbe5e2;background:#eef9f7;border-radius:15px;color:#4f6c6d;font-size:12px}
+.measure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.measure-card{background:#fff;border:1px solid #d9e4e2;border-radius:24px;padding:25px}.measure-card .layer-tag{font-size:10px;color:var(--accentDark);font-weight:850;letter-spacing:.12em}.measure-card h3{font-size:21px;margin:12px 0 15px}.metric-row{padding:10px 0;border-top:1px solid #edf1f0}.metric-row:first-of-type{border-top:none}.metric{display:block;font-weight:800;color:#14282a;font-size:13px}.metric-vi{display:block;color:#788b8e;font-size:11px;margin-top:2px;line-height:1.35}.measure-note{margin-top:22px;background:#e9f6f4;border:1px solid #cce8e4;border-radius:20px;padding:22px;font-size:13px;color:#38595a}
+.dashboard{background:#071619;color:#fff;border-radius:32px;padding:32px;box-shadow:0 28px 90px rgba(0,0,0,.16)}.dash-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}.dash-title b{font-size:25px}.dash-title span{display:block;color:#8ca4a7;font-size:11px;margin-top:4px}.live{padding:8px 12px;border-radius:999px;background:rgba(85,237,226,.12);color:var(--accent);font-size:11px;font-weight:800}.dash-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px;margin-top:14px}.dash-main,.dash-side{display:grid;gap:14px}.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.dash-kpi,.panel{background:#0d2327;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}.dash-kpi small,.panel small{color:#8ca4a7;font-size:10px;text-transform:uppercase;letter-spacing:.1em}.dash-kpi strong{display:block;font-size:27px;margin-top:6px}.chart{height:230px;background:linear-gradient(180deg,rgba(85,237,226,.10),transparent),repeating-linear-gradient(to right,transparent,transparent 55px,rgba(255,255,255,.04) 56px),repeating-linear-gradient(to bottom,transparent,transparent 45px,rgba(255,255,255,.04) 46px);position:relative;overflow:hidden}.chart:after{content:"";position:absolute;left:4%;right:4%;bottom:30px;height:125px;border-bottom:3px solid var(--accent);border-radius:50%;transform:skewY(-9deg) rotate(-1deg);opacity:.9}.ai-list{display:grid;gap:9px;margin-top:12px}.ai-item{padding:12px;border-radius:14px;background:#102a2f;font-size:12px;color:#c3d2d3}.ai-item b{color:var(--accent)}.connector-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.connector{font-size:11px;border:1px solid rgba(255,255,255,.12);padding:8px 10px;border-radius:999px;color:#c9d6d7}.persona-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.persona{background:#fff;border:1px solid #dce5e4;border-radius:18px;padding:20px;color:#102326}.persona b{display:block;margin-bottom:8px}.persona p{font-size:12px;color:#6a7b7d;margin:0}
+.moment-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.legend{padding:7px 9px;border-radius:999px;font-size:11px;font-weight:800}.daily{background:#dff6f3;color:#125f5a}.seasonal{background:#e8edf9;color:#3a5688}.cultural{background:#fff0e0;color:#8a5a21}.commerce{background:#fce6ee;color:#8b3552}.trend{background:#e9e6f7;color:#57477d}.liveevent{background:#e7ecee;color:#344f55}.timeline-wrap{overflow:auto;border:1px solid #dbe4e3;border-radius:23px;background:#fff}.timeline{min-width:1580px;display:grid;grid-template-columns:160px repeat(12,1fr)}.tcell{padding:13px;border-right:1px solid #e3e9e8;border-bottom:1px solid #e3e9e8;font-size:11px;min-height:78px}.thead{background:#102326;color:#fff;font-weight:800;min-height:auto}.trow{background:#f0f5f4;font-weight:800;color:#163d3a}.tmoment{display:inline-block;margin:3px 3px 0 0;padding:5px 7px;border-radius:8px;font-size:10px}.timeline-note{margin-top:15px;color:#6b7f81;font-size:12px}
+.industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.industry-card{border-radius:25px;padding:28px;background:#fff;border:1px solid #d9e3e2}.fit-high{border-top:4px solid var(--accentDark)}.fit-selective{border-top:4px solid var(--amber)}.fit-module{border-top:4px solid #82979a}.industry-card small{font-size:10px;font-weight:850;letter-spacing:.12em;color:#60777a}.industry-card h3{font-size:23px;margin:13px 0}.industry-card p{font-size:13px;color:#647779}.industry-list{display:grid;gap:9px;margin-top:17px}.industry-item{padding:10px 12px;background:#f1f5f4;border-radius:12px;font-size:12px}.industry-item b{display:block;color:#173b39}.industry-item span{color:#6f8183}
+.cost-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.cost-card{background:#0c2024;color:#fff;border-radius:22px;padding:25px;min-height:240px}.cost-card .no{color:var(--accent);font-size:10px;font-weight:850;letter-spacing:.12em}.cost-card h3{font-size:19px;margin:16px 0 8px}.cost-card p{font-size:12px;color:#a9bdc0}.cost-card .basis{margin-top:17px;border-top:1px solid rgba(255,255,255,.12);padding-top:13px;color:#d6e2e3;font-size:11px}.cost-note{margin-top:16px;color:#9fb3b5;font-size:12px}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.road-step{background:#fff;border:1px solid #d9e3e2;border-radius:22px;padding:24px;min-height:230px;position:relative}.road-step .step{font-size:10px;font-weight:850;color:var(--accentDark);letter-spacing:.12em}.road-step h3{font-size:19px;margin:14px 0 8px}.road-step p{font-size:12px;color:#697b7d;margin:0}.assembly{margin-top:18px;padding:28px;border-radius:24px;background:#082025;color:#fff}.assembly b{color:var(--accent)}.assembly-line{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.assembly-line span{padding:9px 11px;border:1px solid rgba(255,255,255,.13);border-radius:999px;font-size:11px}
+.closing{background:#061316;color:#fff}.closing h2{font-size:clamp(58px,8vw,122px);line-height:.9;letter-spacing:-.065em;margin:0}.closing h2 span{color:var(--accent)}.closing-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;margin-top:42px}.closing-grid p{color:#a4b8ba;font-size:17px}.footer{margin-top:70px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;color:#779093;font-size:11px}
+@media(max-width:1050px){.navlinks{display:none}.nav{grid-template-columns:1fr auto}.hero-grid,.section-head,.definition,.intersection,.dash-grid,.signal-head,.closing-grid{grid-template-columns:1fr}.objective-map,.pillars,.system-map,.measure-grid,.industry-grid{grid-template-columns:1fr 1fr}.engine,.cost-grid,.roadmap{grid-template-columns:1fr 1fr}.axis-row{grid-template-columns:1fr 1fr}.intersection{gap:18px}.loop{width:170px;height:170px}.dash-kpis{grid-template-columns:1fr 1fr}.persona-tabs{grid-template-columns:1fr 1fr}.partner-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.objective-map,.pillars,.system-map,.engine,.measure-grid,.partner-grid,.industry-grid,.cost-grid,.roadmap,.persona-tabs,.axis-row{grid-template-columns:1fr}.wrap{width:min(calc(100% - 28px),var(--max))}.hero{padding-top:125px}.hero h1{font-size:66px}.section-head{gap:18px}.definition-main{padding:28px}.pillar{min-height:390px}.footer{flex-direction:column;gap:10px}.signal-word{font-size:56px}}
+
+.impact-card{border-top:3px solid #55EDE2}
+.impact-card .n{color:#15AEA4;font-weight:800}
+.dark .impact-card .n{color:#55EDE2}
+.impact-flow{
+  margin-top:22px;padding:18px 22px;border-radius:16px;
+  background:rgba(85,237,226,.10);border:1px solid rgba(85,237,226,.35);
+  color:#15AEA4;font-weight:800;letter-spacing:.02em;text-align:center
+}
+.dark .impact-flow{color:#55EDE2}
+
+/* Strategic Pillars refinement */
+.strategic-pillars .pillar-card{padding:30px 32px 24px;display:flex;flex-direction:column;min-height:520px}
+.strategic-pillars .pillar-card h3{line-height:1.18;margin:14px 0 12px;font-size:clamp(26px,2.2vw,38px)}
+.strategic-pillars .pillar-desc{line-height:1.55!important;margin-bottom:18px!important;color:#c5d0d2}
+.strategic-pillars .pillar-role{margin-top:auto!important;padding-top:16px!important;border-top:1px solid rgba(255,255,255,.14);line-height:1.4!important}
+.strategic-pillars .content-axis-box{margin-top:10px;padding:18px;border-radius:18px;background:rgba(0,0,0,.16);border:1px solid rgba(85,237,226,.20)}
+.strategic-pillars .content-axis-box *{line-height:1.35!important}
+.strategic-pillars .influence-loop-core{line-height:1.15!important}
+.strategic-pillars .grid{align-items:stretch}
+.strategic-pillars p{line-height:1.55}
+
+/* SIGNAL */
+.signal-card{border-top:3px solid #55EDE2}
+.signal-card .n{color:#15AEA4;font-weight:800}
+.dark .signal-card .n{color:#55EDE2}
+
+/* BOD Takenote */
+.bod-takenote{background:linear-gradient(180deg,#06171a 0%,#0a2023 100%);color:#fff;border-bottom:1px solid rgba(85,237,226,.18)}
+.bod-takenote .section-head p{color:#abc0c3}
+.bod-grid{grid-template-columns:repeat(4,1fr)}
+.bod-card{background:rgba(255,255,255,.045)!important;border:1px solid rgba(85,237,226,.16)!important;box-shadow:none!important;min-height:230px}
+.bod-card .n{color:#55EDE2!important}
+.bod-card h3{font-size:21px;line-height:1.2;margin:14px 0 10px}
+.bod-card p{color:#b9c9cb!important;line-height:1.5;font-size:14px}
+@media(max-width:1000px){.bod-grid{grid-template-columns:repeat(2,1fr)}.strategic-pillars .pillar-card{min-height:auto}}
+@media(max-width:640px){.bod-grid{grid-template-columns:1fr}}
+
+/* ===== BOD TAKE NOTE V2 ===== */
+.bod-takenote-v2{
+  padding:72px 28px 64px;
+  background:
+    radial-gradient(circle at 84% 18%,rgba(85,237,226,.10),transparent 28%),
+    linear-gradient(180deg,#061417 0%,#081b1e 100%);
+  color:#fff;
+  border-bottom:1px solid rgba(85,237,226,.15)
+}
+.bod-takenote-v2 .bod-top{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:64px;
+  align-items:end;margin-bottom:30px
+}
+.bod-takenote-v2 h2{
+  font-size:clamp(34px,3.5vw,58px);line-height:1.04;letter-spacing:-.045em;
+  max-width:900px;margin:8px 0 0
+}
+.bod-thesis{
+  color:#adc3c6;font-size:16px;line-height:1.55;
+  padding:0 0 6px 22px;border-left:2px solid #55EDE2
+}
+.bod-core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.bod-core-card{
+  position:relative;min-height:260px;padding:26px 24px 24px;
+  border-radius:22px;background:rgba(255,255,255,.045);
+  border:1px solid rgba(85,237,226,.15);
+  overflow:hidden
+}
+.bod-core-card:after{
+  content:"";position:absolute;right:-38px;bottom:-55px;width:120px;height:120px;
+  border:1px solid rgba(85,237,226,.12);border-radius:50%
+}
+.bod-num{font-size:12px;color:#55EDE2;font-weight:800;letter-spacing:.12em}
+.bod-tag{
+  position:absolute;right:18px;top:18px;padding:6px 9px;border-radius:999px;
+  font-size:9px;letter-spacing:.12em;font-weight:800;color:#55EDE2;
+  background:rgba(85,237,226,.08)
+}
+.bod-core-card h3{font-size:22px;line-height:1.12;margin:42px 0 10px;letter-spacing:-.025em}
+.bod-core-card p{color:#adc0c3;font-size:13.5px;line-height:1.52;margin:0}
+.bod-flow{
+  margin-top:14px;padding:17px 20px;border-radius:16px;
+  background:#55EDE2;color:#042226;
+  display:grid;grid-template-columns:150px 1fr;align-items:center;gap:18px
+}
+.bod-flow-title{font-size:10px;font-weight:900;letter-spacing:.15em}
+.bod-flow-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:750}
+.bod-flow-steps b{opacity:.48}
+
+/* ===== STRATEGIC PILLARS V2 ===== */
+.strategic-pillars-v2{
+  padding:84px 28px;
+  background:#0a171a;color:#fff
+}
+.pillars-head{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:end;margin-bottom:34px
+}
+.pillars-head h2{
+  font-size:clamp(34px,3.8vw,58px);line-height:1.04;letter-spacing:-.045em;margin:8px 0 0
+}
+.pillars-head>p{
+  margin:0;color:#aebfc2;font-size:17px;line-height:1.52;max-width:720px
+}
+.pillars-grid-v2{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch
+}
+.pillar-card-v2{
+  min-height:410px;border-radius:24px;padding:26px 28px 24px;
+  display:flex;flex-direction:column;
+  border:1px solid rgba(85,237,226,.10);
+  background:linear-gradient(180deg,#071f23 0%,#08262a 100%)
+}
+.pillar-card-v2:nth-child(2){background:linear-gradient(180deg,#0b2f2c 0%,#0d3733 100%)}
+.pillar-card-v2:nth-child(3){background:linear-gradient(180deg,#123137 0%,#163b42 100%)}
+.pillar-meta{display:flex;gap:8px;color:#91a9ad;font-size:10px;letter-spacing:.08em}
+.pillar-meta span:first-child{color:#55EDE2;font-weight:850}
+.pillar-card-v2 h3{
+  font-size:clamp(26px,2.25vw,36px);line-height:1.12;letter-spacing:-.035em;
+  margin:34px 0 16px;max-width:360px
+}
+.pillar-copy{
+  color:#c0cdcf;font-size:15px;line-height:1.48;margin:0;max-width:410px
+}
+.pillar-role-v2{
+  margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.13);
+  color:#c3d0d2;font-size:11.5px;line-height:1.4
+}
+.pillar-role-v2 b{color:#55EDE2}
+.content-axis-strip{
+  margin-top:14px;border-radius:22px;padding:22px 24px;
+  background:#f7fbfa;color:#102528;
+  display:grid;grid-template-columns:330px 1fr;gap:30px;align-items:center
+}
+.axis-intro span{
+  display:block;color:#15aea4;font-size:10px;font-weight:900;letter-spacing:.13em;margin-bottom:7px
+}
+.axis-intro strong{display:block;font-size:19px;line-height:1.2;letter-spacing:-.02em}
+.axis-flow{
+  display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;
+  align-items:center;gap:6px
+}
+.axis-item{
+  min-height:70px;border-radius:14px;padding:13px 14px;border:1px solid #cfe6e3;background:#fff;
+  display:flex;flex-direction:column;justify-content:center
+}
+.axis-item small{font-size:9px;color:#15aea4;font-weight:900;margin-bottom:4px}
+.axis-item span{font-size:12px;font-weight:700;line-height:1.25}
+.axis-arrow{text-align:center;color:#15aea4;font-weight:900}
+.influence-loop-v2{
+  margin-top:14px;border-radius:22px;padding:28px;
+  background:#fff;color:#112529;
+  display:grid;grid-template-columns:1fr 440px;gap:36px;align-items:center
+}
+.loop-kicker{font-size:10px;font-weight:900;letter-spacing:.14em;color:#15aea4;margin-bottom:8px}
+.influence-loop-v2 h3{font-size:25px;line-height:1.15;letter-spacing:-.03em;margin:0 0 8px}
+.influence-loop-v2 p{color:#63777b;line-height:1.5;margin:0;max-width:720px;font-size:14px}
+.loop-cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cycle-node{
+  aspect-ratio:1/1;border-radius:50%;background:#08282c;color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  border:8px solid #e7f5f3
+}
+.cycle-node b{font-size:10px;color:#55EDE2;letter-spacing:.05em}
+.cycle-node span{font-size:10px;color:#c8d5d7;margin-top:4px}
+
+@media(max-width:1100px){
+  .bod-core-grid{grid-template-columns:repeat(2,1fr)}
+  .pillars-grid-v2{grid-template-columns:1fr}
+  .pillar-card-v2{min-height:330px}
+  .content-axis-strip,.influence-loop-v2,.pillars-head,.bod-takenote-v2 .bod-top{grid-template-columns:1fr}
+  .axis-flow{grid-template-columns:1fr 24px 1fr 24px 1fr 24px 1fr}
+  .loop-cycle{max-width:520px}
+}
+@media(max-width:680px){
+  .bod-core-grid{grid-template-columns:1fr}
+  .bod-flow{grid-template-columns:1fr}
+  .axis-flow{grid-template-columns:1fr}
+  .axis-arrow{transform:rotate(90deg)}
+  .loop-cycle{grid-template-columns:1fr 1fr}
+}
+
+/* ===== SMART HEADER + BOD VIEWPORT BALANCE ===== */
+nav{
+  position:fixed!important;
+  top:0;
+  left:0;
+  right:0;
+  z-index:9999;
+  transform:translateY(-120%);
+  opacity:0;
+  transition:transform .28s ease, opacity .22s ease;
+  will-change:transform;
+}
+nav.nav-visible{
+  transform:translateY(0);
+  opacity:1;
+}
+nav.nav-hidden{
+  transform:translateY(-120%);
+  opacity:0;
+}
+
+/* BOD section spacing tuned to viewport */
+.bod-takenote-v2{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:110px 28px 74px!important;
+}
+.bod-takenote-v2 .wrap{
+  width:100%;
+  transform:translateY(18px);
+}
+.bod-takenote-v2 .bod-top{
+  margin-bottom:26px!important;
+}
+.bod-core-grid{
+  margin-top:4px;
+}
+.bod-flow{
+  margin-top:16px!important;
+}
+
+/* avoid header collision on anchor jumps */
+section[id], header[id]{
+  scroll-margin-top:86px;
+}
+
+@media(max-width:1100px){
+  .bod-takenote-v2{
+    min-height:auto;
+    padding-top:96px!important;
+  }
+  .bod-takenote-v2 .wrap{
+    transform:none;
+  }
+}
+
+/* ===== FINAL HEADER BEHAVIOR ===== */
+nav{
+  position:fixed!important;
+  top:14px!important;
+  left:50%!important;
+  right:auto!important;
+  width:min(1120px,calc(100% - 40px))!important;
+  transform:translate(-50%,0)!important;
+  opacity:1!important;
+  z-index:9999!important;
+  transition:transform .26s ease, opacity .2s ease!important;
+  will-change:transform;
+  border-radius:999px!important;
+}
+nav.nav-hidden{
+  transform:translate(-50%,-140%)!important;
+  opacity:0!important;
+  pointer-events:none;
+}
+nav.nav-visible{
+  transform:translate(-50%,0)!important;
+  opacity:1!important;
+  pointer-events:auto;
+}
+
+/* ===== BOD SECTION REBALANCE ===== */
+.bod-takenote-v2{
+  min-height:0!important;
+  display:block!important;
+  padding:116px 28px 58px!important;
+}
+.bod-takenote-v2 .wrap{
+  width:100%!important;
+  transform:none!important;
+}
+.bod-takenote-v2 .bod-top{
+  grid-template-columns:1.15fr .85fr!important;
+  gap:56px!important;
+  align-items:end!important;
+  margin-bottom:26px!important;
+}
+.bod-takenote-v2 h2{
+  font-size:clamp(34px,3vw,52px)!important;
+  line-height:1.03!important;
+  max-width:860px!important;
+  margin:8px 0 0!important;
+}
+.bod-thesis{
+  font-size:14px!important;
+  line-height:1.5!important;
+  max-width:500px;
+}
+.bod-core-grid{
+  gap:12px!important;
+}
+.bod-core-card{
+  min-height:210px!important;
+  padding:22px 22px 20px!important;
+}
+.bod-core-card h3{
+  font-size:19px!important;
+  margin:34px 0 8px!important;
+}
+.bod-core-card p{
+  font-size:12.5px!important;
+  line-height:1.48!important;
+}
+.bod-flow{
+  margin-top:12px!important;
+  padding:14px 18px!important;
+  grid-template-columns:132px 1fr!important;
+}
+.bod-flow-steps{
+  gap:8px!important;
+  font-size:11px!important;
+}
+
+/* ensure following section is not pushed too far down */
+.bod-takenote-v2 + section{
+  margin-top:0!important;
+}
+
+/* anchor offset for visible header */
+section[id],header[id]{
+  scroll-margin-top:96px!important;
+}
+
+@media(max-width:1100px){
+  nav{
+    width:calc(100% - 24px)!important;
+    top:8px!important;
+  }
+  .bod-takenote-v2{
+    padding-top:100px!important;
+  }
+  .bod-takenote-v2 .bod-top{
+    grid-template-columns:1fr!important;
+    gap:22px!important;
+  }
+}
+@media(max-width:680px){
+  .bod-takenote-v2{
+    padding:88px 18px 42px!important;
+  }
+  .bod-takenote-v2 h2{
+    font-size:36px!important;
+  }
+  .bod-flow{
+    grid-template-columns:1fr!important;
+  }
+}
+
+/* ===== BOD WIDTH / MARGIN REFINEMENT =====
+   Match the visual content width of the header and following sections.
+*/
+.bod-takenote-v2{
+  padding-left:28px!important;
+  padding-right:28px!important;
+}
+.bod-takenote-v2 > .wrap{
+  width:min(1320px, calc(100% - 32px))!important;
+  max-width:1320px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+/* Keep the executive headline controlled instead of spanning half the screen awkwardly */
+.bod-takenote-v2 .bod-top{
+  grid-template-columns:minmax(0,1.15fr) minmax(360px,.65fr)!important;
+  gap:72px!important;
+}
+.bod-takenote-v2 h2{
+  max-width:760px!important;
+  font-size:clamp(36px,2.8vw,50px)!important;
+}
+.bod-thesis{
+  max-width:440px!important;
+  justify-self:end!important;
+}
+
+/* Cards and logic bar use exactly the same content rails */
+.bod-core-grid,
+.bod-flow{
+  width:100%!important;
+  max-width:none!important;
+}
+
+/* Slightly narrower cards feel more premium on wide desktop */
+.bod-core-card{
+  min-width:0!important;
+}
+
+/* Large screens */
+@media(min-width:1500px){
+  .bod-takenote-v2 > .wrap{
+    max-width:1320px!important;
+  }
+}
+
+/* Laptop / smaller desktop */
+@media(max-width:1180px){
+  .bod-takenote-v2 > .wrap{
+    width:min(1120px, calc(100% - 20px))!important;
+  }
+  .bod-takenote-v2 .bod-top{
+    grid-template-columns:1fr .72fr!important;
+    gap:42px!important;
+  }
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .bod-takenote-v2 > .wrap{
+    width:100%!important;
+  }
+  .bod-takenote-v2 .bod-top{
+    grid-template-columns:1fr!important;
+    gap:20px!important;
+  }
+  .bod-thesis{
+    max-width:680px!important;
+    justify-self:start!important;
+  }
+}
+
+/* ===== BOD SECTION FINAL BALANCE ===== */
+.bod-takenote-v2{
+  padding-top:112px!important;
+  padding-bottom:34px!important;
+}
+
+/* Give headline / thesis more breathing room */
+.bod-takenote-v2 .bod-top{
+  margin-bottom:38px!important;
+  align-items:center!important;
+}
+
+/* Keep headline strong but less vertically dense */
+.bod-takenote-v2 h2{
+  line-height:1.07!important;
+}
+
+/* Separate cards from the top block */
+.bod-core-grid{
+  margin-top:0!important;
+  gap:16px!important;
+}
+
+/* Slightly taller cards for breathing, but no excess */
+.bod-core-card{
+  min-height:222px!important;
+  padding:24px 22px 22px!important;
+}
+.bod-core-card h3{
+  margin-top:38px!important;
+  margin-bottom:10px!important;
+}
+.bod-core-card p{
+  line-height:1.52!important;
+}
+
+/* Logic bar sits clearly apart from cards */
+.bod-flow{
+  margin-top:18px!important;
+  margin-bottom:0!important;
+  padding-top:15px!important;
+  padding-bottom:15px!important;
+}
+
+/* Remove the visual dead zone before the next section */
+.bod-takenote-v2 + section{
+  padding-top:58px!important;
+}
+
+/* Wide desktop tuning */
+@media(min-width:1440px){
+  .bod-takenote-v2{
+    padding-top:108px!important;
+    padding-bottom:30px!important;
+  }
+  .bod-takenote-v2 .bod-top{
+    margin-bottom:34px!important;
+  }
+}
+
+/* Laptop */
+@media(max-width:1180px){
+  .bod-takenote-v2{
+    padding-top:102px!important;
+    padding-bottom:30px!important;
+  }
+  .bod-takenote-v2 .bod-top{
+    margin-bottom:28px!important;
+  }
+}
+
+/* Tablet / mobile */
+@media(max-width:900px){
+  .bod-takenote-v2{
+    padding-bottom:28px!important;
+  }
+  .bod-takenote-v2 + section{
+    padding-top:46px!important;
+  }
+}
+
+/* ===== REMOVE DEAD SPACE AFTER BOD ===== */
+.bod-takenote-v2{
+  padding-bottom:18px!important;
+  margin-bottom:0!important;
+}
+.bod-takenote-v2 .wrap{
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+.bod-flow{
+  margin-bottom:0!important;
+}
+
+/* Force the next section to start immediately after BOD */
+.bod-takenote-v2 + section{
+  margin-top:0!important;
+  padding-top:48px!important;
+  min-height:0!important;
+}
+
+/* Kill any inherited spacer/hero-like empty region between sections */
+.bod-takenote-v2 + section:empty{
+  display:none!important;
+}
+.bod-takenote-v2 ~ .spacer,
+.bod-takenote-v2 + .spacer,
+.bod-takenote-v2 + div.spacer{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Tighten section transition globally only for this page region */
+#bod-takenote{
+  min-height:auto!important;
+}
+#bod-takenote + section{
+  border-top:0!important;
+}
+
+/* Thesis emphasis */
+.bod-thesis strong{
+  color:#ffffff;
+  font-weight:750;
+}
+
+/* ===== ACTUAL DEAD SPACE FIX ===== */
+#bod-takenote{
+  min-height:auto!important;
+  height:auto!important;
+  padding-bottom:18px!important;
+  margin-bottom:0!important;
+}
+
+/* The dead space belongs to the section immediately after BOD.
+   Remove inherited full-screen / viewport sizing and excessive vertical padding. */
+#bod-takenote + section{
+  min-height:auto!important;
+  height:auto!important;
+  max-height:none!important;
+  margin-top:0!important;
+  padding-top:54px!important;
+  padding-bottom:54px!important;
+}
+
+/* Neutralize common full-screen wrappers inside that next section */
+#bod-takenote + section > .wrap,
+#bod-takenote + section > .container,
+#bod-takenote + section > .section-inner{
+  min-height:0!important;
+  height:auto!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+
+/* Any presentation/hero block directly after BOD must size to content, not viewport */
+#bod-takenote + section.hero,
+#bod-takenote + section.cover,
+#bod-takenote + section.intro,
+#bod-takenote + section[class*="hero"],
+#bod-takenote + section[class*="intro"]{
+  min-height:auto!important;
+  height:auto!important;
+  padding-top:54px!important;
+  padding-bottom:54px!important;
+}
+
+/* Remove viewport-height rules from first child blocks in the next section */
+#bod-takenote + section > div:first-child{
+  min-height:0!important;
+  height:auto!important;
+}
+
+/* BOD content spacing remains deliberate */
+#bod-takenote .bod-top{margin-bottom:34px!important}
+#bod-takenote .bod-core-grid{margin-bottom:0!important}
+#bod-takenote .bod-flow{margin-top:18px!important;margin-bottom:0!important}
+
+/* ===== BOD SPACING — 2 ENTER RHYTHM ===== */
+
+/* 1) BOD's Takenote xuống khỏi header khoảng 2 dòng */
+#bod-takenote{
+  padding-top:136px!important;
+}
+
+/* 2) Cụm 4 box cách phần text phía trên khoảng 2 dòng */
+#bod-takenote .bod-top{
+  margin-bottom:42px!important;
+}
+
+/* 3) Logic triển khai cách cụm 4 box khoảng 2 dòng */
+#bod-takenote .bod-flow{
+  margin-top:40px!important;
+}
+
+/* 4) Logic triển khai cách line / section kế tiếp khoảng 2 dòng */
+#bod-takenote{
+  padding-bottom:42px!important;
+}
+
+/* giữ transition sang section kế tiếp gọn, không tạo dead space */
+#bod-takenote + section{
+  margin-top:0!important;
+  padding-top:52px!important;
+  min-height:auto!important;
+}
+
+/* laptop */
+@media(max-width:1180px){
+  #bod-takenote{
+    padding-top:124px!important;
+    padding-bottom:38px!important;
+  }
+  #bod-takenote .bod-top{
+    margin-bottom:36px!important;
+  }
+  #bod-takenote .bod-flow{
+    margin-top:34px!important;
+  }
+}
+
+/* mobile/tablet */
+@media(max-width:900px){
+  #bod-takenote{
+    padding-top:108px!important;
+    padding-bottom:32px!important;
+  }
+  #bod-takenote .bod-top{
+    margin-bottom:30px!important;
+  }
+  #bod-takenote .bod-flow{
+    margin-top:30px!important;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="brand"><i></i>ADMICRO mediaOS</div><div class="navlinks"><a href="#definition">Định nghĩa</a><a href="#pillars">Trụ cột</a><a href="#mice">M.I.C.E</a><a href="#signal">S.I.G.N.A.L</a><a href="#partners">Đối tác</a><a href="#measurement">Đo lường</a><a href="#dashboard">Dashboard</a><a href="#moments">Moments</a><a href="#industry">Ngành</a><a href="#cost">Chi phí</a><a href="#roadmap">Roadmap</a></div><div class="tag">VERSION 2</div></nav>
+<section class="bod-takenote-v2" id="bod-takenote"><div class="wrap"><div class="bod-top"><div><div class="kicker">BOD's Takenote</div><h2>Version 2 chuyển mediaOS từ một gói giải pháp thành một hệ vận hành truyền thông có thể lặp lại, mở rộng và đo lường.</h2></div><div class="bod-thesis"><strong>ADMICRO mediaOS được cấu trúc trên 4 nền tảng cốt lõi:</strong> định vị hệ thống rõ ràng; Media First – Content First – Social First vận hành theo một logic thống nhất; SIGNAL là lớp năng lực vận hành xuyên suốt; M.I.C.E + Intelligence là lớp kiến tạo, tối ưu và đo lường giá trị.</div></div><div class="bod-core-grid"><article class="bod-core-card"><div class="bod-num">01</div><div class="bod-tag">SYSTEM</div><h3>Định vị hệ thống</h3><p>mediaOS là hạ tầng để campaign được “cài đặt”, vận hành và tối ưu bằng trí tuệ tổ chức — không phụ thuộc vào kinh nghiệm rời rạc của từng cá nhân.</p></article><article class="bod-core-card"><div class="bod-num">02</div><div class="bod-tag">3 FIRST</div><h3>Ba trụ cột chiến lược</h3><p>Media First điều phối quy mô &amp; thời điểm. Content First quản trị trục nội dung &amp; thẩm quyền. Social First kích hoạt hội thoại, cộng hưởng &amp; tín hiệu phản hồi.</p></article><article class="bod-core-card"><div class="bod-num">03</div><div class="bod-tag">6 LAYERS</div><h3>SIGNAL System</h3><p>Scale · Insight · Gateway · Network · Authority · Live — 6 lớp năng lực để thiết kế điểm chạm, hệ sinh thái và chuyển đổi trong cùng một hệ vận hành.</p></article><article class="bod-core-card"><div class="bod-num">04</div><div class="bod-tag">VALUE + AI</div><h3>M.I.C.E + Intelligence</h3><p>M.I.C.E xác định giá trị cần tạo; Measurement và AI Intelligence liên tục đọc dữ liệu, dự báo, cảnh báo và đề xuất tối ưu theo từng loại campaign.</p></article></div><div class="bod-flow"><div class="bod-flow-title">LOGIC TRIỂN KHAI</div><div class="bod-flow-steps"><span>Xác định Business Problem</span><b>→</b><span>Chọn Consumer Moment</span><b>→</b><span>Phối hợp 3 First</span><b>→</b><span>Ráp SIGNAL</span><b>→</b><span>Khóa M.I.C.E &amp; KPI</span><b>→</b><span>Vận hành qua Intelligence</span></div></div></div></section><header class="hero" id="top"><div class="wrap hero-grid"><div><div class="eyebrow">Strategic System Proposal · Version 2 · 2026</div><h1>media<span>OS</span></h1><div class="hero-copy"><b>Media First Growth Operating System.</b><br/>ADMICRO mediaOS là hạ tầng chiến lược để các campaign được “cài đặt” và vận hành trên cùng một logic: Media tạo quy mô, Content tạo chiều sâu, Social tạo lan tỏa, hệ sinh thái tạo hành động và Intelligence biến dữ liệu thành quyết định tiếp theo.</div><div class="hero-note">Từ vận hành theo kinh nghiệm rời rạc sang một hệ thống có thể chuẩn hóa, đo lường, học và tái sử dụng tri thức tổ chức.</div></div><div class="hero-side"><div class="hero-stat"><small>Vai trò cốt lõi</small><strong>Media First</strong></div><div class="hero-stat"><small>Ba năng lực</small><strong>Media × Content × Social</strong></div><div class="hero-stat"><small>Logic tạo giá trị</small><strong>M.I.C.E Value Engine</strong></div><div class="hero-stat"><small>Hệ vận hành</small><strong>S.I.G.N.A.L System</strong></div><div class="hero-stat"><small>Lớp tối ưu</small><strong>AI Intelligence Dashboard</strong></div></div></div></header>
+<section id="definition"><div class="wrap"><div class="section-head"><div class="kicker">01 · ADMICRO mediaOS là gì?</div><div><h2>Một hệ điều hành tăng trưởng lấy Media làm lớp điều phối thị trường.</h2><p>mediaOS không phải một gói inventory hay một media plan mở rộng. Đây là hệ thống giúp ADMICRO thiết kế, kích hoạt, đo lường và tối ưu hành trình truyền thông – tiêu dùng trên cùng một chuẩn vận hành; đồng thời tích lũy dữ liệu, case và playbook thành tài sản chung cho các campaign tiếp theo.</p></div></div><div class="definition"><div class="definition-main"><div class="kicker">Định nghĩa chiến lược</div><h3>Media tạo tín hiệu. Content tạo ý nghĩa. Social tạo cộng hưởng. Hệ sinh thái tạo hành động. Intelligence tạo quyết định tiếp theo.</h3><p>Khác biệt của mediaOS không nằm ở việc có nhiều kênh hơn, mà ở khả năng <b>điều phối các nguồn lực</b> — media, nội dung, social, nền tảng, thương mại, đối tác và data — quanh cùng một mục tiêu và cùng một consumer journey.</p><div class="formula">Media First → <span>Hành động</span> → Intelligence → Tối ưu → Tăng trưởng</div></div><div class="value-stack"><div class="value-card"><small>GIÁ TRỊ 01</small><h4>Mở rộng đúng đối tượng, đúng bối cảnh</h4><p>Tạo độ phủ đủ lớn nhưng vẫn kiểm soát audience, thời điểm, ngữ cảnh và tần suất.</p></div><div class="value-card"><small>GIÁ TRỊ 02</small><h4>Kết nối các điểm chạm rời rạc</h4><p>Media, platform, merchant, partner và activation cùng nằm trong một hành trình có chủ đích.</p></div><div class="value-card"><small>GIÁ TRỊ 03</small><h4>Biến độ phủ thành bằng chứng</h4><p>Đo từ tiếp cận đến tham gia, trải nghiệm, chuyển đổi, ảnh hưởng thương hiệu và kết quả kinh doanh.</p></div><div class="value-card"><small>GIÁ TRỊ 04</small><h4>Tích lũy trí tuệ tổ chức</h4><p>Mỗi campaign bổ sung dữ liệu, insight và playbook để lần triển khai sau nhanh và chính xác hơn.</p></div></div></div><div class="objective-map"><div class="objective-card"><small>MỤC TIÊU KINH DOANH</small><h4>Tạo tăng trưởng có thể chứng minh</h4><p>Kết nối đầu tư truyền thông với qualified action, conversion, revenue, retention hoặc business outcome phù hợp.</p></div><div class="objective-card"><small>MỤC TIÊU MARKETING</small><h4>Sở hữu consumer moment</h4><p>Tăng relevance, preference và khả năng thương hiệu xuất hiện đúng lúc trong hành trình tiêu dùng.</p></div><div class="objective-card"><small>MỤC TIÊU TRUYỀN THÔNG</small><h4>Tạo ảnh hưởng, không chỉ độ phủ</h4><p>Kết hợp reach, content relevance, social resonance và trust để tạo ảnh hưởng có chiều sâu.</p></div><div class="objective-card"><small>MỤC TIÊU VẬN HÀNH</small><h4>Một hệ thống, nhiều campaign</h4><p>Chuẩn hóa cách thiết kế, đo lường và học từ dữ liệu để giảm phụ thuộc vào trí nhớ cá nhân.</p></div></div></div></section>
+<section class="strategic-pillars-v2" id="pillars"><div class="wrap"><div class="pillars-head"><div><div class="kicker">02 · Strategic Pillars</div><h2>Ba “First” không chạy song song. Chúng vận hành như một vòng ảnh hưởng thống nhất.</h2></div><p>Media First tạo lực tiếp cận đúng quy mô và thời điểm; Content First tạo ý nghĩa, cấu trúc và thẩm quyền; Social First chuyển nội dung thành đối thoại, cộng hưởng và dữ liệu phản hồi. Cả ba cùng hội tụ tại một consumer moment, một audience và một outcome tree.</p></div><div class="pillars-grid-v2"><article class="pillar-card-v2"><div class="pillar-meta"><span>01</span><span>MEDIA FIRST</span></div><h3>Điều phối quy mô &amp; thời điểm</h3><p class="pillar-copy">Bắt đầu từ audience, inventory, context, timing và distribution. Media First quyết định thương hiệu xuất hiện ở đâu, khi nào, với ai và cần đủ lực tới mức nào.</p><div class="pillar-role-v2"><b>Vai trò</b> · Orchestration · Reach · Context · Frequency · Distribution</div></article><article class="pillar-card-v2"><div class="pillar-meta"><span>02</span><span>CONTENT FIRST</span></div><h3>Quản trị trục nội dung &amp; thẩm quyền</h3><p class="pillar-copy">Không chỉ tạo storytelling. Content First xác định nội dung cần nằm ở tầng nào, nguồn nào có thẩm quyền, tài sản nào cần huy động và cách thông điệp đi từ hệ tư tưởng/ngành → publisher/chuyên gia → campaign → cộng đồng.</p><div class="pillar-role-v2"><b>Vai trò</b> · Relevance · Authority · Meaning · Memory · Content Governance</div></article><article class="pillar-card-v2"><div class="pillar-meta"><span>03</span><span>SOCIAL FIRST</span></div><h3>Kích hoạt hội thoại &amp; cộng hưởng</h3><p class="pillar-copy">Biến nội dung thành tương tác, community, creator, UGC và advocacy. Social First tạo tín hiệu phản hồi nhanh, khuếch đại influence và đưa dữ liệu quay trở lại hệ tối ưu.</p><div class="pillar-role-v2"><b>Vai trò</b> · Resonance · Participation · Advocacy · Feedback · Community</div></article></div><div class="content-axis-strip"><div class="axis-intro"><span>CONTENT FIRST · TRỤC PHÂN TẦNG</span><strong>Một thông điệp, nhiều tầng ảnh hưởng — nhưng cùng một định hướng.</strong></div><div class="axis-flow"><div class="axis-item"><small>01</small><span>Định hướng / Thẩm quyền</span></div><div class="axis-arrow">→</div><div class="axis-item"><small>02</small><span>Báo chí / Chuyên ngành</span></div><div class="axis-arrow">→</div><div class="axis-item"><small>03</small><span>Dự án / Campaign</span></div><div class="axis-arrow">→</div><div class="axis-item"><small>04</small><span>Cộng đồng / UGC</span></div></div></div><div class="influence-loop-v2"><div><div class="loop-kicker">CONNECTED INFLUENCE LOOP</div><h3>Scale → Meaning &amp; Authority → Participation → Intelligence → Re-allocation</h3><p>Ba “First” hội tụ trên cùng consumer moment, cùng trục nội dung, cùng audience và cùng outcome tree. Dữ liệu phản hồi quay về Intelligence để tái phân bổ media, nội dung và touchpoint.</p></div><div class="loop-cycle"><div class="cycle-node"><b>MEDIA</b><span>Scale</span></div><div class="cycle-node"><b>CONTENT</b><span>Meaning</span></div><div class="cycle-node"><b>SOCIAL</b><span>Participation</span></div><div class="cycle-node"><b>AI</b><span>Learn</span></div></div></div></div></section>
+<section id="mice"><div class="wrap"><div class="section-head"><div class="kicker">03 · M.I.C.E Value Engine</div><div><h2>M.I.C.E là logic tạo giá trị cốt lõi giúp mọi campaign đi từ độ phủ đến kết quả có thể đo lường.</h2><p>Bốn thành phần của M.I.C.E buộc campaign trả lời rõ: chúng ta tạo attention bằng gì, tạo trải nghiệm nào, tạo hành động thương mại nào và cuối cùng tạo tác động gì cho thương hiệu hoặc kinh doanh.</p></div></div><div class="engine"><div class="engine-card"><div class="engine-letter">M</div><h3>Media — Độ phủ có chủ đích</h3><p>Tạo attention đúng audience, đúng context và đủ tần suất.</p><ul><li>Độ phủ tăng thêm</li><li>Tần suất đúng đối tượng</li><li>Chất lượng attention</li><li>Hiệu quả đa kênh</li></ul></div><div class="engine-card"><div class="engine-letter">I</div><h3>Impact — Tác động</h3><p>Đo thay đổi thật về nhận thức, hành vi hoặc business outcome.</p><ul><li>Brand Lift</li><li>Share of Positive Voice</li><li>Tác động xã hội / kinh doanh</li><li>Incremental Outcome</li></ul></div><div class="engine-card"><div class="engine-letter">C</div><h3>Commerce — Hành động thương mại</h3><p>Biến sự quan tâm thành tín hiệu kinh doanh hoặc giao dịch.</p><ul><li>Qualified Action</li><li>Voucher / Lead / Order</li><li>Conversion &amp; Revenue</li><li>Repeat / Retention</li></ul></div><div class="engine-card"><div class="engine-letter">E</div><h3>Experience — Trải nghiệm</h3><p>Tạo trải nghiệm có thể tham gia, ghi nhớ và chia sẻ.</p><ul><li>Participation</li><li>Interaction Depth</li><li>Redemption</li><li>Advocacy / UGC</li></ul></div></div><div class="engine-note"><span><b>M.I.C.E Value Engine</b> là chuẩn thiết kế giá trị: ngay từ brief, mỗi campaign phải xác định rõ mình tạo giá trị gì ở cả Media, Impact, Commerce và Experience.</span><span>Thiết kế → Kích hoạt → Đo lường → Học hỏi</span></div></div></section>
+<section class="soft" id="signal"><div class="wrap"><div class="section-head"><div class="kicker">04 · S.I.G.N.A.L System</div><div><h2>S.I.G.N.A.L — 6 lớp năng lực vận hành của ADMICRO mediaOS.</h2><p>SIGNAL tổ chức các năng lực từ mở rộng độ phủ, đọc tín hiệu thị trường đến tạo hành động, kết nối hệ sinh thái, xây niềm tin và đưa truyền thông thành trải nghiệm thực tế.</p></div></div><div class="signal-head"><div class="signal-word"><span>S</span>I<span>G</span>N<span>A</span>L</div><p>Mỗi campaign không bắt buộc dùng đủ sáu lớp. Planner chọn đúng lớp theo objective; Intelligence Dashboard theo dõi tín hiệu giữa các lớp để nhận biết điểm mạnh, điểm nghẽn và cơ hội tối ưu.</p></div><div class="system-map"><div class="layer"><div class="layer-no">S · SCALE</div><h3>Scale Layer</h3><div class="vi">Lớp Độ phủ</div><p class="purpose">Tạo quy mô tiếp cận và attention có kiểm soát.</p><div class="examples"><span>ADMICRO Network</span><span>Premium Publisher</span><span>Display</span><span>Video</span><span>DOOH</span><span>Social Media</span></div><div class="output"><b>Đầu ra:</b> Reach · Frequency · Attention · Context</div></div><div class="layer"><div class="layer-no">I · INTENT</div><h3>Insight Layer</h3><div class="vi">Lớp Ngữ cảnh &amp; tín hiệu nhu cầu</div><p class="purpose">Bắt consumer signal trên các nền tảng và hành vi hằng ngày: tìm kiếm, di chuyển, nhắn tin, đặt món, mua sắm, đi làm.</p><div class="examples"><span>Search</span><span>Mobility</span><span>Messaging</span><span>Delivery</span><span>Office</span><span>Commerce</span></div><div class="output"><b>Đầu ra:</b> Insight Signal · Qualified Traffic · Contextual Relevance</div></div><div class="layer"><div class="layer-no">G · GATEWAY</div><h3>Gateway Layer</h3><div class="vi">Lớp Cổng chuyển đổi</div><p class="purpose">Biến attention thành claim, lead, store visit, order hoặc transaction.</p><div class="examples"><span>Merchant</span><span>Retail</span><span>E-commerce</span><span>Voucher</span><span>Store</span><span>Payment</span></div><div class="output"><b>Đầu ra:</b> Claim · Redemption · Conversion · Revenue</div></div><div class="layer"><div class="layer-no">N · NETWORK</div><h3>Network Layer</h3><div class="vi">Lớp Đối tác hệ sinh thái</div><p class="purpose">Mở rộng reach, data, utility và quyền lợi bằng đối tác có điểm chạm thật trong đời sống người dùng.</p><div class="examples"><span>Mobility</span><span>Payment</span><span>Messaging</span><span>Commerce</span><span>DOOH</span><span>Lifestyle</span></div><div class="output"><b>Đầu ra:</b> Co-reach · Added Value · Referral · Co-investment</div></div><div class="layer"><div class="layer-no">A · AUTHORITY</div><h3>Authority Layer</h3><div class="vi">Lớp Thẩm quyền &amp; bảo chứng</div><p class="purpose">Tạo credibility và earned influence thông qua publisher, chuyên gia, hiệp hội, tổ chức, cộng đồng và nguồn nội dung có thẩm quyền.</p><div class="examples"><span>Publisher</span><span>Expert</span><span>Association</span><span>Institution</span><span>Community</span><span>KOL/KOC</span></div><div class="output"><b>Đầu ra:</b> Credibility · Earned Reach · Sentiment · Advocacy</div></div><div class="layer"><div class="layer-no">L · LINK</div><h3>Link Layer</h3><div class="vi">Lớp Điểm nối trải nghiệm</div><p class="purpose">Nơi media được nối trực tiếp với một hành động hoặc trải nghiệm cụ thể — online hoặc offline.</p><div class="examples"><span>QR / NFC</span><span>Sampling</span><span>Event</span><span>Gamification</span><span>UGC</span><span>CRM Loop</span></div><div class="output"><b>Đầu ra:</b> Participation · Experience · Action · Data Signal</div></div></div><div class="naming-note"><b>S.I.G.N.A.L System</b> là tên khuyến nghị để sử dụng trong sales deck và proposal. Tên kỹ thuật “Operating Architecture” có thể giữ ở tài liệu nội bộ khi cần mô tả kiến trúc hệ thống.</div></div></section>
+<section id="partners"><div class="wrap"><div class="section-head"><div class="kicker">05 · Partner Ecosystem</div><div><h2>Network Layer cần một hệ đối tác có điểm chạm thật — không chỉ một danh sách logo.</h2><p>Đối tác được lựa chọn theo vai trò họ bổ sung cho consumer journey: thêm độ phủ, thêm utility, thêm quyền lợi, thêm dữ liệu hoặc rút ngắn đường từ media đến hành động.</p></div></div><div class="partner-grid"><div class="partner-card"><small>MEDIA / DOOH</small><h3>Mở rộng attention ngoài digital</h3><p>Phù hợp với campaign cần phủ theo tòa nhà, office, retail, transit hoặc điểm có footfall cao.</p><div class="partner-tags"><span>Focus Media</span><span>Goldsun Focus Media</span><span>DOOH Networks</span></div></div><div class="partner-card"><small>MOBILITY / DELIVERY</small><h3>Đi cùng hành trình hằng ngày</h3><p>Chạm người dùng khi di chuyển, đặt món, giao nhận; có thể kết nối voucher, sampling hoặc co-promotion.</p><div class="partner-tags"><span>Grab</span><span>be</span><span>Xanh SM</span></div></div><div class="partner-card"><small>PAYMENT / FINTECH</small><h3>Rút ngắn từ interest đến transaction</h3><p>Payment, voucher, cashback hoặc loyalty giúp biến media exposure thành hành động có thể xác minh.</p><div class="partner-tags"><span>MoMo</span><span>ZaloPay</span><span>VNPay</span></div></div><div class="partner-card"><small>MESSAGING / SOCIAL</small><h3>Thông báo, hội thoại và CRM loop</h3><p>Phù hợp cho opt-in, reminder, re-engagement, community và chăm sóc sau campaign.</p><div class="partner-tags"><span>Zalo</span><span>Meta</span><span>TikTok</span></div></div><div class="partner-card"><small>COMMERCE / RETAIL</small><h3>Chuyển đổi và phân phối quyền lợi</h3><p>Cho phép claim/redeem, mua hàng, gifting hoặc mở rộng campaign vào marketplace và merchant network.</p><div class="partner-tags"><span>Shopee</span><span>ShopeeFood</span><span>TikTok Shop</span><span>Retail Chains</span></div></div><div class="partner-card"><small>PROPERTY / EXPERIENCE</small><h3>Tạo physical touchpoint</h3><p>Các tòa nhà văn phòng, TTTM, venue, chuỗi bán lẻ hoặc operator sự kiện có thể trở thành Link Layer của campaign.</p><div class="partner-tags"><span>Office Buildings</span><span>Malls</span><span>Event Venues</span><span>Merchant Chains</span></div></div></div><div class="disclaimer">Danh sách trên là <b>hệ đối tác tiềm năng để thiết kế giải pháp</b>, không hàm ý quan hệ hợp tác đã được xác nhận. Khả năng tích hợp thực tế phụ thuộc commercial agreement, inventory, API/data permission và mechanics của từng campaign.</div></div></section>
+<section class="soft" id="measurement"><div class="wrap"><div class="section-head"><div class="kicker">06 · Measurement System</div><div><h2>Mỗi SIGNAL Layer có một nhóm KPI riêng — nhưng tất cả cùng quy về outcome tree.</h2><p>mediaOS không ép mọi campaign dùng một bộ KPI giống nhau. Hệ thống chọn metric theo vai trò của layer, sau đó liên kết chúng với M.I.C.E và mục tiêu Business / Marketing / Communication.</p></div></div><div class="measure-grid"><div class="measure-card"><div class="layer-tag">S · SCALE</div><h3>Độ phủ &amp; attention</h3><div class="metric-row"><span class="metric">Unique Reach</span><span class="metric-vi">Số người tiếp cận không trùng lặp</span></div><div class="metric-row"><span class="metric">Incremental Reach</span><span class="metric-vi">Độ phủ tăng thêm nhờ bổ sung kênh/layer</span></div><div class="metric-row"><span class="metric">Frequency</span><span class="metric-vi">Tần suất trung bình mỗi người nhìn thấy campaign</span></div><div class="metric-row"><span class="metric">Attention / VTR / Viewability</span><span class="metric-vi">Chất lượng cơ hội nhìn thấy và mức độ xem nội dung</span></div><div class="metric-row"><span class="metric">Cost Efficiency</span><span class="metric-vi">CPM/CPV/CPC và hiệu quả chi phí theo kênh</span></div></div><div class="measure-card"><div class="layer-tag">I · INTENT</div><h3>Ngữ cảnh &amp; tín hiệu nhu cầu</h3><div class="metric-row"><span class="metric">Qualified Traffic</span><span class="metric-vi">Lượng truy cập có chất lượng theo tiêu chí campaign</span></div><div class="metric-row"><span class="metric">Search / Click Insight</span><span class="metric-vi">Tín hiệu chủ động tìm kiếm, click hoặc mở hành trình tiếp theo</span></div><div class="metric-row"><span class="metric">Context Response Rate</span><span class="metric-vi">Mức phản hồi theo bối cảnh, thời điểm hoặc platform</span></div><div class="metric-row"><span class="metric">Assisted Action</span><span class="metric-vi">Hành động có sự đóng góp của layer dù không phải last-click</span></div></div><div class="measure-card"><div class="layer-tag">G · GATEWAY</div><h3>Chuyển đổi &amp; thương mại</h3><div class="metric-row"><span class="metric">Claim / Lead / Order</span><span class="metric-vi">Số quyền lợi, lead hoặc đơn hàng được tạo</span></div><div class="metric-row"><span class="metric">Redemption Rate</span><span class="metric-vi">Tỷ lệ quyền lợi được sử dụng thành công</span></div><div class="metric-row"><span class="metric">Conversion Rate</span><span class="metric-vi">Tỷ lệ chuyển đổi từ traffic/claim sang hành động mục tiêu</span></div><div class="metric-row"><span class="metric">CPA / CPL / ROAS</span><span class="metric-vi">Hiệu quả chi phí và doanh thu theo mục tiêu performance</span></div><div class="metric-row"><span class="metric">Repeat / Retention</span><span class="metric-vi">Khả năng quay lại sau lần chuyển đổi đầu tiên</span></div></div><div class="measure-card"><div class="layer-tag">N · NETWORK</div><h3>Hiệu quả hệ đối tác</h3><div class="metric-row"><span class="metric">Partner Reach</span><span class="metric-vi">Độ phủ tăng thêm từ hệ đối tác</span></div><div class="metric-row"><span class="metric">Referral / Partner Action</span><span class="metric-vi">Hành động phát sinh từ touchpoint của đối tác</span></div><div class="metric-row"><span class="metric">Co-investment Value</span><span class="metric-vi">Giá trị media/quyền lợi/tài nguyên đối tác đóng góp</span></div><div class="metric-row"><span class="metric">Partner Conversion</span><span class="metric-vi">Tỷ lệ chuyển đổi tại kênh hoặc inventory đối tác</span></div></div><div class="measure-card"><div class="layer-tag">A · AUTHORITY</div><h3>Thẩm quyền &amp; ảnh hưởng</h3><div class="metric-row"><span class="metric">Earned Reach</span><span class="metric-vi">Độ phủ earned media và cộng đồng</span></div><div class="metric-row"><span class="metric">Message Pull-through</span><span class="metric-vi">Mức độ thông điệp chiến lược được truyền tải đúng</span></div><div class="metric-row"><span class="metric">Sentiment</span><span class="metric-vi">Sắc thái phản hồi tích cực / trung tính / tiêu cực</span></div><div class="metric-row"><span class="metric">Share of Voice / Authority</span><span class="metric-vi">Mức hiện diện và tiếng nói trong chủ đề/ngành</span></div><div class="metric-row"><span class="metric">Advocacy</span><span class="metric-vi">Mức độ chủ động giới thiệu hoặc bảo chứng</span></div></div><div class="measure-card"><div class="layer-tag">L · LINK</div><h3>Trải nghiệm &amp; điểm nối</h3><div class="metric-row"><span class="metric">QR / NFC / Interaction</span><span class="metric-vi">Lượt chủ động chạm/quét/tham gia tại touchpoint</span></div><div class="metric-row"><span class="metric">Participation Rate</span><span class="metric-vi">Tỷ lệ người được tiếp cận thực sự tham gia</span></div><div class="metric-row"><span class="metric">Interaction Depth</span><span class="metric-vi">Độ sâu trải nghiệm: số bước, thời gian, hoàn thành mechanic</span></div><div class="metric-row"><span class="metric">UGC / Share Rate</span><span class="metric-vi">Mức độ tạo và chia sẻ nội dung sau trải nghiệm</span></div><div class="metric-row"><span class="metric">Data Signal Captured</span><span class="metric-vi">Khối lượng tín hiệu first-party/consented data thu được</span></div></div></div><div class="measure-note"><b>Outcome Tree:</b> Scale → Insight → Action → Experience/Trust → Business Impact. KPI chỉ có ý nghĩa khi chỉ ra được layer nào đang tạo giá trị và layer nào đang là điểm nghẽn.</div></div></section>
+<section class="dark" id="dashboard"><div class="wrap"><div class="section-head"><div class="kicker">07 · Intelligence Dashboard</div><div><h2>Từ dashboard báo cáo sang một lớp intelligence chủ động.</h2><p>Dashboard hợp nhất dữ liệu campaign và dùng AI để phát hiện bất thường, dự báo kết quả, gợi ý insight và đề xuất tối ưu. Mỗi bộ phận có thể nhìn cùng một nguồn dữ liệu qua một góc nhìn khác nhau.</p></div></div><div class="dashboard"><div class="dash-top"><div class="dash-title"><b>mediaOS Intelligence Console</b><span>Dữ liệu hợp nhất · AI-assisted monitoring · Role-based view</span></div><span class="live">● LIVE INTELLIGENCE</span></div><div class="dash-grid"><div class="dash-main"><div class="dash-kpis"><div class="dash-kpi"><small>Unique Reach</small><strong>18.4M</strong></div><div class="dash-kpi"><small>Qualified Actions</small><strong>428K</strong></div><div class="dash-kpi"><small>Conversion</small><strong>8.7%</strong></div><div class="dash-kpi"><small>Brand Lift</small><strong>+11.2pt</strong></div></div><div class="panel chart"><small>Cross-channel performance trajectory</small></div><div class="panel"><small>Nguồn dữ liệu kết nối</small><div class="connector-row"><span class="connector">ADMICRO</span><span class="connector">Meta</span><span class="connector">Google</span><span class="connector">TikTok</span><span class="connector">CRM</span><span class="connector">Merchant / POS</span><span class="connector">Survey</span><span class="connector">PR / Social Listening</span></div></div></div><div class="dash-side"><div class="panel"><small>AI Insight Feed</small><div class="ai-list"><div class="ai-item"><b>INSIGHT</b> Social video đang tạo assisted conversion cao hơn display ở nhóm 25–34.</div><div class="ai-item"><b>FORECAST</b> Với pacing hiện tại, reach có thể đạt target nhưng qualified action đang thiếu so với kế hoạch.</div><div class="ai-item"><b>ALERT</b> Frequency tại HCM vượt ngưỡng; creative fatigue bắt đầu xuất hiện ở heavy users.</div><div class="ai-item"><b>RECOMMEND</b> Đề xuất dịch chuyển ngân sách sang retargeting + merchant offer trong chu kỳ tối ưu tiếp theo.</div></div></div><div class="panel"><small>Chức năng AI</small><div class="connector-row"><span class="connector">Anomaly Detection</span><span class="connector">Pacing Alert</span><span class="connector">Forecast</span><span class="connector">Insight Mining</span><span class="connector">Creative Fatigue</span><span class="connector">Optimization Suggestion</span></div></div></div></div></div><div class="persona-tabs"><div class="persona"><b>Marketing / BOD</b><p>Brand health, hiệu quả đầu tư, market impact, forecast và executive alert.</p></div><div class="persona"><b>Media / Digital</b><p>Pacing, reach, frequency, channel efficiency, overlap và optimization.</p></div><div class="persona"><b>Sales / Business</b><p>Lead, qualified action, conversion, pipeline, revenue contribution và opportunity.</p></div><div class="persona"><b>Data / Analytics</b><p>Data quality, attribution, cohort, anomaly, model assumptions và export layer.</p></div><div class="persona"><b>PR / Marcom</b><p>Earned reach, sentiment, message pull-through, share of voice và reputation.</p></div><div class="persona"><b>Social</b><p>Engagement quality, conversation, UGC, advocacy, creator performance và trend signal.</p></div><div class="persona"><b>Performance</b><p>CPA/CPL, ROAS, funnel drop-off, retargeting pool, conversion forecast và budget shift.</p></div><div class="persona"><b>Campaign Custom</b><p>Cấu hình theo objective, SIGNAL layer sử dụng và data source thực tế.</p></div></div><div class="measure-note" style="background:#102629;border-color:#1c3c40;color:#b3c5c7"><b style="color:var(--accent)">Lưu ý tích hợp:</b> đồng bộ dữ liệu trực tiếp từ Meta, Google, TikTok, ADMICRO hoặc CRM/POS phụ thuộc quyền API, cấu hình tài khoản và data-sharing permission của từng khách hàng/campaign.</div></div></section>
+<section id="moments"><div class="wrap"><div class="section-head"><div class="kicker">08 · Vietnam Moment Map</div><div><h2>mediaOS tap-in vào nhiều loại “moment” — không chỉ các mùa cao điểm.</h2><p>Moment Map giúp Sales và Planner nhìn cả năm theo hành vi tiêu dùng: nhịp hằng ngày, mùa vụ, dịp văn hóa, commerce moment, trend và live event. Đây là lớp thời gian để lựa chọn “khi nào nên kích hoạt”, khác với Link Layer là “điểm chạm nào để người dùng hành động”.</p></div></div><div class="moment-legend"><span class="legend daily">Hằng ngày / Always-on</span><span class="legend seasonal">Mùa vụ</span><span class="legend cultural">Văn hóa</span><span class="legend commerce">Thương mại</span><span class="legend trend">Xu hướng / Phản ứng nhanh</span><span class="legend liveevent">Sự kiện trực tiếp</span></div><div class="timeline-wrap"><div class="timeline">
+<div class="tcell thead">Moment Type</div><div class="tcell thead">T1</div><div class="tcell thead">T2</div><div class="tcell thead">T3</div><div class="tcell thead">T4</div><div class="tcell thead">T5</div><div class="tcell thead">T6</div><div class="tcell thead">T7</div><div class="tcell thead">T8</div><div class="tcell thead">T9</div><div class="tcell thead">T10</div><div class="tcell thead">T11</div><div class="tcell thead">T12</div>
+<div class="tcell trow">Hằng ngày</div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div><div class="tcell"><span class="tmoment daily">Buổi sáng</span><span class="tmoment daily">Di chuyển</span><span class="tmoment daily">Bữa trưa</span><span class="tmoment daily">Buổi tối</span></div>
+<div class="tcell trow">Mùa vụ</div><div class="tcell"><span class="tmoment seasonal">New Year</span><span class="tmoment seasonal">Chuẩn bị Tết*</span></div><div class="tcell"><span class="tmoment seasonal">Tết*</span><span class="tmoment seasonal">Valentine</span></div><div class="tcell"><span class="tmoment seasonal">Mùa xuân</span></div><div class="tcell"><span class="tmoment seasonal">Du lịch lễ</span></div><div class="tcell"><span class="tmoment seasonal">Mùa hè</span></div><div class="tcell"><span class="tmoment seasonal">Du lịch hè</span></div><div class="tcell"><span class="tmoment seasonal">Mùa hè</span></div><div class="tcell"><span class="tmoment seasonal">Back to School</span></div><div class="tcell"><span class="tmoment seasonal">Trung Thu*</span></div><div class="tcell"><span class="tmoment seasonal">Chuẩn bị cuối năm</span></div><div class="tcell"><span class="tmoment seasonal">Holiday Season</span></div><div class="tcell"><span class="tmoment seasonal">Christmas</span><span class="tmoment seasonal">Year-end</span></div>
+<div class="tcell trow">Văn hóa</div><div class="tcell"></div><div class="tcell"></div><div class="tcell"><span class="tmoment cultural">8/3</span></div><div class="tcell"><span class="tmoment cultural">30/4</span></div><div class="tcell"><span class="tmoment cultural">1/5</span><span class="tmoment cultural">Mother's Day</span></div><div class="tcell"><span class="tmoment cultural">1/6</span><span class="tmoment cultural">Father's Day</span></div><div class="tcell"></div><div class="tcell"><span class="tmoment cultural">Vu Lan*</span></div><div class="tcell"><span class="tmoment cultural">2/9</span></div><div class="tcell"><span class="tmoment cultural">20/10</span></div><div class="tcell"><span class="tmoment cultural">20/11</span></div><div class="tcell"><span class="tmoment cultural">Đêm Giao thừa</span></div>
+<div class="tcell trow">Thương mại</div><div class="tcell"><span class="tmoment commerce">Tết Shopping</span></div><div class="tcell"><span class="tmoment commerce">Valentine Gifting</span></div><div class="tcell"><span class="tmoment commerce">Women's Gifting</span></div><div class="tcell"><span class="tmoment commerce">Travel Booking</span></div><div class="tcell"><span class="tmoment commerce">Summer Sale</span></div><div class="tcell"><span class="tmoment commerce">Mid-year Sale</span></div><div class="tcell"></div><div class="tcell"><span class="tmoment commerce">Back-to-school</span></div><div class="tcell"><span class="tmoment commerce">9.9</span></div><div class="tcell"><span class="tmoment commerce">10.10</span></div><div class="tcell"><span class="tmoment commerce">11.11</span><span class="tmoment commerce">Black Friday</span></div><div class="tcell"><span class="tmoment commerce">12.12</span><span class="tmoment commerce">Gifting</span></div>
+<div class="tcell trow">Xu hướng</div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div><div class="tcell"><span class="tmoment trend">Social Trend</span><span class="tmoment trend">News Context</span></div>
+<div class="tcell trow">Sự kiện trực tiếp</div><div class="tcell"></div><div class="tcell"></div><div class="tcell"></div><div class="tcell"></div><div class="tcell"></div><div class="tcell"><span class="tmoment liveevent">Sports / Music</span></div><div class="tcell"><span class="tmoment liveevent">Sports / Festival</span></div><div class="tcell"></div><div class="tcell"></div><div class="tcell"></div><div class="tcell"><span class="tmoment liveevent">11.11 Live</span></div><div class="tcell"><span class="tmoment liveevent">Countdown</span></div>
+</div></div><div class="timeline-note">* Các dịp theo âm lịch như Tết, Vu Lan, Trung Thu thay đổi ngày dương lịch theo từng năm. Lớp Xu hướng / Phản ứng nhanh và Sự kiện trực tiếp là lớp động: chỉ kích hoạt khi chủ đề đủ lớn, phù hợp brand safety và có vai trò rõ trong campaign.</div></div></section>
+<section class="soft" id="industry"><div class="wrap"><div class="section-head"><div class="kicker">09 · Industry Fit</div><div><h2>mediaOS phù hợp nhất khi consumer journey có nhiều điểm chạm và có khả năng tạo hành động thật.</h2><p>Không nên bán mediaOS như một giải pháp full-stack cho mọi ngành. Một số ngành có fit tự nhiên với toàn hệ; các ngành high-consideration nên tap-in theo module/layer để tránh thiết kế campaign quá nặng nhưng không tạo thêm giá trị.</p></div></div><div class="industry-grid"><div class="industry-card fit-high"><small>HIGH FIT · FULL SYSTEM</small><h3>Phù hợp triển khai mediaOS toàn diện</h3><p>Có tần suất mua/tiếp xúc cao, nhiều điểm bán hoặc nền tảng, consumer moment rõ và dễ kết nối media → experience → commerce.</p><div class="industry-list"><div class="industry-item"><b>F&amp;B / QSR / Tea / Coffee</b><span>Sampling, voucher, delivery, store traffic, gifting, loyalty.</span></div><div class="industry-item"><b>Retail / E-commerce</b><span>Commerce moments, merchant network, sale season, footfall, redemption.</span></div><div class="industry-item"><b>FMCG / Personal Care</b><span>Mass reach + content + sampling + retail conversion + UGC.</span></div><div class="industry-item"><b>Consumer Tech / Telecom</b><span>Launch, trial, retail, commerce, creator/social và data signal.</span></div><div class="industry-item"><b>Entertainment / Travel / Mobility</b><span>Live moment, booking, location, partner ecosystem và repeat usage.</span></div></div></div><div class="industry-card fit-selective"><small>SELECTIVE FIT · SOLUTION MODULE</small><h3>Phù hợp theo bài toán cụ thể</h3><p>Ngân sách lớn nhưng hành trình mua dài hoặc conversion không diễn ra thường xuyên. mediaOS nên dùng các layer tạo giá trị rõ nhất.</p><div class="industry-list"><div class="industry-item"><b>Banking / Fintech</b><span>Authority + Insight + Gateway cho sản phẩm cụ thể, acquisition, payment moment hoặc financial education.</span></div><div class="industry-item"><b>Automotive</b><span>Scale + Authority + Link cho launch, test-drive, event, lead nurturing.</span></div><div class="industry-item"><b>Real Estate</b><span>Content First + Authority + Gateway cho project launch, thought leadership, qualified lead.</span></div><div class="industry-item"><b>Education / Healthcare</b><span>Authority và Content First đóng vai trò lớn; chỉ mở rộng mediaOS khi có journey/experience phù hợp.</span></div></div></div><div class="industry-card fit-module"><small>MODULE-FIRST · NOT DEFAULT FULL STACK</small><h3>Ưu tiên một phần hệ thống</h3><p>Các ngành B2B niche, industrial hoặc audience rất hẹp thường không cần full consumer activation; giá trị nằm ở content authority, targeting, lead intelligence và measurement.</p><div class="industry-list"><div class="industry-item"><b>B2B / Industrial</b><span>Authority + Content + Insight + qualified lead.</span></div><div class="industry-item"><b>Corporate / Reputation</b><span>Content First + Authority + Measurement.</span></div><div class="industry-item"><b>Employer Branding</b><span>Scale + Social First + Link cho recruitment moment.</span></div></div></div></div></div></section>
+<section class="dark" id="cost"><div class="wrap"><div class="section-head"><div class="kicker">10 · Cost Architecture</div><div><h2>Chi phí được tách theo lớp giá trị và trách nhiệm vận hành — để đối tác hiểu rõ đâu là phí nền, đâu là chi phí phát sinh theo scope.</h2><p>Đây là cấu trúc chi phí mặc định để estimate và commercialize mediaOS; chưa phải bảng giá cố định. Mỗi campaign sẽ tính theo số layer, mức độ tích hợp, volume production, data requirement và partner cost.</p></div></div><div class="cost-grid"><div class="cost-card"><div class="no">01</div><h3>Phí Tư vấn &amp; Chiến lược</h3><p>Debrief, consumer journey, Media First strategy, Content/Social mapping, SIGNAL layer selection, KPI architecture.</p><div class="basis">Cơ sở tính: project / campaign scope.</div></div><div class="cost-card"><div class="no">02</div><h3>Phí Sáng tạo &amp; Sản xuất</h3><p>Big idea, KV, content system, video, social, banner, DOOH, activation assets và adaptation.</p><div class="basis">Cơ sở tính: deliverable / production scope.</div></div><div class="cost-card"><div class="no">03</div><h3>Phí Hạ tầng &amp; Công nghệ</h3><p>Landing/hub, QR/NFC, tracking, dashboard, API connector, CRM/data pipeline và maintenance.</p><div class="basis">Cơ sở tính: setup + monthly/platform usage.</div></div><div class="cost-card"><div class="no">04</div><h3>Phí Quản lý &amp; Vận hành</h3><p>PMO, campaign operation, trafficking, partner coordination, reporting, QA, optimization cycle.</p><div class="basis">Cơ sở tính: % managed spend hoặc fixed management fee.</div></div><div class="cost-card"><div class="no">05</div><h3>Phí Đo lường &amp; Intelligence</h3><p>Measurement design, social listening, brand lift, data analysis, AI insight/forecast/alert và reporting.</p><div class="basis">Cơ sở tính: data source + research/module scope.</div></div><div class="cost-card"><div class="no">06</div><h3>Media / Inventory</h3><p>ADMICRO inventory, publisher, social platform, DOOH, native, video và các media buy khác.</p><div class="basis">Cơ sở tính: transparent cost / fixed package / KPI buying.</div></div><div class="cost-card"><div class="no">07</div><h3>Activation &amp; Partner Cost</h3><p>Booth, sampling, venue, manpower, merchant subsidy, voucher, partner inventory hoặc co-promotion fee.</p><div class="basis">Cơ sở tính: third-party quotation / actual scope.</div></div><div class="cost-card"><div class="no">08</div><h3>Chi phí dự phòng / đặc thù</h3><p>Legal, licensing, travel, special production, contingency hoặc yêu cầu ngoài scope tiêu chuẩn.</p><div class="basis">Cơ sở tính: theo thực tế được phê duyệt.</div></div></div><div class="cost-note">Nguyên tắc commercial: <b>minh bạch phần chi phí media/đối tác</b>, tách rõ các khoản phí dịch vụ tạo giá trị của mediaOS và khóa scope trước khi cam kết KPI.</div></div></section>
+<section id="roadmap"><div class="wrap"><div class="section-head"><div class="kicker">11 · Campaign Assembly Roadmap</div><div><h2>Một cấu trúc ráp campaign thống nhất — đủ chặt để giữ DNA mediaOS, đủ mở để custom theo từng brand.</h2><p>Mục tiêu của roadmap là đảm bảo campaign không “gắn layer sau khi có idea”. mediaOS bắt đầu từ business problem, sau đó mới xác định moment, First Strategy, SIGNAL layer, M.I.C.E value, measurement và creative application.</p></div></div><div class="roadmap"><div class="road-step"><div class="step">STEP 01</div><h3>Xác định Business Problem</h3><p>Đặt câu hỏi kinh doanh, marketing và truyền thông; xác định outcome nào thực sự cần thay đổi.</p></div><div class="road-step"><div class="step">STEP 02</div><h3>Chọn Consumer Moment</h3><p>Xác định thời điểm/hành vi có ý nghĩa nhất: daily, seasonal, cultural, commerce, trend hay live event.</p></div><div class="road-step"><div class="step">STEP 03</div><h3>Thiết kế First Strategy</h3><p>Xác định Media First, Content First và Social First đóng vai trò gì; Content First được map theo trục nội dung/thẩm quyền phù hợp.</p></div><div class="road-step"><div class="step">STEP 04</div><h3>Chọn SIGNAL Layers</h3><p>Chỉ bật các layer cần thiết: Scale, Insight, Gateway, Network, Authority, Link.</p></div><div class="road-step"><div class="step">STEP 05</div><h3>Khóa M.I.C.E Value</h3><p>Định nghĩa giá trị Media, Impact, Commerce, Experience mà campaign phải tạo.</p></div><div class="road-step"><div class="step">STEP 06</div><h3>Thiết kế KPI &amp; Data</h3><p>Chọn metric theo layer, nguồn dữ liệu, attribution, tracking và dashboard view trước khi go-live.</p></div><div class="road-step"><div class="step">STEP 07</div><h3>Creative Application</h3><p>Big idea, content, media format, partner mechanic, activation và experience được custom sau khi system logic đã khóa.</p></div><div class="road-step"><div class="step">STEP 08</div><h3>Operate → Learn → Scale</h3><p>AI Intelligence theo dõi, alert, forecast, đề xuất tối ưu; kết quả được đưa trở lại knowledge base và playbook.</p></div></div><div class="assembly"><b>mediaOS Campaign Assembly:</b><div class="assembly-line"><span>Business Problem</span><span>Consumer Moment</span><span>Media / Content / Social First</span><span>S.I.G.N.A.L Layers</span><span>M.I.C.E Value</span><span>KPI &amp; Data</span><span>Creative Application</span><span>AI Optimization</span><span>Organizational Learning</span></div></div></div></section>
+<section class="closing"><div class="wrap"><h2>Media First.<br/><span>System-led growth.</span></h2><div class="closing-grid"><p>ADMICRO mediaOS định vị Media First như một năng lực điều phối: dùng media để mở tín hiệu thị trường, Content First để xây thẩm quyền và ý nghĩa, Social First để tạo cộng hưởng; sau đó nối hệ sinh thái, trải nghiệm, thương mại và dữ liệu thành một vòng lặp có thể đo và tối ưu.</p><p>Campaign là <b>application layer</b> của mediaOS. Idea có thể thay đổi theo ngành, moment và brand; nhưng cách xác định objective, SIGNAL layer, M.I.C.E value, KPI, dashboard và learning loop phải nhất quán — đó là phần tạo DNA riêng của giải pháp.</p></div><div class="footer"><span>ADMICRO mediaOS · Strategic System Proposal</span><span>Version 2 · Updated August 2026</span></div></div></section>
+<script>
+(function(){
+  const nav = document.querySelector('nav');
+  if(!nav) return;
+
+  let lastY = window.scrollY;
+  let ticking = false;
+  const deltaThreshold = 5;
+
+  function showNav(){
+    nav.classList.add('nav-visible');
+    nav.classList.remove('nav-hidden');
+  }
+
+  function hideNav(){
+    nav.classList.add('nav-hidden');
+    nav.classList.remove('nav-visible');
+  }
+
+  // Header is visible at page load / top of page.
+  showNav();
+
+  function updateHeader(){
+    const y = window.scrollY;
+    const delta = y - lastY;
+
+    if(y <= 20){
+      showNav();
+    } else if(delta > deltaThreshold){
+      hideNav();
+    } else if(delta < -deltaThreshold){
+      showNav();
+    }
+
+    lastY = y;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, {passive:true});
+})();
+</script></body>
+</html>

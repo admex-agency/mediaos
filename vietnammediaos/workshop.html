@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#061316" name="theme-color"/>
+<title>ADMICRO mediaOS Workshop · Ho Chi Minh City · 09/2026</title>
+<style>
+:root{
+  --bg:#061316;--bg2:#0a1b1e;--panel:#10262a;--panel2:#123035;
+  --text:#f6fbfb;--muted:#a8babc;--line:rgba(255,255,255,.10);
+  --cyan:#55EDE2;--cyan-dark:#15aea4;--white:#fff;--max:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:
+  radial-gradient(circle at 85% 8%,rgba(85,237,226,.11),transparent 27%),
+  radial-gradient(circle at 12% 70%,rgba(85,237,226,.055),transparent 24%),var(--bg);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5
+}
+a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+nav{position:sticky;top:12px;z-index:50;padding:0 20px}
+.nav{
+  width:min(1120px,100%);margin:auto;display:flex;align-items:center;justify-content:space-between;
+  padding:10px 12px 10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.16);
+  background:rgba(4,18,20,.88);backdrop-filter:blur(18px);box-shadow:0 15px 40px rgba(0,0,0,.18)
+}
+.brand{font-size:13px;font-weight:800;display:flex;align-items:center;gap:9px}.brand:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+.navlinks{display:flex;gap:18px;font-size:10px;color:#b5c4c6}.navlinks a:hover{color:var(--cyan)}
+.badge{padding:9px 16px;border-radius:999px;background:var(--cyan);color:#042326;font-size:10px;font-weight:900}
+section{padding:82px 0;border-bottom:1px solid rgba(85,237,226,.10)}
+.eyebrow,.kicker{color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.hero{padding:105px 0 84px;min-height:78vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:end}
+h1{font-size:clamp(52px,6vw,92px);line-height:.96;letter-spacing:-.06em;margin:16px 0 24px;max-width:980px}
+h1 span{color:var(--cyan)}
+.lead{font-size:20px;line-height:1.48;color:#c5d1d3;max-width:850px}
+.hero-card{border:1px solid rgba(85,237,226,.18);border-radius:26px;background:rgba(255,255,255,.035);padding:28px}
+.hero-card .big{font-size:38px;font-weight:900;letter-spacing:-.04em}.hero-card p{color:var(--muted);margin:8px 0 0}
+.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}.meta div{padding:14px;border-radius:14px;background:rgba(85,237,226,.06);border:1px solid rgba(85,237,226,.11)}
+.meta small{display:block;color:#78999c;font-size:9px;text-transform:uppercase;letter-spacing:.12em}.meta strong{display:block;margin-top:5px;font-size:13px}
+.section-head{display:grid;grid-template-columns:.42fr 1fr;gap:60px;align-items:start;margin-bottom:34px}
+h2{font-size:clamp(34px,4vw,58px);line-height:1.04;letter-spacing:-.045em;margin:0}
+.section-head p{font-size:17px;color:var(--muted);margin:2px 0 0;max-width:830px}
+.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{padding:26px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));border:1px solid rgba(85,237,226,.13)}
+.card .n{font-size:10px;color:var(--cyan);font-weight:900;letter-spacing:.12em}.card h3{font-size:22px;line-height:1.15;letter-spacing:-.025em;margin:28px 0 10px}.card p{font-size:14px;color:var(--muted);margin:0}
+.take-note{background:linear-gradient(180deg,#07191c,#0a2023)}
+.note-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.note-visual{border-radius:24px;border:1px solid rgba(85,237,226,.18);padding:30px;background:rgba(255,255,255,.035)}
+.note-visual h3{font-size:34px;line-height:1.06;margin:14px 0 18px;letter-spacing:-.04em}.note-visual p{color:#b6c7c9}
+.note-lines{display:grid;gap:10px}.note-line{padding:16px 18px;border-radius:16px;border:1px solid rgba(85,237,226,.12);background:rgba(85,237,226,.04);display:grid;grid-template-columns:86px 1fr;gap:12px}
+.note-line b{color:var(--cyan);font-size:10px;letter-spacing:.08em}.note-line span{font-size:13px;color:#c2d0d2}
+.audience{background:#f5fbfa;color:#102529}.audience .kicker{color:var(--cyan-dark)}.audience .section-head p{color:#62797c}
+.audience .card{background:#fff;border-color:#d7e8e6}.audience .card p{color:#607476}.audience .card .n{color:var(--cyan-dark)}
+.agenda-wrap{overflow:auto;border:1px solid rgba(85,237,226,.16);border-radius:22px}
+.agenda{min-width:1100px;display:grid;grid-template-columns:115px 1.1fr 1.7fr .9fr}
+.agenda>div{padding:17px 18px;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);font-size:12px}
+.agenda .th{background:#10282c;color:var(--cyan);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.agenda .time{font-weight:800;color:#fff}.agenda .topic{font-size:14px;font-weight:800}.agenda .detail{color:var(--muted)}.agenda .speaker{color:#c9d6d7}
+.partner-stage{display:grid;grid-template-columns:1fr 1fr;gap:16px}.partner{min-height:320px;padding:30px;border-radius:24px;border:1px solid rgba(85,237,226,.14);background:rgba(255,255,255,.035);display:flex;flex-direction:column;justify-content:space-between}
+.partner h3{font-size:30px;margin:14px 0 10px;letter-spacing:-.035em}.partner p{color:var(--muted)}
+.partner .role{font-size:11px;color:var(--cyan);font-weight:850}
+.experience{background:linear-gradient(180deg,#0a1b1e,#071517)}
+.exp-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.exp{padding:22px;border-radius:18px;border:1px solid rgba(85,237,226,.13);background:rgba(255,255,255,.035)}
+.exp b{display:block;color:var(--cyan);font-size:11px;margin-bottom:9px}.exp strong{font-size:16px}.exp p{font-size:12px;color:var(--muted)}
+.package{background:#f5fbfa;color:#102529}.package .kicker{color:var(--cyan-dark)}.package .card{background:#fff;border-color:#d7e8e6}.package .card p{color:#617679}.package .card .n{color:var(--cyan-dark)}
+.timeline-wrap{overflow:auto;border:1px solid rgba(85,237,226,.16);border-radius:22px}
+.timeline{min-width:1300px;display:grid;grid-template-columns:160px repeat(6,1fr)}
+.timeline>div{padding:15px 16px;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);font-size:11px}
+.timeline .th{background:#10282c;color:var(--cyan);font-weight:900}.timeline .phase{font-weight:900;color:#fff}.timeline .on{background:rgba(85,237,226,.07);color:#cce2e1}.timeline .burst{background:var(--cyan);color:#052528;font-weight:900}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.kpi{padding:24px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(85,237,226,.12)}
+.kpi strong{display:block;font-size:30px;color:var(--cyan);letter-spacing:-.04em}.kpi span{display:block;font-size:12px;color:#c5d2d4;margin-top:5px}.kpi small{display:block;color:#718f92;margin-top:8px}
+.final{padding:46px;border-radius:28px;background:linear-gradient(135deg,#55EDE2,#8bf4ed);color:#042426}.final h2{max-width:1000px}.final p{max-width:850px;color:#164d50;font-size:17px}
+footer{padding:30px 24px;color:#6f8e91;text-align:center;font-size:11px}
+@media(max-width:980px){.hero-grid,.section-head,.note-grid,.g4,.partner-stage{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}.exp-flow,.kpis{grid-template-columns:1fr 1fr}.navlinks{display:none}}
+@media(max-width:640px){.wrap{width:min(100% - 28px,var(--max))}.hero{padding-top:78px}.g3,.g2,.exp-flow,.kpis{grid-template-columns:1fr}h1{font-size:48px}}
+
+/* ===== READABILITY + PLAN UI ===== */
+body{font-size:16px}
+.navlinks{font-size:11px!important}
+.card p{font-size:15px!important;line-height:1.55!important}
+.card .n{font-size:11px!important}
+.note-line span{font-size:15px!important}
+.agenda>div{font-size:13.5px!important;line-height:1.5!important}
+.agenda .topic{font-size:15.5px!important}
+.agenda .detail,.agenda .speaker{font-size:13.5px!important}
+.timeline>div{font-size:12.5px!important;line-height:1.45!important}
+.exp p{font-size:13.5px!important;line-height:1.48!important}
+.exp strong{font-size:17px!important}
+.kpi span{font-size:13.5px!important}
+.hero-card p{font-size:15px!important}
+.meta strong{font-size:14px!important}
+
+.campaign-journey{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.campaign-stage{padding:22px 20px;border-radius:20px;border:1px solid rgba(85,237,226,.14);background:rgba(255,255,255,.035)}
+.campaign-stage .n{font-size:10px;color:var(--cyan);font-weight:900;letter-spacing:.1em}
+.campaign-stage h3{font-size:19px;line-height:1.16;margin:26px 0 9px}
+.campaign-stage p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
+.invite-note{margin-top:14px;padding:18px 20px;border-radius:16px;background:rgba(85,237,226,.08);border:1px solid rgba(85,237,226,.18);font-size:14px;color:#c9d7d8}
+.invite-note b{color:var(--cyan)}
+
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.role-card{padding:28px;border-radius:22px;border:1px solid rgba(85,237,226,.15);background:rgba(255,255,255,.04)}
+.role-card h3{font-size:24px;margin:0 0 18px;letter-spacing:-.03em}
+.role-card ul{margin:0;padding-left:18px;color:#b9c8ca}
+.role-card li{margin:9px 0;font-size:14px}
+.joint-bar{margin-top:14px;padding:15px 18px;border-radius:14px;background:#55EDE2;color:#05272a;font-size:12px;font-weight:800;text-align:center}
+
+@media(max-width:1100px){.campaign-journey{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:760px){.campaign-journey,.role-grid{grid-template-columns:1fr}}
+
+/* ===== AI EVENT EXPERIENCE ===== */
+#ai-event{background:linear-gradient(180deg,#07171a,#0b2226)}
+.ai-event-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ai-event-card{
+  padding:26px 24px;border-radius:22px;border:1px solid rgba(85,237,226,.14);
+  background:linear-gradient(180deg,rgba(85,237,226,.07),rgba(255,255,255,.025))
+}
+.ai-event-card .n{font-size:11px;color:var(--cyan);font-weight:900;letter-spacing:.12em}
+.ai-event-card h3{font-size:22px;margin:28px 0 6px;letter-spacing:-.025em}
+.ai-event-card strong{display:block;font-size:14px;color:#dce8e9;margin-bottom:10px}
+.ai-event-card p{font-size:14px;color:var(--muted);line-height:1.52;margin:0}
+.ai-principle{
+  margin-top:14px;padding:16px 18px;border-radius:14px;
+  background:rgba(85,237,226,.09);border:1px solid rgba(85,237,226,.18);
+  color:#cce0e1;font-size:13px;text-align:center
+}
+@media(max-width:1000px){.ai-event-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.ai-event-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="nav"><div class="brand">ADMICRO mediaOS</div><div class="navlinks"><a href="#purpose">Mục tiêu</a><a href="#audience">Khách mời</a><a href="#agenda">Agenda</a><a href="#partners">Đối tác</a><a href="#experience">Trải nghiệm</a><a href="#timeline">Timeline</a><a href="#kpi">KPI</a></div><div class="badge">WORKSHOP</div></div></nav>
+<header class="hero"><div class="wrap hero-grid">
+<div>
+<div class="eyebrow">Ho Chi Minh City · September 2026 · Proposal</div>
+<h1>ADMICRO mediaOS<br/><span>Experience Workshop</span></h1>
+<p class="lead"><b>Workshop là một điểm chạm trong chiến dịch ADMICRO mediaOS.</b><br/>Trước sự kiện, thị trường được tiếp cận bằng nội dung và các touchpoint của mediaOS để hình thành sự quan tâm. Tại sự kiện, khách mời được dẫn dắt qua hệ thống từ Media First → SIGNAL → M.I.C.E → Intelligence. Sau sự kiện, Sales chuyển interest thành diagnostic session, pilot hoặc proposal.</p>
+</div>
+<aside class="hero-card">
+<div class="big">60–80</div><p>khách mời đề xuất, ưu tiên decision maker và người trực tiếp hoạch định campaign.</p>
+<div class="meta"><div><small>Đối tượng</small><strong>Agency + Brand</strong></div><div><small>Ngành ưu tiên</small><strong>F&amp;B · Retail</strong></div><div><small>Định dạng</small><strong>Workshop + Live Demo</strong></div><div><small>Thời lượng</small><strong>~3.5 giờ</strong></div></div>
+</aside>
+</div></header>
+<section class="take-note campaign-plan"><div class="wrap"><div class="section-head"><div><div class="kicker">00 · Campaign Architecture</div></div><div><h2>Workshop không đứng riêng. Đây là “hero moment” trong một chiến dịch giới thiệu ADMICRO mediaOS.</h2><p>Chương trình được thiết kế theo đúng logic của mediaOS: tạo độ phủ có chọn lọc, cung cấp nội dung có thẩm quyền, kích hoạt quan tâm qua các touchpoint phù hợp, đưa khách hàng đủ tiềm năng vào workshop và tiếp tục nuôi dưỡng sau sự kiện.</p></div></div><div class="campaign-journey"><article class="campaign-stage"><div class="n">01 · AWARE</div><h3>Tạo nhận biết có chọn lọc</h3><p>PR/native content, social, direct outreach và partner amplification giúp thị trường hiểu mediaOS đang giải quyết vấn đề gì.</p></article><article class="campaign-stage"><div class="n">02 · INTEREST</div><h3>Khơi gợi nhu cầu tìm hiểu</h3><p>Landing/QR/CTA không mở đăng ký đại trà; người quan tâm để lại tín hiệu hoặc chủ động liên hệ ADMICRO để nhận thông tin.</p></article><article class="campaign-stage"><div class="n">03 · QUALIFY</div><h3>Chọn đúng khách mời</h3><p>Khối Kinh doanh xác minh nhu cầu, mức độ phù hợp và quyền ra quyết định trước khi gửi thư mời chính thức.</p></article><article class="campaign-stage"><div class="n">04 · EXPERIENCE</div><h3>Trải nghiệm tại Workshop</h3><p>Khách mời nhìn thấy hệ thống, case, partner layer, dashboard và cách một campaign được ráp theo mediaOS.</p></article><article class="campaign-stage"><div class="n">05 · CONVERT</div><h3>Chuyển thành cơ hội</h3><p>Trong 7–14 ngày sau sự kiện: diagnostic session → pilot → proposal theo Ready / Seasonal / Bespoke.</p></article></div><div class="invite-note"><b>Nguyên tắc đăng ký: </b>Workshop được truyền thông công khai để tạo interest, nhưng không mở form đăng ký tự do. Khách hàng quan tâm được điều hướng về ADMICRO để tìm hiểu và được Khối Kinh doanh xác nhận trước khi tham dự.</div></div></section>
+<section id="purpose"><div class="wrap">
+<div class="section-head"><div><div class="kicker">01 · Mục tiêu chương trình</div></div><div><h2>Workshop vừa tạo nhận thức, vừa mở cơ hội thương mại.</h2><p>Mục tiêu không phải thu hút số đông. Chương trình cần tạo một nhóm khách hàng đủ phù hợp để mediaOS được hiểu đúng, được thử tư duy và được đưa vào các cuộc thảo luận campaign thực tế ngay sau sự kiện.</p></div></div>
+<div class="grid g4">
+<div class="card"><div class="n">BUSINESS</div><h3>Tạo qualified pipeline</h3><p>Mở meeting, diagnostic session, pilot hoặc proposal với nhóm Agency và Brand phù hợp.</p></div>
+<div class="card"><div class="n">MARKETING</div><h3>Xây định vị khác biệt</h3><p>Đưa mediaOS ra thị trường như một hệ vận hành Media First có khả năng kết nối Content, Social, Partner và Intelligence.</p></div>
+<div class="card"><div class="n">COMMUNICATION</div><h3>Làm mediaOS dễ hiểu</h3><p>Chuyển một cấu trúc phức tạp thành một trải nghiệm trực quan qua demo, use case và partner story.</p></div>
+<div class="card"><div class="n">EVENT</div><h3>Tạo “Aha Moment”</h3><p>Khách mời rời workshop với một câu trả lời rõ: mediaOS giúp campaign của tôi tốt hơn ở đâu và bắt đầu từ đâu.</p></div>
+</div>
+</div></section><section id="governance"><div class="wrap"><div class="section-head"><div><div class="kicker">02 · Vai trò &amp; vận hành</div></div><div><h2>Một chương trình, hai đầu mối chịu trách nhiệm rõ ràng.</h2><p>admeX chịu trách nhiệm chất lượng chuyên môn và trải nghiệm nội dung; Khối Kinh doanh chịu trách nhiệm tổ chức, khách mời và chuyển đổi cơ hội. Hai bên cùng dùng một master plan và một pipeline review.</p></div></div><div class="role-grid"><article class="role-card"><h3>admeX · Chuyên môn chương trình</h3><ul><li>Strategy &amp; narrative của mediaOS</li><li>Concept / key message / agenda</li><li>Nội dung speaker &amp; moderator guide</li><li>Demo storyline / case / Intelligence Dashboard</li><li>Experience design &amp; challenge lab</li><li>Creative / event content / recap asset</li></ul></article><article class="role-card"><h3>Khối Kinh doanh · Tổ chức &amp; thương mại</h3><ul><li>Venue / supplier / logistics / guest operation</li><li>Target account list &amp; invite management</li><li>Xác nhận khách mời / seating / hospitality</li><li>Điều phối Focus Media / GreenSM về attendance &amp; commercial coordination</li><li>On-site qualification / owner mapping</li><li>Follow-up meeting / pipeline / proposal</li></ul></article></div><div class="joint-bar">Joint Governance: Weekly working session · Single master timeline · Shared guest/pipeline tracker · One approval flow for content, production and partner communication</div></div></section>
+<section class="audience" id="audience"><div class="wrap">
+<div class="section-head"><div><div class="kicker">03 · Khách mời mục tiêu</div></div><div><h2>Chọn đúng người quan trọng hơn lấp đầy phòng.</h2><p>Ưu tiên nhóm đang có nhu cầu hoạch định media, vận hành multi-touchpoint và cần chứng minh hiệu quả. Không mời đại trà để bảo toàn chất lượng đối thoại.</p></div></div>
+<div class="grid g3">
+<div class="card"><div class="n">AGENCY</div><h3>Media / Creative / IMC Agency</h3><p>Managing Director, Business Director, Strategy, Planning, Media Lead. Vai trò: partner/co-solution, không chỉ là khách hàng mua media.</p></div>
+<div class="card"><div class="n">F&amp;B</div><h3>Consumer brands có tần suất mua cao</h3><p>Marketing Director, Brand Manager, Digital/Media Lead, CRM/Commerce. Phù hợp full-system vì có store, delivery, voucher, sampling và repeat loop.</p></div>
+<div class="card"><div class="n">RETAIL</div><h3>Retail / E-commerce / Lifestyle</h3><p>Marketing, Growth, Commercial, Loyalty. Phù hợp với media → store/app → commerce → retargeting → loyalty.</p></div>
+</div>
+</div></section>
+<section id="agenda"><div class="wrap">
+<div class="section-head"><div><div class="kicker">04 · Agenda đề xuất</div></div><div><h2>3,5 giờ: đi từ “mediaOS là gì” đến “mediaOS áp dụng vào campaign của tôi như thế nào”.</h2><p>Mỗi session phải trả lời một câu hỏi cụ thể và tạo ra một output dễ nhớ. Không dùng các hoạt động mở nếu không có lời giải ngay tại sự kiện.</p></div></div>
+<div class="agenda-wrap"><div class="agenda"><div class="th">Thời gian</div><div class="th">Session</div><div class="th">Nội dung / Output</div><div class="th">Speaker gợi ý</div><div class="time">08:30–09:00</div><div class="topic">Check-in &amp; Guided Networking</div><div class="detail">Khách được phân nhóm Agency / F&amp;B / Retail. Mỗi người nhận “mediaOS Journey Card” tóm tắt 6 SIGNAL layers và các câu hỏi cần theo dõi trong workshop.</div><div class="speaker">Event Host</div><div class="time">09:00–09:15</div><div class="topic">Opening: Why Media Needs an OS</div><div class="detail">Trả lời 3 câu hỏi: mediaOS là gì, khác media plan ở đâu, và doanh nghiệp được lợi gì. Output: 1 slide “mediaOS in one page”.</div><div class="speaker">ADMICRO Leadership</div><div class="time">09:15–09:40</div><div class="topic">Media First × Content First × Social First</div><div class="detail">Giải thích vai trò từng “First” bằng một campaign mẫu. Output: khách hiểu khi nào cần Media First dẫn dắt và cách Content/Social phối hợp.</div><div class="speaker">Strategy Lead</div><div class="time">09:40–10:05</div><div class="topic">SIGNAL System: How a Campaign Is Assembled</div><div class="detail">Dùng một brief F&amp;B/Retail đã chuẩn bị trước để map Scale → Insight → Gateway → Network → Authority → Live. Output: 1 campaign architecture hoàn chỉnh, sử dụng một tình huống mẫu đã được chuẩn hóa để bảo đảm kết quả minh họa rõ ràng.</div><div class="speaker">mediaOS Strategy / Product</div><div class="time">10:05–10:25</div><div class="topic">M.I.C.E + Measurement</div><div class="detail">Map từng layer vào Media · Impact · Commerce · Experience và KPI tương ứng. Output: khách nhìn thấy rõ từ reach đến business result được đo như thế nào.</div><div class="speaker">Strategy + Data</div><div class="time">10:25–10:40</div><div class="topic">Experience Circuit: Media First × Content First × Social First</div><div class="detail">To be update — cần brainstorm thêm với các bộ phận liên quan để xác định cơ chế trải nghiệm phù hợp cho Media First × Content First × Social First.</div><div class="speaker">admeX Strategy + Media + Social Team</div><div class="time">10:40–11:00</div><div class="topic">Focus Media: Physical Attention as a Measurable Layer</div><div class="detail">Focus minh họa cách LCD/elevator media tạo frequency, context và có thể nối QR/NFC/retargeting. Output: 1 use case physical → digital.</div><div class="speaker">Focus Media*</div><div class="time">11:00–11:20</div><div class="topic">GreenSM: Mobility as a Daily Consumer Journey</div><div class="detail">GreenSM minh họa mobility/in-car/location như một touchpoint có thể dẫn tới store, voucher hoặc commerce. Output: 1 use case mobility → action.</div><div class="speaker">GreenSM*</div><div class="time">11:20–11:45</div><div class="topic">Intelligence Dashboard: From Data to Decision</div><div class="detail">Demo bằng dataset/campaign scenario chuẩn bị trước: dữ liệu từ ADMICRO/Meta/Google/TikTok → dashboard → AI insight → forecast → alert → recommendation. Output: 3 quyết định tối ưu cụ thể.</div><div class="speaker">Data / AI Lead</div><div class="time">11:45–12:00</div><div class="topic">Closing: Choose Your Entry Point</div><div class="detail">Tóm tắt Ready / Seasonal / Bespoke; giới thiệu Diagnostic Session 45 phút và quy trình follow-up. Output: khách biết chính xác bước tiếp theo nếu muốn ứng dụng.</div><div class="speaker">Sales Leadership</div></div></div>
+<p style="color:#6f8e91;font-size:11px;margin-top:12px">*Speaker/participation của đối tác cần xác nhận chính thức trước khi truyền thông ra ngoài.</p>
+</div></section>
+<section id="partners"><div class="wrap">
+<div class="section-head"><div><div class="kicker">05 · Strategic Partner Spotlight</div></div><div><h2>Đối tác không lên sân khấu để “giới thiệu công ty”. Họ phải chứng minh một layer của mediaOS.</h2><p>Vai trò speaker cần gắn với consumer journey và capability rõ ràng để workshop giữ được tính hệ thống.</p></div></div>
+<div class="partner-stage">
+<article class="partner"><div><div class="role">FOCUS MEDIA · PHYSICAL ATTENTION</div><h3>“Khi màn hình không chỉ tạo exposure.”</h3><p>Đề xuất Focus nói về elevator/LCD ecosystem như một context có frequency cao; cách QR/NFC hoặc creative sequencing có thể nối physical attention với digital action và measurement.</p></div><div class="eyebrow">Map vào SIGNAL: Scale · Gateway · Live</div></article>
+<article class="partner"><div><div class="role">GREENSM · DAILY MOBILITY</div><h3>“Biến hành trình di chuyển thành một media journey.”</h3><p>Đề xuất GreenSM chia sẻ cách mobility/location/in-car touchpoint và promotion có thể tham gia vào campaign, đặc biệt với F&amp;B/Retail cần đưa người dùng tới store, app hoặc redemption.</p></div><div class="eyebrow">Map vào SIGNAL: Insight · Network · Gateway · Live</div></article>
+</div>
+</div></section>
+
+<section id="ai-event"><div class="wrap"><div class="section-head"><div><div class="kicker">06 · AI trong ngày sự kiện</div></div><div><h2>AI tham gia trực tiếp vào trải nghiệm, phân tích và cá nhân hóa — không chỉ xuất hiện trong slide.</h2><p>AI được triển khai như một lớp Intelligence hỗ trợ con người ra quyết định. Các output quan trọng vẫn được kiểm soát bởi admeX/ADMICRO trước khi trình bày hoặc follow-up với khách hàng.</p></div></div><div class="ai-event-grid"><article class="ai-event-card"><div class="n">01</div><h3>AI Concierge</h3><strong>Hỏi nhanh về mediaOS</strong><p>Khách có thể hỏi về SIGNAL, M.I.C.E, industry fit, partner layer hoặc capability. AI trả lời dựa trên knowledge base đã được khóa trước sự kiện và luôn dẫn về tài liệu/đầu mối phù hợp.</p></article><article class="ai-event-card"><div class="n">02</div><h3>AI Brief Mapper</h3><strong>Từ brief đến architecture</strong><p>Tại booth, khách nhập một brief mẫu hoặc chọn objective/ngành/audience. AI hỗ trợ gợi ý Consumer Moment, SIGNAL layers và KPI để admeX tiếp tục giải thích logic — không xuất proposal tự động thay cho tư vấn chiến lược.</p></article><article class="ai-event-card"><div class="n">03</div><h3>AI Intelligence Copilot</h3><strong>Từ data đến quyết định</strong><p>Trong session Dashboard, AI đọc dataset đã chuẩn bị, phát hiện bất thường, nêu insight, forecast và alert; sau đó đề xuất 2–3 hành động tối ưu để speaker phản biện và chốt quyết định.</p></article><article class="ai-event-card"><div class="n">04</div><h3>AI Personalized Recap</h3><strong>Follow-up theo mối quan tâm</strong><p>Sau workshop, AI tổng hợp session đã tham dự, booth đã trải nghiệm và interest đã ghi nhận để tạo recap/next-step draft riêng cho từng account; Sales kiểm duyệt trước khi gửi.</p></article></div><div class="ai-principle">Nguyên tắc vận hành AI: Curated Knowledge → Human Review → Controlled Demo Data → Account-level Privacy → Không dùng dữ liệu khách hàng thật nếu chưa có phê duyệt.</div></div></section><section class="package"><div class="wrap">
+<div class="section-head"><div><div class="kicker">07 · Commercial Bridge</div></div><div><h2>Workshop phải kết thúc bằng một “đường vào” đủ dễ để khách hàng thử mediaOS.</h2><p>Không ép khách mua full-system ngay. Sales cần có ba cấp độ entry rõ ràng để match mức độ sẵn sàng của từng khách hàng.</p></div></div>
+<div class="grid g3">
+<div class="card"><div class="n">READY</div><h3>MediaOS Ready Package</h3><p>Cấu trúc đã chuẩn hóa, dùng cho brief có objective và touchpoint tương đối rõ; triển khai nhanh, phạm vi kiểm soát.</p></div>
+<div class="card"><div class="n">SEASONAL</div><h3>MediaOS Seasonal</h3><p>Custom theo Tết, Summer, Back-to-School, 20/10, 11.11, Christmas… nơi moment architecture và partner ecosystem tạo khác biệt.</p></div>
+<div class="card"><div class="n">BESPOKE</div><h3>MediaOS Bespoke</h3><p>Tư vấn và thiết kế riêng từ Business Problem, dành cho campaign đa layer hoặc khách hàng cần Intelligence/Dashboard chuyên biệt.</p></div>
+</div>
+</div></section>
+<section id="timeline"><div class="wrap">
+<div class="section-head"><div><div class="kicker">08 · Master Timeline</div></div><div><h2>Workshop được triển khai như một mini campaign: build interest trước sự kiện, experience tại sự kiện, convert sau sự kiện.</h2><p>Content, media/partner amplification, guest qualification, event production và sales follow-up cùng chạy trên một master timeline.</p></div></div>
+<div class="timeline-wrap"><div class="timeline"><div class="th">Workstream</div><div class="th">17–23/08</div><div class="th">24–30/08</div><div class="th">31/08–06/09</div><div class="th">07–13/09</div><div class="th">Event Week*</div><div class="th">Post-event</div><div class="phase">Strategy / Content</div><div class="on">Lock proposition &amp; storyline</div><div class="on">Build campaign assets / speaker brief</div><div class="on">Publish thought-leadership content</div><div class="on">Final deck / rehearsal</div><div class="burst">WORKSHOP LIVE</div><div class="on">Recap / case content</div><div class="phase">Awareness Campaign</div><div class="on">Teaser concept / target audience</div><div class="on">PR/native/social/partner plan</div><div class="on">Launch content + direct outreach</div><div class="on">Sustain interest / reminder</div><div class="burst">LIVE COVERAGE</div><div class="on">Recap / remarketing</div><div class="phase">Interest / Qualification</div><div class="on">Build inquiry flow</div><div class="on">Account list / contact owner</div><div class="on">Handle inquiries / qualify</div><div class="on">Confirm invite only</div><div class="burst">ON-SITE QUALIFY</div><div class="on">Meeting booking</div><div class="phase">Partners</div><div class="on">Focus / GreenSM alignment</div><div class="on">Use case / topic lock</div><div class="on">Joint amplification asset</div><div class="on">Speaker rehearsal</div><div class="burst">PARTNER SESSIONS</div><div class="on">Joint follow-up where relevant</div><div class="phase">Production</div><div class="on">Venue / format / budget</div><div class="on">AV / stage / demo plan</div><div class="on">Production / manpower</div><div class="on">Dry-run / tech check</div><div class="burst">SHOW CALL</div><div class="on">Reconciliation</div><div class="phase">Technology / Demo</div><div class="on">Journey Card / landing flow</div><div class="on">Dashboard scenario / demo dataset</div><div class="on">UAT / proof stations</div><div class="on">Full rehearsal</div><div class="burst">LIVE DEMO</div><div class="on">Interest/data mapping</div><div class="phase">Sales</div><div class="on">Priority account mapping</div><div class="on">Invite tiers / owner mapping</div><div class="on">1:1 outreach</div><div class="on">Confirm attendance / follow-up plan</div><div class="burst">QUALIFY ON-SITE</div><div class="on">7–14 DAY SPRINT</div><div class="phase">AI Experience</div><div class="on">Lock AI use cases / knowledge base</div><div class="on">Build Concierge / Brief Mapper / dashboard prompts</div><div class="on">Test controlled demo data / guardrails</div><div class="on">Speaker + AI rehearsal / fallback plan</div><div class="burst">AI EXPERIENCE LIVE</div><div class="on">AI-assisted recap draft / human review</div></div></div>
+<p style="color:#6f8e91;font-size:11px;margin-top:12px">*Ngày cụ thể trong tháng 09/2026 để TBC theo lịch BOD, đối tác và venue.</p>
+</div></section>
+<section id="kpi"><div class="wrap">
+<div class="section-head"><div><div class="kicker">09 · Success Metrics</div></div><div><h2>Đo chất lượng cơ hội, không chỉ đếm số người tham dự.</h2><p>Các con số dưới đây là target planning để thiết kế quy mô workshop; cần chốt lại với Sales trước khi gửi thư mời.</p></div></div>
+<div class="kpis">
+<div class="kpi"><strong>60–80</strong><span>Khách mời tham dự</span><small>Ưu tiên decision maker / planning lead.</small></div>
+<div class="kpi"><strong>≥70%</strong><span>Đúng nhóm target</span><small>Agency + F&amp;B + Retail.</small></div>
+<div class="kpi"><strong>20+</strong><span>Qualified conversations</span><small>Có bài toán hoặc interest rõ.</small></div>
+<div class="kpi"><strong>10–15</strong><span>Follow-up meetings</span><small>Diagnostic / pilot / proposal trong 14 ngày.</small></div>
+</div>
+</div></section>
+<section><div class="wrap"><div class="final"><div class="kicker" style="color:#0a4d50">Strategic Takeaway</div><h2>Đây không phải workshop để khách hàng “biết mediaOS”. Đây là workshop để họ bắt đầu hình dung mediaOS trong chính campaign của mình.</h2><p>Nếu sau 3,5 giờ khách mời có thể chỉ ra Business Problem, chọn consumer moment, ráp SIGNAL, xác định M.I.C.E và thấy Intelligence phản hồi bằng dữ liệu — sự kiện đã hoàn thành đúng vai trò.</p></div></div></section>
+<footer>ADMICRO mediaOS Experience Workshop · Ho Chi Minh City · 09/2026 · Internal Planning Proposal</footer>
+</body>
+</html>
