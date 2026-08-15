@@ -68,7 +68,85 @@
     .choices{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:1000px;margin:0 auto}
     .choice{min-height:260px!important}
     @media(max-width:760px){.choices{grid-template-columns:1fr!important}}
-    </style>
+    
+/* Dashboard tab */
+.choices{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:1040px;margin:0 auto}
+.choice.dashboard-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(235,250,248,.96));
+  border-color:rgba(21,174,164,.26)!important;
+}
+.choice.dashboard-card small{color:#15AEA4!important}
+.choice.dashboard-card .arrow{background:#55EDE2!important;color:#06282b!important}
+@media(min-width:1180px){
+  .choices{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:760px){.choices{grid-template-columns:1fr!important}}
+
+/* ===== FIX DASHBOARD HOME CARD CONTRAST ===== */
+.choice.dashboard-card{
+  background:linear-gradient(145deg,#ffffff 0%,#eef9f7 100%)!important;
+  border:1px solid rgba(21,174,164,.24)!important;
+  color:#102326!important;
+}
+.choice.dashboard-card small{
+  color:#15AEA4!important;
+}
+.choice.dashboard-card h2{
+  color:#102326!important;
+  text-shadow:none!important;
+}
+.choice.dashboard-card p{
+  color:#60777A!important;
+}
+.choice.dashboard-card .choice-footer{
+  color:#15AEA4!important;
+}
+.choice.dashboard-card .choice-footer span:first-child{
+  color:#15AEA4!important;
+  font-weight:800!important;
+}
+.choice.dashboard-card .arrow{
+  background:#55EDE2!important;
+  color:#073336!important;
+}
+.choice.dashboard-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 42px rgba(21,174,164,.13)!important;
+}
+
+/* ===== DASHBOARD HOME CARD — MATCH OTHER CARDS ===== */
+.choice.dashboard-card{
+  background:linear-gradient(180deg,#112327 0%,#0d2024 100%)!important;
+  border:1px solid rgba(85,237,226,.16)!important;
+  color:#f5fbfb!important;
+}
+.choice.dashboard-card small{
+  color:#55EDE2!important;
+}
+.choice.dashboard-card h2{
+  color:#f5fbfb!important;
+  text-shadow:none!important;
+}
+.choice.dashboard-card p{
+  color:#9fb4b7!important;
+}
+.choice.dashboard-card .choice-footer{
+  color:#f5fbfb!important;
+}
+.choice.dashboard-card .choice-footer span:first-child{
+  color:#f5fbfb!important;
+  font-weight:800!important;
+}
+.choice.dashboard-card .arrow{
+  background:#55EDE2!important;
+  color:#073336!important;
+}
+.choice.dashboard-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 42px rgba(0,0,0,.20)!important;
+  border-color:rgba(85,237,226,.28)!important;
+}
+</style>
 </head>
 <body>
 <main class="portal">
@@ -87,7 +165,7 @@
 <div><small>ADMICRO mediaOS · Version 2</small><h2>ADMICRO mediaOS V2</h2><p>Strategic System: Media First × Content First × Social First, M.I.C.E Value Engine, S.I.G.N.A.L System, Measurement, AI Intelligence Dashboard, Partner Ecosystem, Industry Fit và Campaign Assembly Roadmap.</p></div>
 <div class="choice-footer"><span>Mở ADMICRO mediaOS V2</span><span class="arrow">→</span></div>
 </a>
-<a class="choice" href="workshop.html"><div><small>ADMICRO mediaOS · Workshop</small><h2>Workshop</h2><p>Experience Workshop tại TP.HCM tháng 09/2026 dành cho Agency và nhóm khách hàng F&amp;B/Retail, kết hợp live Intelligence demo, Focus Media, GreenSM và challenge lab.</p></div><div class="choice-footer"><span>Mở Workshop Proposal</span><span class="arrow">→</span></div></a></div>
+<a class="choice" href="workshop.html"><div><small>ADMICRO mediaOS · Workshop</small><h2>Workshop</h2><p>Experience Workshop tại TP.HCM tháng 09/2026 dành cho Agency và nhóm khách hàng F&amp;B/Retail, kết hợp live Intelligence demo, Focus Media, GreenSM và challenge lab.</p></div><div class="choice-footer"><span>Mở Workshop Proposal</span><span class="arrow">→</span></div></a><a class="choice dashboard-card" href="dashboard-ver1.html"><div><small>ADMICRO mediaOS · Intelligence</small><h2>Dashboard Ver1</h2><p>Intelligence Dashboard demo tổng hợp Campaign Profile, SIGNAL metrics, M.I.C.E, Media, Content/Social, Partner, Commerce, Measurement và AI Intelligence.</p></div><div class="choice-footer"><span>Mở Intelligence Dashboard</span><span class="arrow">→</span></div></a></div>
 <div class="note">mediaOS Portal · VCCorp / ADMICRO</div>
 </div>
 </main>
