@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADMICRO mediaOS Intelligence Dashboard — Full Demo</title>
+<style>
+:root{
+  --bg:#f6f9f9;
+  --paper:#ffffff;
+  --paper2:#f0f7f6;
+  --ink:#102326;
+  --muted:#667b7e;
+  --line:#dbe8e7;
+  --cyan:#55EDE2;
+  --cyan2:#15AEA4;
+  --deep:#0d2c30;
+  --green:#35b971;
+  --amber:#d79a36;
+  --red:#e95e5e;
+  --blue:#4e83e6;
+  --violet:#8c6ee8;
+  --shadow:0 12px 35px rgba(23,63,66,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 88% 0%,rgba(85,237,226,.13),transparent 22%),
+    linear-gradient(180deg,#f8fbfb,#f4f8f8);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+.app{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:12px 24px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:14px}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--cyan2)}
+.topmeta{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;
+  color:var(--muted);font-size:10px
+}
+.chip strong{color:var(--ink)}
+.content{max-width:1720px;margin:auto;padding:22px}
+.hero{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-bottom:14px
+}
+.card,.panel{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)
+}
+.hero-main{padding:24px}
+.eyebrow{font-size:10px;color:var(--cyan2);font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+h1{
+  font-size:clamp(34px,4vw,58px);line-height:1.02;letter-spacing:-.05em;
+  margin:10px 0 14px;max-width:1100px
+}
+.hero-main p{font-size:14px;color:var(--muted);max-width:950px;margin:0}
+.ai-box{
+  padding:22px;border-left:4px solid var(--cyan2);background:#f4fbfa;border-radius:16px
+}
+.ai-box small{color:var(--cyan2);font-size:9px;font-weight:900;letter-spacing:.12em}
+.ai-box strong{display:block;font-size:20px;margin:8px 0 6px}
+.ai-box p{margin:0;color:#617679;font-size:12px}
+.section-title{
+  display:flex;justify-content:space-between;gap:18px;align-items:end;margin:26px 0 12px
+}
+.section-title h2{font-size:24px;letter-spacing:-.03em;margin:0}
+.section-title p{margin:0;color:var(--muted);font-size:11px}
+.profile-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-bottom:14px}
+.profile-card{padding:20px}
+.profile-table{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.profile-item{
+  padding:12px;border:1px solid var(--line);border-radius:14px;background:#fbfdfd
+}
+.profile-item small{display:block;color:#809396;font-size:9px;text-transform:uppercase;letter-spacing:.09em}
+.profile-item strong{display:block;font-size:13px;margin-top:5px}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.person{padding:12px;border-radius:13px;background:var(--paper2);border:1px solid #d7e9e7}
+.person b{display:block;font-size:11px}
+.person span{font-size:9px;color:var(--muted)}
+.kpi-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:9px;margin-bottom:14px}
+.kpi{
+  padding:15px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 5px 20px rgba(23,63,66,.04)
+}
+.kpi small{display:block;font-size:8.5px;color:#7a9093;text-transform:uppercase;letter-spacing:.08em}
+.kpi strong{display:block;font-size:23px;letter-spacing:-.035em;margin:6px 0 3px}
+.delta{font-size:9px}.up{color:var(--green)}.warn{color:var(--amber)}.down{color:var(--red)}
+.grid-2{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-bottom:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.panel{padding:18px;min-width:0}
+.panel-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:12px}
+.panel-head h3{font-size:15px;letter-spacing:-.02em;margin:0}
+.panel-head p{font-size:9.5px;color:#7d9194;margin:3px 0 0}
+.tag{padding:6px 8px;border-radius:999px;background:#e8f8f6;color:var(--cyan2);font-size:8.5px;font-weight:800}
+.chart{height:235px}
+canvas{width:100%!important;height:100%!important}
+.signal-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.signal{padding:14px;border:1px solid #d6e8e6;border-radius:15px;background:#fbfefe}
+.signal .letter{font-size:20px;color:var(--cyan2);font-weight:900}
+.signal b{display:block;font-size:11px;margin-top:3px}
+.signal span{display:block;font-size:8.5px;color:#7b9194}
+.signal strong{display:block;font-size:18px;margin-top:9px}
+.mice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mice{padding:15px;border-radius:15px;background:#fbfdfd;border:1px solid var(--line)}
+.mice b{color:var(--cyan2);font-size:20px}
+.mice h4{font-size:11px;margin:7px 0 5px}
+.mice p{font-size:8.5px;color:#7b9093;margin:0}
+.progress{height:7px;background:#e9f0ef;border-radius:99px;overflow:hidden;margin-top:8px}
+.progress i{display:block;height:100%;background:var(--cyan2);border-radius:99px}
+table{width:100%;border-collapse:collapse;font-size:10px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:#829497}
+td strong{font-size:10.5px}
+.pill{padding:5px 7px;border-radius:999px;background:#e9f8f6;color:var(--cyan2);font-size:8px}
+.alerts,.recs{display:grid;gap:8px}
+.alert,.rec{
+  padding:12px;border-radius:13px;border:1px solid var(--line);background:#fbfdfd
+}
+.alert{display:grid;grid-template-columns:9px 1fr auto;gap:9px}
+.alert i{width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:4px}
+.alert.critical i{background:var(--red)} .alert.good i{background:var(--green)}
+.alert b,.rec b{display:block;font-size:10.5px}
+.alert p,.rec p{font-size:9.5px;color:#74898c;margin:3px 0 0}
+.alert time{font-size:8px;color:#9aa9ab}
+.rec{background:#f4fbfa;border-color:#d7ebe8}
+.rec .impact{font-size:8.5px;color:var(--cyan2);margin-top:6px}
+.partner-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.partner{
+  padding:13px;border:1px solid var(--line);border-radius:14px;background:#fff
+}
+.partner b{display:block;font-size:10.5px}
+.partner span{display:block;font-size:8.5px;color:#819497;margin-top:3px}
+.partner strong{display:block;font-size:15px;margin-top:8px}
+.source-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.source{
+  padding:12px;border-radius:13px;background:#fbfdfd;border:1px solid var(--line)
+}
+.source b{font-size:10.5px;display:block}.source span{display:block;color:#809396;font-size:8.5px;margin-top:3px}
+.source .ok{color:var(--green);font-weight:700;margin-top:7px}
+.footer-note{text-align:center;font-size:9px;color:#83979a;padding:16px}
+@media(max-width:1400px){
+  .kpi-grid{grid-template-columns:repeat(4,1fr)}
+  .profile-table{grid-template-columns:repeat(2,1fr)}
+  .partner-grid,.source-grid{grid-template-columns:repeat(3,1fr)}
+  .signal-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:980px){
+  .hero,.profile-grid,.grid-2,.grid-3{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .content{padding:14px}
+  .kpi-grid,.grid-4,.profile-table,.team-grid,.signal-grid,.mice-grid,.partner-grid,.source-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<style>
+:root{
+  --sidebar-w:244px;
+  --sidebar-mini:76px;
+}
+body{font-size:15px}
+.app{padding-left:var(--sidebar-w);transition:.25s ease}
+.sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);z-index:80;
+  background:#fff;border-right:1px solid var(--line);
+  padding:18px 14px;display:flex;flex-direction:column;gap:18px;
+  box-shadow:8px 0 30px rgba(20,58,61,.035)
+}
+.side-brand{display:flex;align-items:center;gap:11px;padding:5px 8px 17px;border-bottom:1px solid var(--line)}
+.side-logo{width:34px;height:34px;border-radius:11px;background:var(--deep);color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
+.side-brand b{font-size:14px;display:block}.side-brand span{font-size:10px;color:var(--muted)}
+.nav-group-title{font-size:9px;letter-spacing:.13em;color:#9aabad;text-transform:uppercase;font-weight:800;padding:0 10px;margin:4px 0}
+.side-nav{display:grid;gap:5px}
+.nav-item{
+  display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:12px;color:#627679;
+  text-decoration:none;font-size:12px;font-weight:700;transition:.15s ease
+}
+.nav-item:hover{background:#f1f8f7;color:var(--ink)}
+.nav-item.active{background:var(--deep);color:#fff}
+.nav-icon{width:22px;text-align:center;font-size:14px}
+.side-spacer{flex:1}
+.user-card{border-top:1px solid var(--line);padding:15px 7px 3px;display:grid;grid-template-columns:38px 1fr 18px;gap:9px;align-items:center}
+.avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#55EDE2,#15AEA4);display:grid;place-items:center;color:#073538;font-weight:900}
+.user-card b{display:block;font-size:11px}.user-card span{font-size:9px;color:var(--muted);display:block}
+.topbar{left:var(--sidebar-w);padding:11px 22px}
+.mobile-menu{display:none}
+.content{max-width:1760px;padding:24px 28px 32px}
+.hero{grid-template-columns:minmax(0,1.35fr) minmax(380px,.65fr);gap:16px}
+.hero-main{padding:28px}
+.hero-main h1{font-size:clamp(34px,3.25vw,56px)}
+.hero-main p{font-size:15px;line-height:1.6}
+.ai-box{padding:24px}
+.ai-box small{font-size:11px}
+.ai-box strong{font-size:24px;line-height:1.2;margin:9px 0 10px}
+.ai-box p{font-size:14px;line-height:1.62;color:#526a6d}
+.section-title{margin:30px 0 14px}
+.section-title h2{font-size:26px}
+.section-title p{font-size:12px}
+.profile-item small{font-size:10px}.profile-item strong{font-size:15px}
+.person b{font-size:12px}.person span{font-size:10px}
+.kpi{padding:17px 15px}
+.kpi small{font-size:10px}
+.kpi strong{font-size:28px}
+.delta{font-size:10.5px;font-weight:700}
+.panel{padding:20px}
+.panel-head h3{font-size:17px}
+.panel-head p{font-size:11px}
+.tag{font-size:9.5px}
+.signal{padding:16px}
+.signal .letter{font-size:25px}
+.signal b{font-size:13px}
+.signal span{font-size:10px;line-height:1.45;min-height:29px}
+.signal strong{font-size:25px}
+.mice{padding:17px}
+.mice b{font-size:26px}
+.mice h4{font-size:13px}
+.mice p{font-size:10.5px;line-height:1.55}
+table{font-size:11.5px}
+th{font-size:9.5px}
+td strong{font-size:12px}
+.pill{font-size:9px}
+.partner b,.source b{font-size:12px}
+.partner span,.source span{font-size:10px}
+.partner strong{font-size:20px}
+.alert b,.rec b{font-size:12px}
+.alert p,.rec p{font-size:10.5px;line-height:1.5}
+.alert time{font-size:9px}.rec .impact{font-size:10px;font-weight:700}
+.chart{height:255px}
+.commandbar{
+  display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:7px 9px;min-width:260px
+}
+.search-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan2)}
+.commandbar span{font-size:10px;color:#829598}
+.icon-btn{width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:10px;display:grid;place-items:center;color:#607477}
+@media(max-width:1180px){
+  :root{--sidebar-w:76px}
+  .side-brand .brand-copy,.nav-item .nav-copy,.nav-group-title,.user-card .user-copy,.user-card .more{display:none}
+  .side-brand{justify-content:center}.nav-item{justify-content:center;padding:11px}.nav-icon{font-size:17px}
+  .user-card{display:flex;justify-content:center}
+  .hero{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  :root{--sidebar-w:0px}
+  .sidebar{display:none}.mobile-menu{display:grid}
+  .topbar{left:0}.topmeta .chip:nth-child(-n+3){display:none}
+  .commandbar{display:none}
+}
+</style>
+
+
+<style>
+:root{
+  --brand-primary:#15AEA4;
+  --brand-secondary:#55EDE2;
+  --brand-accent:#0D2C30;
+  --brand-soft:#EAF9F7;
+  --glass:rgba(255,255,255,.78);
+  --glass-strong:rgba(255,255,255,.90);
+}
+body{
+  background:
+    radial-gradient(circle at 88% 2%,color-mix(in srgb,var(--brand-secondary) 22%,transparent),transparent 23%),
+    radial-gradient(circle at 18% 18%,color-mix(in srgb,var(--brand-primary) 8%,transparent),transparent 20%),
+    linear-gradient(180deg,#f8fbfb 0%,#f3f8f7 52%,#f8fbfb 100%)!important;
+}
+.sidebar,.topbar{
+  background:var(--glass-strong)!important;
+  backdrop-filter:blur(22px) saturate(125%);
+  -webkit-backdrop-filter:blur(22px) saturate(125%);
+}
+.card,.panel,.kpi,.profile-item,.person,.source,.partner{
+  background:linear-gradient(145deg,rgba(255,255,255,.93),rgba(255,255,255,.72))!important;
+  backdrop-filter:blur(16px) saturate(115%);
+  -webkit-backdrop-filter:blur(16px) saturate(115%);
+  border-color:color-mix(in srgb,var(--brand-primary) 14%,#dfe9e8)!important;
+}
+.hero-main{
+  position:relative;overflow:hidden;
+  min-height:264px;
+  padding:30px 32px 30px!important;
+  background:
+    linear-gradient(125deg,
+      color-mix(in srgb,var(--brand-accent) 96%,white 4%) 0%,
+      color-mix(in srgb,var(--brand-accent) 89%,var(--brand-primary) 11%) 58%,
+      color-mix(in srgb,var(--brand-primary) 70%,var(--brand-accent) 30%) 100%)!important;
+  color:#fff!important;
+  border:0!important;
+  box-shadow:0 18px 50px color-mix(in srgb,var(--brand-accent) 18%,transparent)!important;
+}
+.hero-main:before{
+  content:"";position:absolute;width:360px;height:360px;border-radius:50%;
+  right:-80px;top:-170px;border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(255,255,255,.018)
+}
+.hero-main:after{
+  content:"";position:absolute;width:120px;height:120px;border-radius:32px;
+  right:90px;bottom:-48px;transform:rotate(28deg);
+  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px)
+}
+.hero-main .eyebrow{color:var(--brand-secondary)!important}
+.hero-main h1{
+  position:relative;z-index:2;
+  font-size:32px!important;line-height:1.12!important;letter-spacing:-.035em!important;
+  max-width:900px!important;margin:14px 0 14px!important
+}
+.hero-main p{
+  position:relative;z-index:2;color:rgba(255,255,255,.76)!important;
+  max-width:920px;font-size:14px!important
+}
+.hero-status{
+  position:relative;z-index:2;display:flex;gap:8px;flex-wrap:wrap;margin-top:22px
+}
+.hero-status span{
+  padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.09);backdrop-filter:blur(10px);
+  font-size:9.5px;font-weight:750;color:rgba(255,255,255,.88)
+}
+.ai-box{
+  height:100%;
+  background:
+    linear-gradient(145deg,
+      color-mix(in srgb,var(--brand-soft) 70%,white 30%),
+      rgba(255,255,255,.94))!important;
+  border:1px solid color-mix(in srgb,var(--brand-primary) 25%,#dce9e7)!important;
+  border-left:4px solid var(--brand-primary)!important;
+  box-shadow:0 14px 35px color-mix(in srgb,var(--brand-primary) 8%,transparent)
+}
+.ai-box small,.eyebrow,.signal .letter,.mice b,.tag,.bod-num{color:var(--brand-primary)!important}
+.progress i{background:linear-gradient(90deg,var(--brand-primary),var(--brand-secondary))!important}
+.brand-dot{background:var(--brand-primary)!important}
+.side-logo,.nav-item.active{background:linear-gradient(145deg,var(--brand-accent),color-mix(in srgb,var(--brand-accent) 80%,var(--brand-primary) 20%))!important}
+.avatar{background:linear-gradient(135deg,var(--brand-secondary),var(--brand-primary))!important}
+.pill,.tag{background:color-mix(in srgb,var(--brand-primary) 9%,white)!important}
+.section-title h2{font-size:27px!important}
+.kpi strong{font-size:30px!important}
+.signal strong{font-size:27px!important}
+.mice b{font-size:29px!important}
+.mice h4{font-size:14px!important}
+.chart{height:270px!important}
+.chart.compact{height:210px!important}
+.chart.tall{height:310px!important}
+.brand-theme-control{
+  display:flex;align-items:center;gap:7px;padding:6px 8px;border:1px solid var(--line);
+  border-radius:12px;background:rgba(255,255,255,.8)
+}
+.brand-theme-control label{font-size:9px;color:#849699}
+.brand-theme-control select{
+  border:0;background:transparent;color:var(--ink);font-size:10px;font-weight:800;outline:none
+}
+.metric-chart-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:14px;margin-bottom:14px
+}
+.micro-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px
+}
+.micro{
+  padding:13px;border-radius:13px;background:linear-gradient(145deg,#fff,#f5fbfa);
+  border:1px solid color-mix(in srgb,var(--brand-primary) 12%,#dfe9e8)
+}
+.micro span{display:block;font-size:9px;color:#819396}
+.micro strong{display:block;font-size:19px;margin-top:5px}
+.chart-note{font-size:9px;color:#829598;margin-top:7px}
+@media(max-width:1200px){.metric-chart-grid{grid-template-columns:1fr}.micro-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+
+<style>
+.signal-metric-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0;
+}
+.signal-metric-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(248,252,251,.86));
+  border:1px solid color-mix(in srgb,var(--brand-primary) 14%,#dfe9e8);
+  border-radius:18px;padding:18px 18px 14px;
+  box-shadow:0 8px 25px rgba(23,63,66,.045);
+}
+.signal-metric-head{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  padding-bottom:13px;margin-bottom:3px;border-bottom:1px solid var(--line)
+}
+.signal-metric-head .code{
+  color:var(--brand-primary);font-size:10px;font-weight:900;letter-spacing:.12em
+}
+.signal-metric-head h3{margin:5px 0 0;font-size:19px;letter-spacing:-.025em}
+.layer-score{text-align:right}
+.layer-score strong{display:block;font-size:24px;line-height:1;color:var(--brand-primary)}
+.layer-score span{font-size:8px;color:#8ba0a2}
+.metric-row{
+  display:grid;grid-template-columns:minmax(0,1.45fr) .55fr .42fr;
+  gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #edf2f1
+}
+.metric-row:last-child{border-bottom:0}
+.metric-name b{display:block;font-size:11.5px;line-height:1.25}
+.metric-name span{display:block;font-size:8.8px;color:#899b9d;line-height:1.35;margin-top:3px}
+.metric-value{text-align:right}
+.metric-value strong{display:block;font-size:17px;letter-spacing:-.02em}
+.metric-value span{font-size:8px;color:#8ca0a2}
+.metric-status{text-align:right}
+.metric-status i{
+  display:inline-block;font-style:normal;padding:5px 6px;border-radius:999px;
+  font-size:7.5px;font-weight:850;background:#edf8f6;color:var(--brand-primary)
+}
+.metric-status i.watch{background:#fff5e6;color:#b47b22}
+.metric-status i.risk{background:#ffeded;color:#d94f4f}
+.metric-status i.good{background:#eaf8ef;color:#2d9d61}
+.metric-library-note{
+  padding:13px 15px;margin-top:10px;border-radius:13px;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--brand-primary) 8%,white),#fff);
+  border:1px solid color-mix(in srgb,var(--brand-primary) 14%,#dfe9e8);
+  font-size:10px;color:#657a7d
+}
+.metric-library-note b{color:var(--ink)}
+@media(max-width:1200px){.signal-metric-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.signal-metric-grid{grid-template-columns:1fr}.metric-row{grid-template-columns:1.3fr .55fr .45fr}}
+</style>
+
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="side-brand">
+    <div class="side-logo">mOS</div>
+    <div class="brand-copy"><b>ADMICRO mediaOS</b><span>Intelligence Center</span></div>
+  </div>
+
+  <div>
+    <div class="nav-group-title">Workspace</div>
+    <nav class="side-nav">
+      <a class="nav-item active" href="#"><span class="nav-icon">⌂</span><span class="nav-copy">Overview</span></a>
+      <a class="nav-item" href="#signal"><span class="nav-icon">◈</span><span class="nav-copy">SIGNAL System</span></a>
+      <a class="nav-item" href="#mice"><span class="nav-icon">◎</span><span class="nav-copy">M.I.C.E Value</span></a>
+      <a class="nav-item" href="#media"><span class="nav-icon">↗</span><span class="nav-copy">Media & Audience</span></a>
+      <a class="nav-item" href="#partner"><span class="nav-icon">◇</span><span class="nav-copy">Partner Network</span></a>
+      <a class="nav-item" href="#commerce"><span class="nav-icon">▣</span><span class="nav-copy">Commerce</span></a>
+    </nav>
+  </div>
+
+  <div>
+    <div class="nav-group-title">Intelligence</div>
+    <nav class="side-nav">
+      <a class="nav-item" href="#measurement"><span class="nav-icon">⌁</span><span class="nav-copy">Measurement</span></a>
+      <a class="nav-item" href="#ai"><span class="nav-icon">✦</span><span class="nav-copy">AI Intelligence</span></a>
+      <a class="nav-item" href="#"><span class="nav-icon">⚙</span><span class="nav-copy">Data Sources</span></a>
+    </nav>
+  </div>
+
+  <div class="side-spacer"></div>
+  <div class="user-card">
+    <div class="avatar">OT</div>
+    <div class="user-copy"><b>Oscar Tran</b><span>Strategic Consulting Director</span><span>ADMICRO · HCMC</span></div>
+    <div class="more">⋮</div>
+  </div>
+</aside>
+
+<div class="app">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="icon-btn mobile-menu">☰</button>
+      <div class="brand"><span class="brand-dot"></span>Campaign Intelligence</div>
+      <div class="commandbar"><span class="search-dot"></span><span>Search campaign, metric, audience...</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+    <div class="brand-theme-control">
+      <label>Brand theme</label>
+      <select id="brandTheme">
+        <option value="mediaos">mediaOS</option>
+        <option value="chagee">CHAGEE</option>
+        <option value="namlong">Nam Long</option>
+        <option value="custom">Custom demo</option>
+      </select>
+    </div>
+    <div class="topmeta">
+      <div class="chip">Client <strong>CHAGEE Vietnam</strong></div>
+      <div class="chip">Campaign <strong>Morning Together</strong></div>
+      <div class="chip">Period <strong>01 Nov–31 Dec 2026</strong></div>
+      <div class="chip">Status <strong>Live Demo</strong></div>
+      <div class="chip">Last sync <strong>09:45</strong></div>
+    </div>
+    <button class="icon-btn" title="Alerts">◉</button>
+    <button class="icon-btn" title="Export">⇩</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="hero">
+      <div class="card hero-main">
+        <div class="eyebrow">Executive Campaign Intelligence</div>
+        <h1>Morning Together đang tạo tăng trưởng tốt ở upper funnel, nhưng conversion efficiency chưa đồng đều giữa media và partner touchpoint.</h1>
+        <p>Dashboard mô phỏng đầy đủ logic quản trị mediaOS: Campaign Profile → Team → SIGNAL Health & 30 Core Metrics → M.I.C.E → Media → Content/Social → Partner → Commerce → Measurement → AI Intelligence → Decision.</p>
+        <div class="hero-status">
+          <span>Campaign Health · 87/100</span>
+          <span>Budget Pacing · 58%</span>
+          <span>AI Confidence · 84%</span>
+          <span>4 Priority Decisions</span>
+        </div>
+      </div>
+      <div class="card" style="padding:20px">
+        <div class="ai-box">
+          <small>AI EXECUTIVE SUMMARY · 15 AUG 2026</small>
+          <strong>4 quyết định ưu tiên hôm nay</strong>
+          <p><b>01 · Media:</b> Giảm 8% TikTok budget do marginal reach giảm.<br>
+          <b>02 · Audience:</b> Tăng retargeting nhóm đã tương tác ≥2 touchpoint.<br>
+          <b>03 · Partner:</b> Mở rộng office/DOOH inventory tại Q1–Q3.<br>
+          <b>04 · Creative:</b> Refresh nhóm 25–34 vì frequency đã chạm 7.6.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title"><div><h2>01 · Campaign Profile</h2><p>Thông tin nền tảng để BOD và team hiểu campaign đang vận hành trong bối cảnh nào.</p></div></div>
+    <div class="profile-grid">
+      <div class="card profile-card">
+        <div class="profile-table">
+          <div class="profile-item"><small>Khách hàng</small><strong>CHAGEE Vietnam</strong></div>
+          <div class="profile-item"><small>Chiến dịch</small><strong>Morning Together</strong></div>
+          <div class="profile-item"><small>Thị trường</small><strong>TP.HCM</strong></div>
+          <div class="profile-item"><small>Campaign Type</small><strong>Brand Growth + Commerce</strong></div>
+          <div class="profile-item"><small>Bắt đầu</small><strong>01/11/2026</strong></div>
+          <div class="profile-item"><small>Kết thúc</small><strong>31/12/2026</strong></div>
+          <div class="profile-item"><small>Ngân sách demo</small><strong>12.8 tỷ VNĐ</strong></div>
+          <div class="profile-item"><small>Budget used</small><strong>7.42 tỷ · 58%</strong></div>
+          <div class="profile-item"><small>Business Objective</small><strong>Trial · Store Traffic · Repeat</strong></div>
+          <div class="profile-item"><small>Marketing Objective</small><strong>Brand Love · Relevance</strong></div>
+          <div class="profile-item"><small>Core TA</small><strong>Gen Z · Young Millennials</strong></div>
+          <div class="profile-item"><small>Primary KPI</small><strong>Qualified Action Index</strong></div>
+        </div>
+      </div>
+      <div class="card profile-card">
+        <div class="panel-head"><div><h3>Campaign Team</h3><p>Tổng quan đầu mối vận hành demo.</p></div><span class="tag">12 members</span></div>
+        <div class="team-grid">
+          <div class="person"><b>Campaign Lead</b><span>admeX Strategy</span></div>
+          <div class="person"><b>Media Lead</b><span>ADMICRO Media</span></div>
+          <div class="person"><b>Content Lead</b><span>Content First</span></div>
+          <div class="person"><b>Social Lead</b><span>Social First</span></div>
+          <div class="person"><b>Data Lead</b><span>Intelligence / AI</span></div>
+          <div class="person"><b>Sales Owner</b><span>Business Team</span></div>
+          <div class="person"><b>Partner Lead</b><span>Focus / GreenSM</span></div>
+          <div class="person"><b>Activation Lead</b><span>Experience</span></div>
+          <div class="person"><b>Client Owner</b><span>CHAGEE Marketing</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title"><div><h2>02 · Executive KPI Overview</h2><p>Top-line metrics trước khi đi sâu vào từng layer.</p></div></div>
+    <div class="kpi-grid">
+      <div class="kpi"><small>Unique Reach</small><strong>8.42M</strong><div class="delta up">▲ 11.6% vs plan</div></div>
+      <div class="kpi"><small>Frequency</small><strong>5.7</strong><div class="delta warn">Target 4.5–6.0</div></div>
+      <div class="kpi"><small>Engaged Users</small><strong>1.36M</strong><div class="delta up">▲ 8.2%</div></div>
+      <div class="kpi"><small>Qualified Actions</small><strong>126K</strong><div class="delta up">▲ 14.1%</div></div>
+      <div class="kpi"><small>Leads</small><strong>18.4K</strong><div class="delta up">▲ 9.4%</div></div>
+      <div class="kpi"><small>Qualified Leads</small><strong>4,820</strong><div class="delta up">▲ 6.4%</div></div>
+      <div class="kpi"><small>Pipeline</small><strong>42.8B</strong><div class="delta up">▲ 7.1%</div></div>
+      <div class="kpi"><small>Influenced Revenue</small><strong>18.6B</strong><div class="delta up">▲ 9.8%</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Growth Trend</h3><p>Reach · Engagement · Qualified Action · Commerce theo thời gian.</p></div><span class="tag">AI Forecast</span></div>
+        <div class="chart"><canvas id="trend"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Budget Pacing</h3><p>Chi tiêu thực tế so với kế hoạch.</p></div><span class="tag">58% used</span></div>
+        <div class="chart"><canvas id="budget"></canvas></div>
+      </div>
+    </div>
+
+    <div id="signal" class="section-title"><div><h2>03 · SIGNAL System</h2><p>6 lớp năng lực vận hành của mediaOS.</p></div></div>
+    <div class="panel" style="margin-bottom:14px">
+      <div class="signal-grid">
+        <div class="signal"><div class="letter">S</div><b>Scale</b><span>Reach · Frequency · Incremental Reach</span><strong>92</strong><div class="progress"><i style="width:92%"></i></div></div>
+        <div class="signal"><div class="letter">I</div><b>Insight</b><span>Audience · Context · Intent Signal</span><strong>86</strong><div class="progress"><i style="width:86%"></i></div></div>
+        <div class="signal"><div class="letter">G</div><b>Gateway</b><span>Click · QR · Claim · Landing</span><strong>78</strong><div class="progress"><i style="width:78%"></i></div></div>
+        <div class="signal"><div class="letter">N</div><b>Network</b><span>Partner · Platform · Inventory</span><strong>81</strong><div class="progress"><i style="width:81%"></i></div></div>
+        <div class="signal"><div class="letter">A</div><b>Authority</b><span>Publisher · Expert · Creator</span><strong>74</strong><div class="progress"><i style="width:74%"></i></div></div>
+        <div class="signal"><div class="letter">L</div><b>Link</b><span>Booth · Store · Mobility · Experience</span><strong>88</strong><div class="progress"><i style="width:88%"></i></div></div>
+      </div>
+    </div>
+    <div class="metric-chart-grid">
+      <div class="panel">
+        <div class="panel-head"><div><h3>SIGNAL Health Trend</h3><p>Diễn biến health score của 6 lớp vận hành theo 4 tuần gần nhất.</p></div><span class="tag">System Health</span></div>
+        <div class="chart compact"><canvas id="signalTrend"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>SIGNAL Contribution</h3><p>Đóng góp tương đối của từng layer vào Qualified Action Index.</p></div></div>
+        <div class="chart compact"><canvas id="signalContribution"></canvas></div>
+      </div>
+    </div>
+
+    
+<div class="section-title" style="margin-top:20px">
+  <div><h2 style="font-size:20px!important">SIGNAL Metric Drill-down</h2>
+  <p>Bộ metric chi tiết theo từng layer — demo value được dùng để minh họa cách Intelligence Dashboard theo dõi và cảnh báo.</p></div>
+  <span class="tag">30 Core Metrics</span>
+</div>
+
+<div class="signal-metric-grid">
+  <article class="signal-metric-card">
+    <div class="signal-metric-head"><div><div class="code">S · SCALE</div><h3>Độ phủ & Attention</h3></div><div class="layer-score"><strong>92</strong><span>HEALTH SCORE</span></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Unique Reach</b><span>Số người tiếp cận không trùng lặp</span></div><div class="metric-value"><strong>8.42M</strong><span>+11.6% plan</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Incremental Reach</b><span>Độ phủ tăng thêm nhờ bổ sung kênh/layer</span></div><div class="metric-value"><strong>38%</strong><span>Target ≥35%</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Frequency</b><span>Tần suất trung bình mỗi người nhìn thấy campaign</span></div><div class="metric-value"><strong>5.7</strong><span>Target 4.5–6</span></div><div class="metric-status"><i>ON TRACK</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Attention / VTR / Viewability</b><span>Chất lượng cơ hội nhìn thấy và mức độ xem nội dung</span></div><div class="metric-value"><strong>71%</strong><span>Viewability</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Cost Efficiency</b><span>CPM/CPV/CPC và hiệu quả chi phí theo kênh</span></div><div class="metric-value"><strong>0.94</strong><span>Cost Index</span></div><div class="metric-status"><i class="good">EFFICIENT</i></div></div>
+  </article>
+
+  <article class="signal-metric-card">
+    <div class="signal-metric-head"><div><div class="code">I · INSIGHT</div><h3>Ngữ cảnh & Tín hiệu nhu cầu</h3></div><div class="layer-score"><strong>86</strong><span>HEALTH SCORE</span></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Qualified Traffic</b><span>Lượng truy cập có chất lượng theo tiêu chí campaign</span></div><div class="metric-value"><strong>624K</strong><span>46% traffic</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Search / Click Insight</b><span>Tín hiệu chủ động tìm kiếm, click hoặc mở hành trình tiếp theo</span></div><div class="metric-value"><strong>+18%</strong><span>Search lift</span></div><div class="metric-status"><i class="good">UP</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Context Response Rate</b><span>Mức phản hồi theo bối cảnh, thời điểm hoặc platform</span></div><div class="metric-value"><strong>14.8%</strong><span>Response</span></div><div class="metric-status"><i>STABLE</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Assisted Action</b><span>Hành động có sự đóng góp của layer dù không phải last-click</span></div><div class="metric-value"><strong>31%</strong><span>of QA</span></div><div class="metric-status"><i class="good">STRONG</i></div></div>
+  </article>
+
+  <article class="signal-metric-card">
+    <div class="signal-metric-head"><div><div class="code">G · GATEWAY</div><h3>Chuyển đổi & Thương mại</h3></div><div class="layer-score"><strong>78</strong><span>HEALTH SCORE</span></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Claim / Lead / Order</b><span>Số quyền lợi, lead hoặc đơn hàng được tạo</span></div><div class="metric-value"><strong>126K</strong><span>Actions</span></div><div class="metric-status"><i class="good">+14.1%</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Redemption Rate</b><span>Tỷ lệ quyền lợi được sử dụng thành công</span></div><div class="metric-value"><strong>58%</strong><span>11K redeem</span></div><div class="metric-status"><i>ON TRACK</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Conversion Rate</b><span>Tỷ lệ chuyển đổi từ traffic/claim sang hành động mục tiêu</span></div><div class="metric-value"><strong>3.4%</strong><span>Blended CVR</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>CPA / CPL / ROAS</b><span>Hiệu quả chi phí và doanh thu theo mục tiêu performance</span></div><div class="metric-value"><strong>3.1x</strong><span>ROAS</span></div><div class="metric-status"><i class="good">EFFICIENT</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Repeat / Retention</b><span>Khả năng quay lại sau lần chuyển đổi đầu tiên</span></div><div class="metric-value"><strong>21%</strong><span>30-day repeat</span></div><div class="metric-status"><i class="watch">BUILD</i></div></div>
+  </article>
+
+  <article class="signal-metric-card">
+    <div class="signal-metric-head"><div><div class="code">N · NETWORK</div><h3>Hiệu quả Hệ đối tác</h3></div><div class="layer-score"><strong>81</strong><span>HEALTH SCORE</span></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Partner Reach</b><span>Độ phủ tăng thêm từ hệ đối tác</span></div><div class="metric-value"><strong>1.2M</strong><span>54% incr.</span></div><div class="metric-status"><i class="good">STRONG</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Referral / Partner Action</b><span>Hành động phát sinh từ touchpoint của đối tác</span></div><div class="metric-value"><strong>34.4K</strong><span>Actions</span></div><div class="metric-status"><i class="good">+16%</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Co-investment Value</b><span>Giá trị media/quyền lợi/tài nguyên đối tác đóng góp</span></div><div class="metric-value"><strong>1.48B</strong><span>Est. value</span></div><div class="metric-status"><i class="good">VALUE</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Partner Conversion</b><span>Tỷ lệ chuyển đổi tại kênh hoặc inventory đối tác</span></div><div class="metric-value"><strong>38%</strong><span>Qualified rate</span></div><div class="metric-status"><i class="good">BEST</i></div></div>
+  </article>
+
+  <article class="signal-metric-card">
+    <div class="signal-metric-head"><div><div class="code">A · AUTHORITY</div><h3>Thẩm quyền & Ảnh hưởng</h3></div><div class="layer-score"><strong>74</strong><span>HEALTH SCORE</span></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Earned Reach</b><span>Độ phủ earned media và cộng đồng</span></div><div class="metric-value"><strong>2.4M</strong><span>Earned</span></div><div class="metric-status"><i class="good">UP</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Message Pull-through</b><span>Mức độ thông điệp chiến lược được truyền tải đúng</span></div><div class="metric-value"><strong>68%</strong><span>Key message</span></div><div class="metric-status"><i>STABLE</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Sentiment</b><span>Sắc thái phản hồi tích cực / trung tính / tiêu cực</span></div><div class="metric-value"><strong>72%</strong><span>Positive</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Share of Voice / Authority</b><span>Mức hiện diện và tiếng nói trong chủ đề/ngành</span></div><div class="metric-value"><strong>27%</strong><span>SOV</span></div><div class="metric-status"><i class="watch">BUILD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Advocacy</b><span>Mức độ chủ động giới thiệu hoặc bảo chứng</span></div><div class="metric-value"><strong>12.6K</strong><span>Advocacy actions</span></div><div class="metric-status"><i class="good">UP</i></div></div>
+  </article>
+
+  <article class="signal-metric-card">
+    <div class="signal-metric-head"><div><div class="code">L · LINK</div><h3>Trải nghiệm & Điểm nối</h3></div><div class="layer-score"><strong>88</strong><span>HEALTH SCORE</span></div></div>
+    <div class="metric-row"><div class="metric-name"><b>QR / NFC / Interaction</b><span>Lượt chủ động chạm/quét/tham gia tại touchpoint</span></div><div class="metric-value"><strong>19.2K</strong><span>Interactions</span></div><div class="metric-status"><i class="good">GOOD</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Participation Rate</b><span>Tỷ lệ người được tiếp cận thực sự tham gia</span></div><div class="metric-value"><strong>16.8%</strong><span>Participation</span></div><div class="metric-status"><i class="good">+2.1pts</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Interaction Depth</b><span>Độ sâu trải nghiệm: số bước, thời gian, hoàn thành mechanic</span></div><div class="metric-value"><strong>3.4</strong><span>Steps/session</span></div><div class="metric-status"><i>HEALTHY</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>UGC / Share Rate</b><span>Mức độ tạo và chia sẻ nội dung sau trải nghiệm</span></div><div class="metric-value"><strong>8.7%</strong><span>UGC/share</span></div><div class="metric-status"><i class="good">UP</i></div></div>
+    <div class="metric-row"><div class="metric-name"><b>Data Signal Captured</b><span>Khối lượng tín hiệu first-party/consented data thu được</span></div><div class="metric-value"><strong>42.6K</strong><span>Signals</span></div><div class="metric-status"><i class="good">STRONG</i></div></div>
+  </article>
+</div>
+
+<div class="metric-library-note">
+  <b>Measurement logic:</b> Health Score của từng SIGNAL layer không phải một KPI đơn lẻ; đây là chỉ số tổng hợp từ nhóm metric bên dưới, được chuẩn hóa theo target, benchmark và mức độ đóng góp vào Qualified Action / Business Outcome.
+</div>
+
+<div id="mice" class="section-title"><div><h2>04 · M.I.C.E Value Engine</h2><p>Không chỉ đo media delivery; đo giá trị campaign tạo ra.</p></div></div>
+    <div class="panel" style="margin-bottom:14px">
+      <div class="mice-grid">
+        <div class="mice"><b>M</b><h4>Media</h4><p>Reach 8.42M · Frequency 5.7 · VTR 31% · Incremental Reach 38%</p></div>
+        <div class="mice"><b>I</b><h4>Impact</h4><p>Brand Search +18% · Consideration +4.2 pts · Positive Sentiment 72%</p></div>
+        <div class="mice"><b>C</b><h4>Commerce</h4><p>126K actions · 18.4K leads · 4.8K qualified · 18.6B influenced revenue</p></div>
+        <div class="mice"><b>E</b><h4>Experience</h4><p>42K booth/store interactions · 19K QR/NFC · 11K redemptions</p></div>
+      </div>
+    </div>
+    <div class="metric-chart-grid">
+      <div class="panel">
+        <div class="panel-head"><div><h3>M.I.C.E Value Progress</h3><p>Progress theo target của Media, Impact, Commerce và Experience.</p></div></div>
+        <div class="chart compact"><canvas id="miceProgress"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Value Correlation</h3><p>Minh họa mối tương quan giữa Impact Index và Commerce Index theo tuần.</p></div><span class="tag">AI Pattern</span></div>
+        <div class="chart compact"><canvas id="miceCorrelation"></canvas></div>
+      </div>
+    </div>
+
+    <div id="media" class="section-title"><div><h2>05 · Media & Audience Intelligence</h2><p>Vi mô theo platform, audience và incremental contribution.</p></div></div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Platform Performance</h3><p>Reach / Frequency / Incremental Reach / Qualified Action.</p></div></div>
+        <table>
+          <thead><tr><th>Platform</th><th>Spend</th><th>Reach</th><th>Freq.</th><th>Incr. Reach</th><th>QA Rate</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ADMICRO Premium</strong></td><td>2.10B</td><td>4.8M</td><td>3.4</td><td>47%</td><td>2.8%</td><td><span class="pill">Efficient</span></td></tr>
+            <tr><td><strong>Meta</strong></td><td>1.86B</td><td>5.6M</td><td>5.1</td><td>31%</td><td>2.3%</td><td><span class="pill">Stable</span></td></tr>
+            <tr><td><strong>TikTok</strong></td><td>1.42B</td><td>3.9M</td><td>4.8</td><td>23%</td><td>1.7%</td><td><span class="pill">Watch</span></td></tr>
+            <tr><td><strong>YouTube</strong></td><td>1.10B</td><td>3.1M</td><td>3.0</td><td>29%</td><td>1.9%</td><td><span class="pill">Stable</span></td></tr>
+            <tr><td><strong>Partner Touchpoint</strong></td><td>0.94B</td><td>1.2M</td><td>2.2</td><td>54%</td><td>3.5%</td><td><span class="pill">High Incremental</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Audience Performance</h3><p>Phân nhóm theo giá trị hành động và saturation risk.</p></div></div>
+        <table>
+          <thead><tr><th>Audience</th><th>Reach</th><th>Freq.</th><th>Engage</th><th>Commerce</th><th>Signal</th></tr></thead>
+          <tbody>
+            <tr><td>18–24 · HCM</td><td>2.1M</td><td>5.4</td><td>18.6%</td><td>2.7%</td><td><span class="pill">Growth</span></td></tr>
+            <tr><td>25–34 · HCM</td><td>2.8M</td><td>7.6</td><td>17.1%</td><td>3.4%</td><td><span class="pill">Fatigue Risk</span></td></tr>
+            <tr><td>Office Cluster</td><td>0.9M</td><td>4.2</td><td>14.8%</td><td>4.1%</td><td><span class="pill">High Intent</span></td></tr>
+            <tr><td>Retail / Lifestyle</td><td>1.3M</td><td>3.8</td><td>16.2%</td><td>3.8%</td><td><span class="pill">Efficient</span></td></tr>
+            <tr><td>Lookalike Commerce</td><td>0.7M</td><td>4.5</td><td>20.1%</td><td>5.2%</td><td><span class="pill">Priority</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="metric-chart-grid">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Media Mix vs Qualified Action</h3><p>So sánh tỷ trọng chi tiêu và đóng góp qualified action theo platform.</p></div></div>
+        <div class="chart compact"><canvas id="mediaMix"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Audience Opportunity Map</h3><p>Audience score theo Commerce Intent và Saturation Risk.</p></div></div>
+        <div class="chart compact"><canvas id="audienceMap"></canvas></div>
+      </div>
+    </div>
+
+    <div class="section-title"><div><h2>06 · Content, Social & Authority</h2><p>Narrative consistency, creator/community signal và thẩm quyền nội dung.</p></div></div>
+    <div class="grid-3">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Content Performance</h3><p>Hiệu quả theo tầng nội dung.</p></div></div>
+        <table>
+          <thead><tr><th>Layer</th><th>Assets</th><th>Engage</th><th>Authority</th></tr></thead>
+          <tbody>
+            <tr><td>Publisher / Expert</td><td>18</td><td>8.4%</td><td>High</td></tr>
+            <tr><td>Campaign Content</td><td>42</td><td>12.8%</td><td>Medium</td></tr>
+            <tr><td>Creator / Social</td><td>66</td><td>17.3%</td><td>Medium</td></tr>
+            <tr><td>UGC</td><td>1,420</td><td>21.6%</td><td>Organic</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Conversation Health</h3><p>Sentiment và narrative share.</p></div></div>
+        <div class="chart"><canvas id="social"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Authority Score</h3><p>Độ tin cậy theo nguồn ảnh hưởng.</p></div></div>
+        <div class="chart"><canvas id="authority"></canvas></div>
+      </div>
+    </div>
+
+    <div id="partner" class="section-title"><div><h2>07 · Partner & Link & Touchpoint Layer</h2><p>Đo được đóng góp của partner vào reach, action và conversion.</p></div></div>
+    <div class="partner-grid">
+      <div class="partner"><b>Focus Media</b><span>Elevator / Office LCD</span><strong>420K</strong><span>Estimated unique reach</span></div>
+      <div class="partner"><b>GreenSM</b><span>Mobility / In-car</span><strong>188K</strong><span>Ride-linked exposure</span></div>
+      <div class="partner"><b>Grab</b><span>Delivery / Voucher</span><strong>14.8K</strong><span>Voucher claims</span></div>
+      <div class="partner"><b>be</b><span>Mobility / Delivery</span><strong>8.2K</strong><span>Commerce actions</span></div>
+      <div class="partner"><b>ShopeeFood</b><span>Food delivery</span><strong>11.4K</strong><span>Order-assisted actions</span></div>
+    </div>
+
+    <div class="metric-chart-grid">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Partner Assisted Journey</h3><p>Exposure → Interaction → Claim → Qualified action theo partner.</p></div></div>
+        <div class="chart compact"><canvas id="partnerJourney"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Incremental Contribution</h3><p>Tỷ trọng incremental outcome do partner layer hỗ trợ.</p></div></div>
+        <div class="chart compact"><canvas id="partnerIncrement"></canvas></div>
+      </div>
+    </div>
+
+    <div id="commerce" class="section-title"><div><h2>08 · Commerce & Funnel</h2><p>Từ exposure đến qualified outcome.</p></div></div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Conversion Funnel</h3><p>Impression → Engage → Action → Lead → Qualified → Revenue.</p></div></div>
+        <div class="chart"><canvas id="funnel"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Lead Quality by Source</h3><p>Không chỉ đếm volume; ưu tiên chất lượng.</p></div></div>
+        <table>
+          <thead><tr><th>Source</th><th>Leads</th><th>Qualified</th><th>Rate</th><th>Revenue</th></tr></thead>
+          <tbody>
+            <tr><td>ADMICRO + Retarget</td><td>5,220</td><td>1,620</td><td>31%</td><td>5.6B</td></tr>
+            <tr><td>Meta</td><td>4,890</td><td>1,170</td><td>24%</td><td>4.2B</td></tr>
+            <tr><td>TikTok</td><td>3,460</td><td>690</td><td>20%</td><td>2.1B</td></tr>
+            <tr><td>Partner-assisted</td><td>2,410</td><td>916</td><td>38%</td><td>4.8B</td></tr>
+            <tr><td>Organic / Direct</td><td>2,440</td><td>424</td><td>17%</td><td>1.9B</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="measurement" class="section-title"><div><h2>09 · Measurement & Data Health</h2><p>Đảm bảo insight đủ tin cậy để ra quyết định.</p></div></div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-head"><div><h3>Data Sources</h3><p>Freshness và coverage của các nguồn dữ liệu.</p></div></div>
+        <div class="source-grid">
+          <div class="source"><b>ADMICRO</b><span>Reach · Context · Publisher</span><span class="ok">● 99.6%</span></div>
+          <div class="source"><b>Meta</b><span>Audience · Conversion</span><span class="ok">● 99.1%</span></div>
+          <div class="source"><b>Google</b><span>Search · Video</span><span class="ok">● 98.8%</span></div>
+          <div class="source"><b>TikTok</b><span>Video · Engagement</span><span class="ok">● 97.9%</span></div>
+          <div class="source"><b>CRM / POS</b><span>Lead · Revenue</span><span class="ok">● 96.4%</span></div>
+          <div class="source"><b>Social Listening</b><span>Mention · Sentiment</span><span class="ok">● 95.2%</span></div>
+          <div class="source"><b>PR Monitoring</b><span>Coverage · Authority</span><span class="ok">● 93.8%</span></div>
+          <div class="source"><b>Partner Layer</b><span>QR · NFC · Ride</span><span class="ok">● 91.2%</span></div>
+          <div class="source"><b>GA4</b><span>Session · Event</span><span class="ok">● 98.1%</span></div>
+          <div class="source"><b>Survey / Lift</b><span>Brand Metric</span><span class="ok">● Batch</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Measurement Confidence</h3><p>Độ tin cậy theo nhóm metric.</p></div></div>
+        <div class="chart"><canvas id="confidence"></canvas></div>
+      </div>
+    </div>
+
+    <div id="ai" class="section-title"><div><h2>10 · AI Intelligence Layer</h2><p>Insight, forecast, alert và recommendation trên cùng dữ liệu campaign.</p></div></div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-head"><div><h3>AI Alerts</h3><p>Cảnh báo ưu tiên theo mức độ ảnh hưởng.</p></div><span class="tag">4 active</span></div>
+        <div class="alerts">
+          <div class="alert critical"><i></i><div><b>Frequency Oversaturation</b><p>25–34 HCM đang ở 7.6, creative fatigue risk tăng 19%.</p></div><time>09:42</time></div>
+          <div class="alert good"><i></i><div><b>Partner-assisted Conversion</b><p>Partner touchpoint + retargeting có qualified rate 38%, cao nhất toàn campaign.</p></div><time>09:21</time></div>
+          <div class="alert"><i></i><div><b>Budget Pacing</b><p>TikTok đang tiêu nhanh hơn plan 9% trong khi incremental reach giảm.</p></div><time>08:56</time></div>
+          <div class="alert"><i></i><div><b>Social Momentum</b><p>Positive UGC tăng 24% sau creator wave, có thể mở amplification.</p></div><time>08:33</time></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>AI Recommendations</h3><p>Đề xuất theo expected business impact.</p></div></div>
+        <div class="recs">
+          <div class="rec"><b>#1 · Reallocate 8% TikTok Budget</b><p>Chuyển sang ADMICRO premium + retargeting nhóm high-intent.</p><div class="impact">Expected: +4.8% qualified actions</div></div>
+          <div class="rec"><b>#2 · Refresh Creative 25–34</b><p>Thay rotation trong 48 giờ để giảm saturation.</p><div class="impact">Expected: -11% fatigue risk</div></div>
+          <div class="rec"><b>#3 · Expand Office Partner Layer</b><p>Mở thêm Q1/Q3 office cluster + QR/NFC assisted journey.</p><div class="impact">Expected: +7.2% assisted conversion</div></div>
+          <div class="rec"><b>#4 · Build Second-Cup Loop</b><p>Retarget nhóm đã redeem trong 7 ngày để tăng repeat.</p><div class="impact">Expected: +5.4% repeat action</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">ADMICRO mediaOS Intelligence Dashboard · Full Demo · All figures are illustrative only</div>
+  </div>
+</div>
+
+<script>
+function setup(id){
+  const c=document.getElementById(id); if(!c)return null;
+  const dpr=window.devicePixelRatio||1, r=c.getBoundingClientRect();
+  c.width=r.width*dpr;c.height=r.height*dpr;
+  const ctx=c.getContext('2d');ctx.scale(dpr,dpr);
+  return {ctx,w:r.width,h:r.height};
+}
+function grid(ctx,w,h,p=28){
+  ctx.strokeStyle='#e7efee';ctx.lineWidth=1;
+  for(let i=0;i<5;i++){let y=p+(h-p*2)*i/4;ctx.beginPath();ctx.moveTo(p,y);ctx.lineTo(w-p,y);ctx.stroke();}
+}
+function line(id,series,colors){
+  const o=setup(id);if(!o)return;const{ctx,w,h}=o;grid(ctx,w,h);
+  const p=28,n=series[0].length;
+  series.forEach((a,s)=>{
+    ctx.strokeStyle=colors[s];ctx.lineWidth=2.2;ctx.beginPath();
+    a.forEach((v,i)=>{const x=p+(w-p*2)*i/(n-1),y=h-p-(h-p*2)*v/100;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});
+    ctx.stroke();
+  });
+}
+function bars(id,vals,colors){
+  const o=setup(id);if(!o)return;const{ctx,w,h}=o;grid(ctx,w,h);
+  const p=28,g=10,b=(w-p*2-g*(vals.length-1))/vals.length;
+  vals.forEach((v,i)=>{ctx.fillStyle=colors[i%colors.length];const bh=(h-p*2)*v/100;ctx.fillRect(p+i*(b+g),h-p-bh,b,bh)});
+}
+function draw(){
+  line('trend',[[42,48,55,61,68,75,81,87,91,94],[30,36,42,49,55,61,67,72,77,82],[18,23,29,35,42,49,56,62,68,74],[12,16,20,25,31,37,43,49,56,63]],['#15AEA4','#35b971','#d79a36','#4e83e6']);
+  bars('budget',[58,51,63,48,44],['#15AEA4','#35b971','#d79a36','#4e83e6','#8c6ee8']);
+  line('social',[[38,44,50,57,64,72,79],[24,27,31,35,38,42,45],[11,12,13,13,12,11,10]],['#15AEA4','#35b971','#e95e5e']);
+  bars('authority',[82,74,69,61,55],['#15AEA4','#35b971','#4e83e6','#d79a36','#8c6ee8']);
+  bars('funnel',[100,62,38,18,9,4],['#15AEA4','#35b971','#4e83e6','#d79a36','#8c6ee8','#e95e5e']);
+  bars('confidence',[96,91,88,82,76],['#15AEA4','#35b971','#4e83e6','#d79a36','#8c6ee8']);
+}
+window.addEventListener('load',draw);
+window.addEventListener('resize',()=>{clearTimeout(window.__x);window.__x=setTimeout(draw,120)});
+</script>
+
+<script>
+const brandThemes={
+  mediaos:{primary:"#15AEA4",secondary:"#55EDE2",accent:"#0D2C30",soft:"#EAF9F7"},
+  chagee:{primary:"#C5162E",secondary:"#F3A7AF",accent:"#4A0D16",soft:"#FFF0F2"},
+  namlong:{primary:"#A40C15",secondary:"#E46B70",accent:"#4B1014",soft:"#FFF1F1"},
+  custom:{primary:"#5C6CE6",secondary:"#9EA8FF",accent:"#23294D",soft:"#F1F3FF"}
+};
+document.getElementById("brandTheme")?.addEventListener("change",e=>{
+  const t=brandThemes[e.target.value]||brandThemes.mediaos;
+  const r=document.documentElement;
+  r.style.setProperty("--brand-primary",t.primary);
+  r.style.setProperty("--brand-secondary",t.secondary);
+  r.style.setProperty("--brand-accent",t.accent);
+  r.style.setProperty("--brand-soft",t.soft);
+  setTimeout(drawExtraCharts,30);
+});
+
+function barSimple(id,vals,colors){
+  const o=setup(id);if(!o)return;const{ctx,w,h}=o;grid(ctx,w,h);
+  const p=28,g=12,b=(w-p*2-g*(vals.length-1))/vals.length;
+  vals.forEach((v,i)=>{ctx.fillStyle=colors[i%colors.length];let bh=(h-p*2)*v/100;ctx.beginPath();ctx.roundRect(p+i*(b+g),h-p-bh,b,bh,5);ctx.fill()});
+}
+function multiLine(id,series,colors){
+  const o=setup(id);if(!o)return;const{ctx,w,h}=o;grid(ctx,w,h);
+  const p=28,n=series[0].length;
+  series.forEach((a,si)=>{ctx.strokeStyle=colors[si];ctx.lineWidth=2;ctx.beginPath();
+    a.forEach((v,i)=>{let x=p+(w-p*2)*i/(n-1),y=h-p-(h-p*2)*v/100;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke()});
+}
+function scatterSimple(id,pts,color){
+  const o=setup(id);if(!o)return;const{ctx,w,h}=o;grid(ctx,w,h);const p=28;
+  pts.forEach(([x,y,r])=>{ctx.fillStyle=color;ctx.globalAlpha=.72;ctx.beginPath();ctx.arc(p+(w-p*2)*x/100,h-p-(h-p*2)*y/100,r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1
+}
+function themeColors(){
+  const cs=getComputedStyle(document.documentElement);
+  return [cs.getPropertyValue("--brand-primary").trim(),cs.getPropertyValue("--brand-secondary").trim(),"#35b971","#d79a36","#4e83e6","#8c6ee8"];
+}
+function drawExtraCharts(){
+  const c=themeColors();
+  multiLine("signalTrend",[[74,81,87,92],[69,76,82,86],[61,69,73,78],[68,74,78,81],[59,65,71,74],[73,78,83,88]],c);
+  barSimple("signalContribution",[88,72,64,69,58,76],c);
+  barSimple("miceProgress",[92,78,69,84],c);
+  scatterSimple("miceCorrelation",[[42,38,7],[55,49,8],[67,61,8],[74,70,9],[82,79,10],[91,87,11]],c[0]);
+  barSimple("mediaMix",[78,69,54,49,61],c);
+  scatterSimple("audienceMap",[[72,44,9],[83,67,11],[64,28,8],[76,35,9],[92,31,12]],c[0]);
+  multiLine("partnerJourney",[[88,62,39,22],[76,55,34,19],[70,48,31,17],[66,45,29,16],[73,51,32,18]],c.slice(0,5));
+  barSimple("partnerIncrement",[54,38,41,29,34],c);
+}
+window.addEventListener("load",drawExtraCharts);
+window.addEventListener("resize",()=>{clearTimeout(window.__extra);window.__extra=setTimeout(drawExtraCharts,120)});
+</script>
+
+</body>
+</html>
